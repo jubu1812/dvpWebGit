@@ -1,0 +1,47 @@
+nav{
+	background-color:lightgray;
+}
+ul {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+}
+
+li{
+   padding:0px;
+}
+
+li a{
+   color: black; 
+   text-align: center;
+   text-decoration: none;
+}
+
+li a:hover{
+   color:red;
+}
+
+
+.col-xs-1 {
+	width: 250px;
+	margin-bottom: 17px;
+}
+.col-xs-2 {
+    width: 250px;
+}
+.col-md-6{
+	width:42%;
+}
+
+ input{
+	width: 100%;
+	margin:0px;
+}
+label{
+width: 145px;
+margin-right: 14px;
+margin-bottom: 0px;
+}
+
+
