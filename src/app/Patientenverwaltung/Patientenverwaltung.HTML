@@ -69,28 +69,29 @@
   <table class="table table-info table-striped table-hover ">
   <thead>
     <tr>
-      <td ><h4>Id</h4></td>
-      <td ><h4>Title</h4></td>
-      <td ><h4>Amount</h4></td>
+      <td ><h4>Verordnungsdatum</h4></td>
+      <td ><h4>Sendung</h4></td>
     </tr>
   </thead>
   
   <tbody>
     <tr *ngFor="let transfer of transfers">
       <td>{{transfer.id}}</td>
-      <td>{{transfer.title}}</td>
       <td>
-        <span ng-hide="item.editing" ng-dblclick="editItem(item)">{{transfer.Amount}}</span>
-        <input type="text" class="form-control" ng-show="item.editing" ng-model="item.name" ng-blur="doneEditing(item)" autofocus >
-      </td>
+      <select class="form-control" data-live-search="true">                  
+            <option>Tent</option>
+            <option>Flashlight</option>
+            <option>Toilet Paper</option>
+        </select>
+      </td> 
   
       <td style="width: 20px">
-        <button class="togglebutton btn-success btn-sm" title="Click here to edit" 
-        (click)="editKunde(kunde)"><i class="material-icons">done</i></button>
+        <button class="togglebutton btn-success btn-sm" title="zugewiesene Sendung speichern" 
+        (click)="saveVerordung(sendung)"><i class="material-icons">done</i></button>
       </td>
       <td style="width: 20px">
-        <button class="togglebutton btn-danger btn-sm"  title="delete" 
-        (click)="editKunde(kunde)"><i class="material-icons">clear</i></button>
+        <button class="togglebutton btn-danger btn-sm"  title="Verordnung löschen" 
+        (click)="deleteVerordnung(verordnung)"><i class="material-icons">clear</i></button>
       </td>
     </tr>
 </table>
