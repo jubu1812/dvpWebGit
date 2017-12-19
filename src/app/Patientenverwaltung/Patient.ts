@@ -1,16 +1,16 @@
 export class Patient{
 
-    VSNRP:number;
-    VONAP:string;
-    ZUNAP:string;
-    STRA:string;
-    PLZL:number;
-    ORT:string;
-    LAND:string;
+    public VSNRP:number;
+    public  VONAP:string;
+    public  ZUNAP:string;
+    public STRA:string;
+    public PLZL:number;
+    public ORT:string;
+    public LAND:string;
 
-    VSNRA:number;
-    VONVS:string;
-    ZUNVS:string;
+    public VSNRA:number;
+    public VONVS:string;
+    public ZUNVS:string;
 
     constructor(VSNRP, VONAP, ZUNAP, STRA, PLZL, ORT, LAND, VSNRA, VONVS, ZUNVS){
         this.VSNRP = VSNRP;
