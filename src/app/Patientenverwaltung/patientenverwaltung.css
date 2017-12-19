@@ -1,7 +1,8 @@
 nav{
     background-color:#f23e3e;
     border-radius: 0px;
-
+    border-bottom-color: blue;
+    border-bottom-width: 5px;
 }
 nav ul {
    list-style-type: none;

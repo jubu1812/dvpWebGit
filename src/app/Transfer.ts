@@ -1,7 +1,7 @@
 
 export class Transfer{
     
-    public id:string;
+    public id:number;
     public title:string;
     public amount:number;
    
