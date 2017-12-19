@@ -61,10 +61,22 @@ margin-bottom: 0px;
     font-weight: bold;
     }
 
+    .container-fluid{
+        width: 80%;
+       
+        display: inline-block;
+    }
     .btn-default {
         border-left-width:0;left:-2px;
         -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        width: 15%;
+        margin-bottom: 4px;
+        display: inline-block;
+      }
+
+      .table-responsive{
+          width:85%;
       }
 
 
