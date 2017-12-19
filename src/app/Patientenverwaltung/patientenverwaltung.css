@@ -41,8 +41,19 @@ li a:hover{
 	width: 100%;
 	margin:0px;
 }
+#inputPLZ{
+    width: 20%;
+    float:left;
+
+}
+
+#inputOrt{
+    width: 88%;
+    float:right;
+}
+
 label{
-width: 145px;
+
 margin-right: 14px;
 margin-bottom: 0px;
 }

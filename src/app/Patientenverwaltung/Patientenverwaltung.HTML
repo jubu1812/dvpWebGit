@@ -25,7 +25,6 @@
 <div class= "col-md-6">
   <h2>Patient</h2>
     <div class="col-xs-1">
-      <!-- <div class="oben">  -->
       <label>SV- Nummer</label>
       <input class="form-control">
       <br>
@@ -34,17 +33,21 @@
       <br>
       <label>Nachname</label>
       <input class="form-control">
-  <!-- </div> -->
+
 </div>
   <div class="col-xs-1">
     <label>Straße</label>
     <input class="form-control">
     <br>
     <label>PLZ</label>
-    <input class="form-control">
-    <br>
-    <label>Ort</label>
-    <input class="form-control">
+    <input class="form-control" id="inputPLZ">
+    <div>    <label>Ort</label>
+    <input class="form-control" id="inputPLZ">
+     </div>
+<br>
+    <label>Land</label>
+    <input class="form-control" id="inputOrt">
+   
   </div>
 </div>
 
@@ -97,10 +100,10 @@
 </table>
 </div>
 </div>
-<button  class="btn btn-default" > 
+<button  class="btn btn-default" id="tablebutton" > 
   <span class="material-icons" style="vertical-align: middle;">add</span> anlegen</button>
   <br>
-<button class="btn btn-default" > 
+<button class="btn btn-default" id="tablebutton"> 
   <span class="material-icons" style="vertical-align: middle;">content_copy</span> kopieren </button>
 </div>
 </div>
