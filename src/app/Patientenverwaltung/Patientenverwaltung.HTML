@@ -79,7 +79,11 @@
   
   <tbody>
     <tr *ngFor="let transfer of transfers">
-      <td>{{transfer.id}}</td>
+      <td>
+          <form #myForm="ngForm" novalidate>
+              <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="model" required></my-date-picker>
+          </form>
+    </td>
       <td>
       <select class="form-control" data-live-search="true">                  
             <option>Tent</option>
