@@ -1,26 +1,28 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
- <div>
- <nav class="navbar navbar-default">
-  <div>
-           <ul class="nav navbar-nav" routerLinkActive="active">
-          <li class="nav-item"><a class="nav-link" routerLink="#" >Patientenverwaltung</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="#"  >Verordnungen</a></li>
-          <li class="nav-item"><a class="nav-link" routerLink="#">Sendungen</a></li>
-      </ul>
-      <form class="navbar-form navbar-left">
-        <div class="input-group">
-              <input type="text" class="form-control" placeholder="Suche">
-              <span class="input-group-btn">
-                  <button type="submit" class="btn btn-default"><i class="material-icons">search</i></button>
-              </span>
-          </div>         
-      </form>
-  </div>
-</nav>
-
+ 
+<div >
+<div>
+    <nav class="navbar navbar-default">
+        <a href="#" class="navbar-brand text-primary" id="logo">opta data</a>
+     <div>
+              <ul class="nav navbar-nav" routerLinkActive="active">
+             <li class="nav-item"><a class="nav-link" routerLink="#" >Patientenverwaltung</a></li>
+             <li class="nav-item"><a class="nav-link" routerLink="#"  >Verordnungen</a></li>
+             <li class="nav-item"><a class="nav-link" routerLink="#">Sendungen</a></li>
+         </ul>
+         <form class="navbar-form navbar-left">
+           <div class="input-group">
+                 <input type="text" class="form-control" id="inputsearch" placeholder="Suche">
+                 <span class="input-group-btn">
+                     <button type="submit" class="btn btn-default" id="btnsearch"><i class="material-icons">search</i></button>
+                 </span>
+             </div>         
+         </form>
+     </div>
+   </nav>
+   <div id="wrapper">
 <br>
 <div class= "col-md-6">
   <h2>Patient</h2>
@@ -39,14 +41,18 @@
     <label>Straße</label>
     <input class="form-control">
     <br>
-    <label>PLZ</label>
-    <input class="form-control" id="inputPLZ">
-    <div>    <label>Ort</label>
-    <input class="form-control" id="inputPLZ">
-     </div>
+    <div class="col-xs-1">   
+       <label>PLZ</label>  
+    <input class="form-control" id="inputPLZ"></div>
+<div class="col-xs-2">
+
+  <label>Ort</label>
+    <input class="form-control" id="inputOrt"></div>
+   
+    
 <br>
     <label>Land</label>
-    <input class="form-control" id="inputOrt">
+    <input class="form-control" >
    
   </div>
 </div>
@@ -112,5 +118,5 @@
 </div>
 </div>
 
-
+</div>
 </div>
