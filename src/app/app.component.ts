@@ -6,13 +6,15 @@ import {IMyDpOptions} from 'mydatepicker';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './Sendung/Sendung.html',
-  styleUrls: ['./Sendung/Sendung.css'],
+  templateUrl: './Patientenverwaltung/Patientenverwaltung.html',
+  styleUrls: ['./Patientenverwaltung/Patientenverwaltung.css'],
   providers: [GetTransfers]
 })
 export class AppComponent {
   title = 'Transfers';
   transfers;
+  vsnra='';
+  vsnrp='';
 
   constructor(Transferarr: GetTransfers){
     this.transfers = Transferarr.getTransfers();
