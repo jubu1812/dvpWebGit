@@ -6,8 +6,8 @@ import {IMyDpOptions} from 'mydatepicker';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './Patientenverwaltung/Patientenverwaltung.html',
-  styleUrls: ['./Patientenverwaltung/Patientenverwaltung.css'],
+  templateUrl: './Patientenverwaltung/patientenverwaltung.component.html',
+  styleUrls: ['./Patientenverwaltung/patientenverwaltung.component.css'],
   providers: [GetTransfers]
 })
 export class AppComponent {
