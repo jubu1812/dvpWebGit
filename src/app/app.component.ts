@@ -15,6 +15,7 @@ export class AppComponent {
   transfers;
   vsnra='';
   vsnrp='';
+  d:Date = new Date();
 
   constructor(Transferarr: GetTransfers){
     this.transfers = Transferarr.getTransfers();
@@ -26,5 +27,5 @@ export class AppComponent {
 };
 
 // Initialized to specific date (09.10.2018).
-public model: any = { date: { year: 2018, month: 10, day: 9 } };
+public model: any = { date: {year: this.d.getFullYear(), month: this.d.getMonth() + 1, day: this.d.getDate()} };
 }
