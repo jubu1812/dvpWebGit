@@ -97,9 +97,7 @@
           <tbody>
             <tr *ngFor="let transfer of transfers">
               <td>
-                <form #myForm="ngForm" novalidate>
-                  <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="model" required></my-date-picker>
-                </form>
+               {{transfer.id}} <!--YT später ansehen mit NgIf und Else mit NgIf !== -->
               </td>
               <td>
                 <select class="form-control" data-live-search="true">

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Transfer} from './Transfer';
-import {GetTransfers} from './Transfer.service';
+import {GetTransfers} from './Transfer.service'; //verwerfen
 import { NgModel } from '@angular/forms';
 import {IMyDpOptions} from 'mydatepicker';
 
