@@ -7,7 +7,7 @@ import { MyDatePickerModule } from 'mydatepicker';
 import { SVValidatorDirective } from 'app/Patientenverwaltung/SVValidator';
 import { PatientenverwaltungComponent } from './patientenverwaltung/patientenverwaltung.component';
 import { SendungComponent } from './sendung/sendung.component';
-import { VerordnungenComponent } from './verordnungen/verordnungen.component';
+import { VerordnungenComponent } from 'app/verordnung/verordnungen.component';
 
 
 

@@ -1,4 +1,4 @@
-import {Verordnung} from '../Verordnungen/Verordnung';
+import {Verordnung} from 'app/Verordnung/Verordnung';
 
 export class Sendung{
 
