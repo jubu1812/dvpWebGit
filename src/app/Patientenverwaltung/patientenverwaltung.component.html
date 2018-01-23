@@ -65,13 +65,13 @@
           <tbody>
             <tr *ngFor="let transfer of transfers">
               <td>
-               test
+               {{transfer.id}}
               </td>
               <td>
                 <select class="form-control" data-live-search="true">
-                  <option>Tent</option>
-                  <option>Flashlight</option>
-                  <option>Toilet Paper</option>
+                  <option>Jänner 2018</option>
+                  <option>Dezember 2017</option>
+                  <option>Dummy</option>
                 </select>
               </td>
 
@@ -89,10 +89,13 @@
         </table>
       </div>
     </div>
-    <button class="btn btn-default" id="tablebutton">
+    <button class="btn btn-default" id="btn_neu">
       <span class="material-icons" style="vertical-align: middle;">add</span> anlegen</button>
     <br>
-    <button class="btn btn-default" id="tablebutton">
+    <button class="btn btn-default" id="btn_kopie">
       <span class="material-icons" style="vertical-align: middle;">content_copy</span> kopieren </button>
+      <br>
+    <button class="btn btn-default" id="btn_speichern">
+      <span class="material-icons" style="vertical-align: middle;">save</span> speichern </button>
   </div>
 </div>

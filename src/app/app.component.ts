@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {Transfer} from './Transfer';
-import {GetTransfers} from './Transfer.service'; //verwerfen
+
 import { NgModel } from '@angular/forms';
 import {IMyDpOptions} from 'mydatepicker';
 
@@ -8,18 +7,16 @@ import {IMyDpOptions} from 'mydatepicker';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [GetTransfers]
+  providers: []
 })
 export class AppComponent {
   title = 'Transfers';
-  transfers;
+  
   vsnra='';
   vsnrp='';
   d:Date = new Date();
 
-  constructor(Transferarr: GetTransfers){
-    this.transfers = Transferarr.getTransfers();
-  }
+  
 
   public myDatePickerOptions: IMyDpOptions = {
     // other options...
