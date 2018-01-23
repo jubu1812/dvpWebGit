@@ -19,4 +19,6 @@ export class PatientenverwaltungComponent implements OnInit {
   Edit(rowid:number){ //für das Bearbeiten
     this.EditRow = rowid;
   }
+
+  
 }

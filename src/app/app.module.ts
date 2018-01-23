@@ -8,7 +8,15 @@ import { SVValidatorDirective } from 'app/Patientenverwaltung/SVValidator';
 import { PatientenverwaltungComponent } from './patientenverwaltung/patientenverwaltung.component';
 import { SendungComponent } from './sendung/sendung.component';
 import { VerordnungenComponent } from 'app/verordnung/verordnungen.component';
+import { Routes, RouterModule } from '@angular/router';
 
+export const ROUTES: Routes = [
+ 
+  { path: 'patient', component: PatientenverwaltungComponent },
+  { path: 'sendung', component: SendungComponent },
+  { path: 'verordnung', component: VerordnungenComponent }
+     
+  ];
 
 
 @NgModule({
@@ -24,7 +32,8 @@ import { VerordnungenComponent } from 'app/verordnung/verordnungen.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MyDatePickerModule    
+    MyDatePickerModule,
+    RouterModule.forRoot(ROUTES)   
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,42 +5,6 @@
 	
 	position: relative;
 }
-nav ul {
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
-}
-.navBardemoBasicUsage md-content .ext-content {
-    padding: 20px;
-    margin: 20px;
- }
-.navbar {
- width:100%;
- background-color: rgba(169, 169, 169, 0.7);
-}  
- 
-li{
-   padding:0px;
-}
-
-li a{
-   color: black; 
-   text-align: center;
-   text-decoration: none;
-}
-
-li a:hover{
-   color:blue;
-}
-
-#btnsearch{
-    height: 38px;
-    width: 50px;
-}
-#inputsearch{
-    width: 268px;
-    float: right;
-}
 
 .col-xs-1 {
 	width: 250px;
