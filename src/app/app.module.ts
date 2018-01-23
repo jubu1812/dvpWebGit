@@ -11,7 +11,11 @@ import { VerordnungenComponent } from 'app/verordnung/verordnungen.component';
 import { Routes, RouterModule } from '@angular/router';
 
 export const ROUTES: Routes = [
- 
+  {
+    path: '',
+    redirectTo: "/patient",
+    pathMatch: 'full'
+  },
   { path: 'patient', component: PatientenverwaltungComponent },
   { path: 'sendung', component: SendungComponent },
   { path: 'verordnung', component: VerordnungenComponent }
