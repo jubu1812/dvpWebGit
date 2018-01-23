@@ -13,7 +13,7 @@ import {GetTransfers} from 'app/Transfer.service'; //verwerfen
 })
 export class PatientenverwaltungComponent implements OnInit {
 
-  EditRow:number;
+  VOIDRow:number;
   transfers;
 
   constructor(Transferarr: GetTransfers){
@@ -23,8 +23,12 @@ export class PatientenverwaltungComponent implements OnInit {
   ngOnInit() {
   }
 
-  Edit(rowid:number){ //für das Bearbeiten
-    this.EditRow = rowid;
+  Edit(VOID:number){ //für das Bearbeiten
+    this.VOIDRow = VOID; //Verordnungsnummer
+  }
+
+  loescheVerordnung(VOID:number){
+
   }
 
   
