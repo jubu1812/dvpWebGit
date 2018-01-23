@@ -10,6 +10,7 @@ export class Verordnung{
         public VPNRV: string,
         public ZUNAV: string,
         public VDATUM: Date,
+        
         public diagnosen: Array<Diagnose>,
         public leistungen: Array<Leistung>,
         public bewilligungen: Array<Bewilligung>,
