@@ -22,15 +22,22 @@
 	width: 100%;
 	margin:0px;
 }
-#inputPLZ{
-    width: 20%;
-    float:left;
 
+#labelPLZ{
+    width:31%;
+}
+
+#inputPLZ{
+    width:31%;
+    float:left;
+    margin:0px;
+  
 }
 
 #inputOrt{
     width: 60%;
     float:right;
+    margin:0px;
 }
 
 label{
@@ -65,7 +72,7 @@ margin-bottom: 0px;
         -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
         width: 15%;
-        margin-bottom: 6px;
+        margin-bottom: 4px;
         display: inline-block;
       }
 
