@@ -1,7 +1,7 @@
 export class Leistung{
     constructor(
         public DATL:Date, 
-        public POSNR:number, 
+        public POSNR:string, 
         public ANZ:number)
     {}
 
