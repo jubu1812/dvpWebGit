@@ -5,6 +5,7 @@ import {Verordnung} from 'app/Verordnung/verordnung';
 import {Transfer} from 'app/Transfer';
 import {GetTransfers} from 'app/Transfer.service'; //verwerfen
 
+
 @Component({
   selector: 'app-patientenverwaltung',
   templateUrl: './patientenverwaltung.component.html',
