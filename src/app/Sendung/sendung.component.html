@@ -23,36 +23,36 @@
     <div ng-app="" ng-controller="rowController">
         <div class="table-responsive col-xs-12">
   <table class="table table-info table-striped table-hover ">
-  <thead>
-    <tr>
-      <td ><h4>Verordnungsdatum</h4></td>
-      <td ><h4>Verordnung</h4></td>
-    </tr>
-  </thead>
+<tr>
+      <th class="datumSpalte" ><h5>Verordnungsdatum</h5></th>
+      <th ><h5>Verordnung</h5></th>  
+</tr>
   
   <tbody>
-    <tr *ngFor="let transfer of transfers">
-      <td>
-          test
+    <tr>
+   <td>     
     </td>
-      <td>
-      <select class="form-control" data-live-search="true">                  
-            <option>Tent</option>
-            <option>Flashlight</option>
-            <option>Toilet Paper</option>
-        </select>
-      </td> 
-  
-      <td style="width: 20px">
-        <button class="togglebutton btn-success btn-sm" title="zugewiesene Sendung speichern" 
-        (click)="saveVerordung(sendung)"><i class="material-icons">done</i></button>
-      </td>
-      <td style="width: 20px">
-        <button class="togglebutton btn-danger btn-sm"  title="Verordnung löschen" 
-        (click)="deleteVerordnung(verordnung)"><i class="material-icons">clear</i></button>
-      </td>
+      
     </tr>
 </table>
+
+<br>
+<br>
+<table class="table table-info table-striped table-hover ">
+    <tr>
+          <th class="datumSpalte" ><h5>Sendungsdatum</h5></th>
+          <th ><h5>Sendung</h5></th>  
+    </tr>
+      
+      <tbody>
+        <tr>
+       <td>     
+        </td>
+          
+        </tr>
+    </table>
+    
+
 </div>
 </div>
 

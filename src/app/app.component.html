@@ -1,5 +1,6 @@
 
 <nav class="navbar navbar-default">
+  <div id="wrapper">
   <a  class="navbar-brand text-primary" id="logo"  href="https://www.optadata-gruppe.de/at" target=" _blank" >opta data</a>
   <div>
     <ul class="nav navbar-nav">
@@ -15,15 +16,17 @@
     </ul>
     <form class="navbar-form navbar-left">
       <div class="input-group">
-        <input type="text" class="form-control" id="inputsearch" placeholder="Suche">
-        <span class="input-group-btn">
-          <button type="submit" class="btn btn-default" id="btnsearch">
-            <i class="material-icons">search</i>
-          </button>
-        </span>
-      </div>
+        <div >
+             <button class="btn btn-default"  id="positonSave">
+          <span class="material-icons" style="vertical-align: middle;">save</span></button>
+        </div>
+     
+      
+    
+    </div>
     </form>
   </div>
+</div>
 </nav>
 <div routerLinkActive="active" router-link="sendung">
   <router-outlet></router-outlet>

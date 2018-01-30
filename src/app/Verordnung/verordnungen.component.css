@@ -1,0 +1,27 @@
+#wrapper{
+    width: 90%;
+	margin: 0 auto;
+	overflow: auto;
+	position: relative;
+}
+
+.patient{
+    padding:0;
+    margin: 0;
+    padding-right: 25px;
+    display: inline-block;
+    position: relative;
+    width: 45%;
+    float:left;
+}
+
+input{
+	width: 45%;
+    margin:0px;
+    display: inline-block;
+   
+}
+label{
+    width: 50px;
+    display: inline-block;
+}
