@@ -17,4 +17,5 @@ export class Patient{
         public ZUNVS:string
     )
     {}
+    
 }
