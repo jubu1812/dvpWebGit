@@ -35,7 +35,7 @@ export class PatientenverwaltungComponent implements OnInit {
   loescheVerordnung(VOID: number) {
 
   }
-  savePatient() {
+  /*savePatient() {
     let VSNRP: number = parseInt($('#VSNRP').val().toString()); 
     let VONAP: string = $('#VONAP').val().toString();
     let ZUNAP: string = $('#ZUNAP').val().toString();
@@ -49,7 +49,7 @@ export class PatientenverwaltungComponent implements OnInit {
 
     let patient= new Patient(123,VSNRP,VONAP,ZUNAP,STRA,PLZL,ORT,LAND,"blabla",VSNRA,VONVS,ZUNVS);
 
-    }
+  }*/
 
     /*getPatient(VOID: svNR){
 

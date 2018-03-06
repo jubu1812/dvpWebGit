@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientendatenService } from "../patientendaten.service";
+import { Verordnung } from 'app/Verordnung/Verordnung';
 
 @Component({
   selector: 'app-verordnungen',
@@ -7,20 +8,20 @@ import { PatientendatenService } from "../patientendaten.service";
   styleUrls: ['./verordnungen.component.css']
 })
 export class VerordnungenComponent implements OnInit {
-  verordnungenListe : Array<any>;
+  //verordnungenListe : Array<any>;
   constructor(private PatientendatenService:PatientendatenService) {}
 
   ngOnInit() {
-  this.getVerordungen;
+ //this.getVerordungen;
   }
 
- getVerordungen(){    
+/* getVerordungen(){    
       this.PatientendatenService.getAllVerordnungen().subscribe(
       data => {
         this.verordnungenListe = data;
       }
     )
-  }
+  }*/
 }
 
 
