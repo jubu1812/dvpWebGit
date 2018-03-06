@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { NgModel } from '@angular/forms';
 import {IMyDpOptions} from 'mydatepicker';
+//import {PatientendatenService} from './patientendaten.service'
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,11 @@ import {IMyDpOptions} from 'mydatepicker';
   providers: []
 })
 export class AppComponent {
+ //constructor (private patientenDaten: PatientendatenService){
+
+// }
+ 
+
   title = 'Transfers';
   
   vsnra='';

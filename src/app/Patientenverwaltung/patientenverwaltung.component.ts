@@ -51,5 +51,9 @@ export class PatientenverwaltungComponent implements OnInit {
 
     }
 
+    /*getPatient(VOID: svNR){
+
+      
+    }*/
   
 }

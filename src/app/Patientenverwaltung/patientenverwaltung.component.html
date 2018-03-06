@@ -1,6 +1,12 @@
 <div *ngIf="vsnrpat?.hasError('nr') && (vsnrpat?.dirty || vsnrpat?.touched)" class="alert alert-danger">Die eingegebene Sozialversicherungsnummer für den Patienten ist nicht valide.</div>
 <div *ngIf="vsnrhvs?.hasError('nr') && (vsnrhvs?.dirty || vsnrhvs?.touched)" class="alert alert-danger">Die eingegebene Sozialversicherungsnummer für den Hauptversicherten ist nicht valide.</div>
 <br>
+<div>
+  <form class="form-inline my-2 my-lg-0">
+     <button class="btn btn-outline-success my-2 my-sm-0" id="positionSave"  (click)=savePatient()>
+        <span class="material-icons" >save</span></button>
+</form>
+</div>
 <div class="col-md-6">
   <h2>Patient</h2>
 
