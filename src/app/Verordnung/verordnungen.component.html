@@ -18,7 +18,7 @@
       
       <div class="patient">
           <h5>Diagnose</h5>
-          <table class="table table-info table-striped table-hover ">
+          <table class="table table-hover ">
               <tr>
                     <th class="datumSpalte" ><h5>Datum</h5></th>
                     <th ><h5>Text</h5></th>  
@@ -37,7 +37,7 @@
           <input id="svnr" class="form-control" name="vsnrp" nr [(ngModel)]="vsnrp" #vsnrpat="ngModel">
           <br>
           <label>Datum</label>
-          <input class="form-control">
+          <my-date-picker name="date" [options]="myDatePickerOptions" [(ngModel)]="date"></my-date-picker>
           <br>
           <label>Name</label>
           <input class="form-control">
@@ -45,7 +45,7 @@
           
       <div class="patient">
           <h5>Leistungen</h5>
-          <table class="table table-info table-striped table-hover ">
+          <table class="table table-hover ">
               <tr>
                     <th class="datumSpalte" ><h5>Datum</h5></th>
                     <th ><h5>Text</h5></th>  
@@ -60,7 +60,7 @@
       </div>
       <div class="patient">
           <h5>Leistungserbringer</h5>
-          <table class="table table-info table-striped table-hover ">
+          <table class="table table-hover ">
               <tr>
                     <th class="datumSpalte" ><h5>Datum</h5></th>
                     <th ><h5>Text</h5></th>  
@@ -75,7 +75,7 @@
       </div>
       <div class="patient">
           <h5>Bewilligung</h5>
-          <table class="table table-info table-striped table-hover ">
+          <table class="table table-hover ">
               <tr>
                     <th class="datumSpalte" ><h5>Datum</h5></th>
                     <th ><h5>Text</h5></th>  

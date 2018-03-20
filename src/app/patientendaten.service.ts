@@ -8,24 +8,18 @@ export class PatientendatenService {
   constructor(private http:Http) {}//vorher leerer Konstrukor
 
   createPatient(patient:Patient):void{
-    let data = {
-      "PatientenEntity":patient,
-     
-    }
-    this.http.post('http://localhost:8080/createPatient',data).subscribe();
-    
-
-    
+    this.http.post('http://localhost:8080/createPatient',patient).subscribe();    
+    console.log(patient.id.vsnrp);
   }
 
-  getAllVerordnungen(): any{
+  /*getAllVerordnungen(): any{
     let data = {
    "VPNRV":""
       
     };
     let verordnungen=this.http.post('http://localhost:8080/???',data).map(response => response.json() as any);//RICHTIG LINK NOCH
     return verordnungen;
-  }
+  }*/
 }
 
 

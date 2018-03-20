@@ -31,14 +31,14 @@ body{
 }
 
 #labelPLZ{
-    width:31%;
+    
+    margin-left: 40px;
 }
 
 #PLZL{
-    width:31%;
+    width:35%;
     float:left;
-    margin:0px;
-  
+    margin:0px; 
 }
 
 #ORT{

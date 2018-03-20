@@ -14,21 +14,7 @@ export class AppComponent {
  //constructor (private patientenDaten: PatientendatenService){
 
 // }
- 
-
-  title = 'Transfers';
-  
-  vsnra='';
-  vsnrp='';
-  d:Date = new Date();
-
-  
-
-  public myDatePickerOptions: IMyDpOptions = {
-    // other options...
-    dateFormat: 'dd.mm.yyyy',
-};
-
-// Initialized to specific date (09.10.2018).
-public model: any = { date: {year: this.d.getFullYear(), month: this.d.getMonth() + 1, day: this.d.getDate()} };
 }
+
+  
+

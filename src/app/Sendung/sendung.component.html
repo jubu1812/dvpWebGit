@@ -9,20 +9,28 @@
     <label>Periode</label>
     <input class="form-control" id="periode">
   </div>
-<div id ="buttongroup"><button  class="btn btn-default" id="tablebutton" > 
-    <span class="material-icons" style="vertical-align: middle;">add</span> neue Sendung</button>
-    <br>
-  <button class="btn btn-default" id="tablebutton"> 
-    Sendung abschließen </button>
-    <button class="btn btn-default" id="tablebutton"> 
-        <span class="material-icons" style="vertical-align: middle;">content_copy</span> Sendung kopieren </button>
+
+  <div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-primary"> 
+    <span class="material-icons" style="vertical-align: middle;">add</span> 
+    neue Sendung</button>
+    <span class="btn-separator"></span>
+  
+    <button type="button" class="btn btn-primary"> 
+      <span class="material-icons" style="vertical-align: middle;">content_copy</span> 
+      Sendung kopieren </button>
+
+    <span class="btn-separator"></span>
+
+    <button type="button" class="btn btn-danger"> 
+      Sendung abschließen </button>        
 </div>
 
-<div >
+<div>
   <div class="container-fluid">
     <div ng-app="" ng-controller="rowController">
         <div class="table-responsive col-xs-12">
-  <table class="table table-info table-striped table-hover ">
+  <table class="table table-hover ">
 <tr>
       <th class="datumSpalte" ><h5>Verordnungsdatum</h5></th>
       <th ><h5>Verordnung</h5></th>  
@@ -38,7 +46,7 @@
 
 <br>
 <br>
-<table class="table table-info table-striped table-hover ">
+<table class="table table-hover ">
     <tr>
           <th class="datumSpalte" ><h5>Sendungsdatum</h5></th>
           <th ><h5>Sendung</h5></th>  
@@ -58,6 +66,5 @@
 
 </div>
 </div>
-
 
 </div>

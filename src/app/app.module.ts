@@ -29,8 +29,7 @@ export const ROUTES: Routes = [
     SVValidatorDirective,
     PatientenverwaltungComponent,
     SendungComponent,
-    VerordnungenComponent,
-  
+    VerordnungenComponent, 
   ],
   imports: [
     BrowserModule,

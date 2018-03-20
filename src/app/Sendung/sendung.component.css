@@ -2,8 +2,7 @@
     width: 90%;
 	margin: 0 auto;
 	overflow: auto;
-	
-	position: relative;
+	position: absolute;
 }
 
 .col-xs-1 {
@@ -16,7 +15,6 @@
 .col-md-6{
 	width:42%;
 }
-
  input{
 	width: 100%;
 	margin:0px;
@@ -26,54 +24,31 @@
     float:left;
 
 }
-
 #inputOrt{
     width: 60%;
     float:right;
 }
-
 label{
-
 margin-right: 14px;
 margin-bottom: 0px;
 }
-
-
-
-.togglebutton   {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0px 0px rgba(255,255,255,0);
-    box-shadow: 1px 1px 4px gray;
-    border-width: 0px;
-    }
-    
-    .btn-info {
-        color: #fff;
-        background-color: #69afc2;
-        border-color: #69afc2;
-    }
-
-
-    .container-fluid{
-        width: 80%;
-       
-        display: inline-block;
-    }
-    .btn-default {
-        border-left-width:0;left:-2px;
-        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-        width: 15%;
-        margin-bottom: 4px;
-        display: inline-block;
-      }
-
+           
       .table-responsive{
           width:85%;
       }
+
 .datumSpalte
 {
     width: 175px;
+}
+.btn-separator:after {
+    content: ' ';
+    display: block;
+    float: left;
+    background: #ADADAD;
+    margin: 0 5px;
+    height: 39px;
+    width: 1px;
 }
     
              

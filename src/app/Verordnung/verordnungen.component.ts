@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientendatenService } from "../patientendaten.service";
 import { Verordnung } from 'app/Verordnung/Verordnung';
+import {IMyDpOptions} from 'mydatepicker';
 
 @Component({
   selector: 'app-verordnungen',
@@ -8,8 +9,18 @@ import { Verordnung } from 'app/Verordnung/Verordnung';
   styleUrls: ['./verordnungen.component.css']
 })
 export class VerordnungenComponent implements OnInit {
+  
+  public myDatePickerOptions: IMyDpOptions = {
+    // other options...
+    dayLabels: {su: "So", mo: "Mo", tu: "Di", we: "Mi", th: "Do", fr: "Fr", sa: "Sa"},
+    monthLabels: { 1: "Jän", 2: "Feb", 3: "Mär", 4: "Apr", 5: "Mai", 6: "Jun", 7: "Jul", 8: "Aug", 9: "Sep", 10: "Okt", 11: "Nov", 12: "Dez" },
+    dateFormat: "dd.mm.yyyy",
+    todayBtnTxt: "Heute",
+    firstDayOfWeek: "mo",
+    sunHighlight: true
+};
   //verordnungenListe : Array<any>;
-  constructor(private PatientendatenService:PatientendatenService) {}
+  constructor() {}
 
   ngOnInit() {
  //this.getVerordungen;
