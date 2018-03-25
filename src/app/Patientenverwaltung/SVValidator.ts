@@ -1,5 +1,6 @@
 import { Directive, Attribute, forwardRef } from '@angular/core';
 import { Validator, AbstractControl, NG_VALIDATORS, FormsModule } from '@angular/forms';
+import { PatientenverwaltungComponent } from 'app/patientenverwaltung/patientenverwaltung.component';
 
 @Directive({
     selector: 'input[nr]',
@@ -35,7 +36,7 @@ export class SVValidatorDirective implements Validator {
                 if (sum % 11 == pruefziffer) {
                     return null; //kein Fehler
                 }
-            }
+            }            
         }
         return {
             nr: true  //Fehler bei svnr Feld

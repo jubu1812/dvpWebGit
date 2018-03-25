@@ -20,6 +20,9 @@ declare var $: any;
 export class PatientenverwaltungComponent implements OnInit {
 
   VOIDRow: number;
+  currPatient: Patient;
+  currSVNRP: string;
+  currKundennummer: number;
 
   constructor(public service:PatientendatenService) {   
   }
@@ -53,9 +56,17 @@ export class PatientenverwaltungComponent implements OnInit {
     this.service.createPatient(patient);
   }
 
-    /*getPatient(VOID: svNR){
+  getPatient(){
+    this.service.getPatientById(new PatientId(123, parseInt(this.currSVNRP))).subscribe(
+      response => {
+        this.currPatient = response;        
+      }
+    );
+  }
 
-      
-    }*/
+  insertLoadedPatient(){
+    $("#ZUNAP").val(this.currPatient.zunap);        
+  
+}
   
 }

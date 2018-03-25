@@ -6,6 +6,10 @@ class="alert alert-danger alert-dismissible">
 class="alert alert-danger alert-dismissible">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   Die eingegebene Sozialversicherungsnummer für den Hauptversicherten ist nicht valide.</div>
+
+  <div *ngIf="user$ | async as user" (after-if)="your expression">
+</div>
+
 <br>
 <div>
   <form class="form-inline my-2 my-lg-0">
@@ -17,9 +21,8 @@ class="alert alert-danger alert-dismissible">
   <h2>Patient</h2>
 
   <div class="col-xs-1">
-
     <label>SV- Nummer</label>
-    <input id="VSNRP" type="text" class="form-control" name="vsnrp" nr [(ngModel)]="vsnrp" #vsnrpat="ngModel">
+    <input id="VSNRP" type="text" class="form-control" name="vsnrp" nr [(ngModel)]="currSVNRP" #vsnrpat="ngModel">
     <br>
     <label>Vorname</label>
     <input id="VONAP" type="text" class="form-control">
