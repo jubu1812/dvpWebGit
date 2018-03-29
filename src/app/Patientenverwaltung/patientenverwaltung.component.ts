@@ -38,18 +38,18 @@ export class PatientenverwaltungComponent implements OnInit {
 
   }
   savePatient() {
-    let VSNR: number = parseInt($('#VSNRP').val().toString()); 
-    let VONAP: string = $('#VONAP').val().toString();
-    let ZUNAP: string = $('#ZUNAP').val().toString();
-    let STRA: string = $('#STRA').val().toString();
-    let PLZL: number = parseInt($('#PLZL').val().toString());   
-    let ORT: string = $('#ORT').val().toString();
-    let LAND: string = $('#LAND').val().toString();
-    let VSNRA: number =  parseInt($('#VSNRA').val().toString()); 
-    let VONVS: string = $('#VONVS').val().toString();
-    let ZUNVS: string = $('#ZUNVS').val().toString();
+    let vsnr: number = parseInt($('#VSNRP').val().toString()); 
+    let vornap: string = $('#VONAP').val().toString();
+    let zunap: string = $('#ZUNAP').val().toString();
+    let stra: string = $('#STRA').val().toString();
+    let plzl: number = parseInt($('#PLZL').val().toString());   
+    let ort: string = $('#ORT').val().toString();
+    let land: string = $('#LAND').val().toString();
+    let vsnra: number =  parseInt($('#VSNRA').val().toString()); 
+    let vonvs: string = $('#VONVS').val().toString();
+    let zunvs: string = $('#ZUNVS').val().toString();
 
-    let patient= new Patient(new PatientId(123,VSNR),VONAP,ZUNAP,STRA,PLZL,ORT,LAND,2323,VSNRA,VONVS,ZUNVS);
+    let patient= new Patient(new PatientId(123,vsnr),vornap,zunap,stra,plzl,ort,land,2323,vsnra,vonvs,zunvs);
     
     console.log(JSON.stringify(patient));
 

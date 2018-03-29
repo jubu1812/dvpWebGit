@@ -1,7 +1,7 @@
 export class Bewilligung{
     constructor(
-        public BEWNR: string,
-        public BDAT: Date,
+        public bewnr: string,
+        public bdat: Date,
         public VOID: number
     ){}
 }

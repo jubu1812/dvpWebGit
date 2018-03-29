@@ -1,6 +1,6 @@
 export class Diagnose{
     constructor(
-        public DATD: Date,
-        public DIAGN: string
+        public datd: Date,
+        public diagn: string
     ){}
 }

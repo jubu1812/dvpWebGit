@@ -7,12 +7,12 @@ import { Leistungserbringung } from "app/Verordnung/Leistungserbringung";
 export class Verordnung{
     constructor(
         
-        public KUNDENNR:number,
+        public kundennr:number,
         public VOID: number,
-        public KOSTENTRAEGER:string,
-        public VPNRV: string,
-        public ZUNAV: string,
-        public VDATUM: Date,
+        public kostentraeger:string,
+        public vpnrv: string,
+        public zunav: string,
+        public vadatum: Date,
         
         public diagnosen: Array<Diagnose>,
         public leistungen: Array<Leistung>,
