@@ -1,18 +1,33 @@
-<div *ngIf="vsnrpat?.hasError('nr') && (vsnrpat?.dirty || vsnrpat?.touched)" 
+<div *ngIf="vsnrpat?.hasError('nr') && (vsnrpat?.dirty || vsnrpat?.touched) && vsnrpat.value != ''" 
 class="alert alert-danger alert-dismissible">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   Die eingegebene Sozialversicherungsnummer für den Patienten ist nicht valide.</div>
 
-<div *ngIf="vsnrhvs?.hasError('nr') && (vsnrhvs?.dirty || vsnrhvs?.touched)" 
+<div *ngIf="vsnrhvs?.hasError('nr') && (vsnrhvs?.dirty || vsnrhvs?.touched) && vsnrhvs.value != ''" 
 class="alert alert-danger alert-dismissible">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   Die eingegebene Sozialversicherungsnummer für den Hauptversicherten ist nicht valide.</div>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Fehler beim Laden des Patienten</h4>
+        </div>
+        <div class="modal-body">
+          <p>Dieser Patient wurde von Ihnen noch nicht gespeichert. Kontrollieren Sie die Sozialversicherungsnummer noch einmal. Ansonsten legen Sie einen neuen Patienten an.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn" data-dismiss="modal">schließen</button>
+        </div>
+      </div>     
+    </div>
+  </div>
 
 <br>
 <div>
   <form class="form-inline my-2 my-lg-0">
      <button class="btn btn-outline-success my-2 my-sm-0" id="positionSave"  (click)=savePatient()>
-        <span class="material-icons" >save</span></button>
+        <span class="glyphicon glyphicon-floppy-disk"></span></button>       
 </form>
 </div>
 <div class="col-md-6">
@@ -20,13 +35,20 @@ class="alert alert-danger alert-dismissible">
 
   <div class="col-xs-1">
     <label>SV- Nummer</label>
-    <input id="VSNRP" type="text" class="form-control" name="vsnrp" nr [(ngModel)]="currSVNRP" #vsnrpat="ngModel">
+     <div class="input-group">
+        
+    <input required id="VSNRP" type="text" class="form-control" name="vsnrp" nr [(ngModel)]="currSVNRP" #vsnrpat="ngModel">
+    <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button" (click)=getPatient() title="Patient laden">
+          <span class="glyphicon glyphicon-search"></span></button>
+    </span>
+  </div>
     <br>
     <label>Vorname</label>
     <input id="VONAP" type="text" class="form-control">
     <br>
     <label>Nachname</label>
-    <input id="ZUNAP" type="text" class="form-control"> 
+    <input required id="ZUNAP" type="text" class="form-control"> 
   </div>
 
   <div class="col-xs-1">
@@ -64,7 +86,7 @@ class="alert alert-danger alert-dismissible">
   </div>
 </div>
 
-<!--<div>
+<div>
   <div class="container-fluid">
     
       <div class="table-responsive col-xs-12">
@@ -81,9 +103,9 @@ class="alert alert-danger alert-dismissible">
           </thead>
 
           <tbody>
-            <tr *ngFor="let transfer of transfers">
+            <tr >
               <td>
-                {{transfer.id}}
+               
               </td>
               <td>
                 <select class="form-control" data-live-search="true">
@@ -95,25 +117,25 @@ class="alert alert-danger alert-dismissible">
 
               <td style="width: 20px">
                 <button class="togglebutton btn-success btn-sm" title="zugewiesene Sendung speichern" (click)="saveVerordung(sendung)">
-                  <i class="material-icons">done</i>
+                    <span class="glyphicon glyphicon-remove"></span>
                 </button>
               </td>
               <td style="width: 20px">
                 <button class="togglebutton btn-danger btn-sm" title="Verordnung löschen" (click)="deleteVerordnung(verordnung)">
-                  <i class="material-icons">clear</i>
+                    <span class="glyphicon glyphicon-remove"></span>
                 </button>
               </td>
             </tr>
         </table>
     
     </div>
-    <button class="btn btn-default" id="btn_neu">
-      <span class="material-icons" style="vertical-align: middle;">add</span> anlegen</button>
+    <button class="btn btn-default" id="btn_neu" [routerLink]="['/verordnung']" >
+      <span class="glyphicon glyphicon-plus"></span> anlegen</button>
     <br>
     <button class="btn btn-default" id="btn_kopie">
-      <span class="material-icons" style="vertical-align: middle;">content_copy</span> kopieren </button>
+        <span class="glyphicon glyphicon-duplicate"></span> kopieren </button>
     <br>
     <button class="btn btn-default" id="btn_speichern">
-      <span class="material-icons" style="vertical-align: middle;">save</span> speichern </button>
+        <span class="glyphicon glyphicon-floppy-disk"></span> speichern </button>
   </div>
-</div>-->
+</div>

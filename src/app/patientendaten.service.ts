@@ -6,7 +6,17 @@ import { PatientId } from 'app/Patientenverwaltung/PatientId';
 
 @Injectable()
 export class PatientendatenService {
-  constructor(private http:Http) {}//vorher leerer Konstrukor
+  constructor(private http:Http) {}//vorher leerer Konstruktor
+
+  currPatient:Patient;
+
+  getCurrPatient(){
+    return this.currPatient;
+  }
+
+  setCurrPatient(newPat:Patient){
+    this.currPatient = newPat;
+  }
 
   createPatient(patient:Patient):void{
     this.http.post('http://localhost:8080/createPatient',patient).subscribe();    
@@ -23,7 +33,7 @@ export class PatientendatenService {
   }*/
 
   getPatientById(id:PatientId){
-    var currentPatient = this.http.post('http://localhost:8080/getPatientById',id).map(response => response.json() as any);    
+    var currentPatient = this.http.post('http://localhost:8080/patientById',id).map(x =>(x.text() ? x.json() : null) as any);    
     return currentPatient;
   }
 

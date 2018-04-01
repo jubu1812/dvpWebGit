@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot');
+    src: url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+         url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff2') format('woff2'),
+         url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff') format('woff'),
+         url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+         url('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  }
+  .glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font: normal normal 16px/1 'Glyphicons Halflings';
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    margin-right: 4px;
+  }
+
+  .glyphicon-search:before{content:"\e003";}
+  .glyphicon-save:before{content:"\e166";}
+  .glyphicon-floppy-disk:before{content:"\e172";}
+  .glyphicon-duplicate:before{content:"\e224";}
+  .glyphicon-plus:before{content:"\2b";}
+  .glyphicon-remove:before{content:"\e014";}

@@ -24,6 +24,8 @@ export class PatientenverwaltungComponent implements OnInit {
   currSVNRP: string;
   currKundennummer: number;
 
+  patientGeladen:boolean = true;
+
   constructor(public service:PatientendatenService) {   
   }
 
@@ -49,7 +51,7 @@ export class PatientenverwaltungComponent implements OnInit {
     let vonvs: string = $('#VONVS').val().toString();
     let zunvs: string = $('#ZUNVS').val().toString();
 
-    let patient= new Patient(new PatientId(123,vsnr),vornap,zunap,stra,plzl,ort,land,2323,vsnra,vonvs,zunvs);
+    let patient= new Patient(new PatientId(123,vsnr),vornap,zunap,stra,plzl,ort,land,0,vsnra,vonvs,zunvs);
     
     console.log(JSON.stringify(patient));
 
@@ -59,9 +61,21 @@ export class PatientenverwaltungComponent implements OnInit {
   getPatient(){
     this.service.getPatientById(new PatientId(123, parseInt(this.currSVNRP))).subscribe(
       response => {
-        this.currPatient = response;        
+        if(response!=null){
+        this.currPatient = response;
+        this.service.setCurrPatient(this.currPatient); 
+        console.log(this.currPatient);  
+        this.patientGeladen = true;  
+        this.insertLoadedPatient(); 
+        }
+        else{
+          this.patientGeladen = false;
+          $("#myModal").modal();
+        }
       }
     );
+
+    
   }
 
   insertLoadedPatient(){
