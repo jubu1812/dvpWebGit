@@ -26,6 +26,11 @@ export class PatientendatenService {
     var currentPatient = this.http.post('http://localhost:8080/getPatientById',id).map(response => response.json() as any);    
     return currentPatient;
   }
-}
 
+  getAlleKostentraeger(){
+    let kostentraeger = this.http.post('http://localhost:8080/alleKostentraeger',null).map(response => response.json() as any);
+    return kostentraeger;
+  }
+}
+ 
 

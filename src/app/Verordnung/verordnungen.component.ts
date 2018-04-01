@@ -10,6 +10,8 @@ import {IMyDpOptions} from 'mydatepicker';
 })
 export class VerordnungenComponent implements OnInit {
   
+  kostentraegerArray;
+
   public myDatePickerOptions: IMyDpOptions = {
     // other options...
     dayLabels: {su: "So", mo: "Mo", tu: "Di", we: "Mi", th: "Do", fr: "Fr", sa: "Sa"},
@@ -20,10 +22,12 @@ export class VerordnungenComponent implements OnInit {
     sunHighlight: true
 };
   //verordnungenListe : Array<any>;
-  constructor() {}
+  constructor(private PatientendatenService:PatientendatenService) {}
 
   ngOnInit() {
- //this.getVerordungen;
+     this.PatientendatenService.getAlleKostentraeger().subscribe(data => {
+      this.kostentraegerArray = data;
+    });
   }
 
 /* getVerordungen(){    
