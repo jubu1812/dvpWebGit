@@ -16,7 +16,7 @@
 
       <div>
           <select class="form-control">
-              <option>Hi</option>
+              <option *ngFor='let kostentraeger of kostentraegerArray'>{{kostentraeger.kostentraeger_name}}</option>
           </select>
           </div>
       <br>

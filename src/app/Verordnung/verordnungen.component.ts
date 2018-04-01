@@ -6,7 +6,8 @@ import {IMyDpOptions} from 'mydatepicker';
 @Component({
   selector: 'app-verordnungen',
   templateUrl: './verordnungen.component.html',
-  styleUrls: ['./verordnungen.component.css']
+  styleUrls: ['./verordnungen.component.css'],
+  providers:[PatientendatenService]
 })
 export class VerordnungenComponent implements OnInit {
   

@@ -28,7 +28,8 @@ export class PatientendatenService {
   }
 
   getAlleKostentraeger(){
-    let kostentraeger = this.http.post('http://localhost:8080/alleKostentraeger',null).map(response => response.json() as any);
+    let data = {};
+    let kostentraeger = this.http.post('http://localhost:8080/alleKostentraeger',data).map(response => response.json() as any);
     return kostentraeger;
   }
 }

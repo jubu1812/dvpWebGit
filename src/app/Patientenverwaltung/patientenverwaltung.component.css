@@ -52,7 +52,14 @@ margin-right: 14px;
 margin-bottom: 0px;
 }
 
+.alert{
+    margin: 10px;
+    padding: 10px;
+}
 
+.close{
+    position: inherit;
+}
 
 .togglebutton   {
     border-radius: 10px;
