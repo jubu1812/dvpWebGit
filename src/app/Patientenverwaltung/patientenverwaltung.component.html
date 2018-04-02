@@ -12,11 +12,11 @@
         <h4 class="modal-title">Fehler beim Laden des Patienten</h4>
       </div>
       <div class="modal-body">
-        <p>Dieser Patient wurde von Ihnen noch nicht gespeichert. Kontrollieren Sie die Sozialversicherungsnummer noch einmal.
-          Ansonsten legen Sie einen neuen Patienten an.</p>
+        <p>Dieser Patient wurde von Ihnen noch nicht gespeichert. Kontrollieren Sie die Sozialversicherungsnummer noch einmal 
+          oder legen Sie einen neuen Patienten an.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn" data-dismiss="modal">schließen</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">schließen</button>
       </div>
     </div>
   </div>
@@ -25,9 +25,12 @@
 <br>
 <div>
   <form class="form-inline my-2 my-lg-0">
-    <button class="btn btn-outline-success my-2 my-sm-0" id="positionSave" (click)=savePatient()>
+    <button class="btn btn-primary" id="positionSave" (click)=savePatient()>
       <span class="glyphicon glyphicon-floppy-disk"></span>
     </button>
+    <button class="btn btn-primary" id="positionSave" (click)=clearValues()>
+        Formular leeren
+      </button>
   </form>
 </div>
 <div class="col-md-6">
@@ -39,7 +42,7 @@
 
       <input required id="VSNRP" type="text" class="form-control" name="vsnrp" nr [(ngModel)]="currSVNRP" #vsnrpat="ngModel">
       <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button" (click)=getPatient() title="Patient laden">
+        <button class="btn btn-secondary" id="searchBtn" type="button" (click)=getPatient() title="Patient laden">
           <span class="glyphicon glyphicon-search"></span>
         </button>
       </span>
@@ -87,7 +90,7 @@
   </div>
 </div>
 
-<div>
+<div id="verordnungen">
   <div class="container-fluid">
 
     <div class="table-responsive col-xs-12">
@@ -115,12 +118,7 @@
                 <option>Dummy</option>
               </select>
             </td>
-
-            <td style="width: 20px">
-              <button class="togglebutton btn-success btn-sm" title="zugewiesene Sendung speichern" (click)="saveVerordung(sendung)">
-                <span class="glyphicon glyphicon-remove"></span>
-              </button>
-            </td>
+          
             <td style="width: 20px">
               <button class="togglebutton btn-danger btn-sm" title="Verordnung löschen" (click)="deleteVerordnung(verordnung)">
                 <span class="glyphicon glyphicon-remove"></span>
@@ -128,15 +126,17 @@
             </td>
           </tr>
       </table>
+      </div>
 
+      <div class="btn-group-vertical">
+        <button class="btn btn-secondary" id="btn_neu" [routerLink]="['/verordnung']">
+          <span class="glyphicon glyphicon-plus"></span> anlegen</button>
+        
+        <button class="btn btn-secondary" id="btn_kopie">
+          <span class="glyphicon glyphicon-duplicate"></span> kopieren </button>
+       
+        <button class="btn btn-secondary" id="btn_speichern">
+          <span class="glyphicon glyphicon-floppy-disk"></span> speichern </button>
+      </div>
     </div>
-    <button class="btn btn-default" id="btn_neu" [routerLink]="['/verordnung']">
-      <span class="glyphicon glyphicon-plus"></span> anlegen</button>
-    <br>
-    <button class="btn btn-default" id="btn_kopie">
-      <span class="glyphicon glyphicon-duplicate"></span> kopieren </button>
-    <br>
-    <button class="btn btn-default" id="btn_speichern">
-      <span class="glyphicon glyphicon-floppy-disk"></span> speichern </button>
-  </div>
 </div>

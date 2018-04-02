@@ -40,7 +40,7 @@ export class PatientenverwaltungComponent implements OnInit {
   loescheVerordnung(VOID: number) {
 
   }
-  savePatient() {
+  savePatient() { //todo: bereitsgeladen sichern
 
     let vsnr = $('#VSNRP').val().toString();
     if (vsnr !== "") {
@@ -126,8 +126,23 @@ export class PatientenverwaltungComponent implements OnInit {
     }
     $("#VONVS").val(this.currPatient.vonvs);
     $("#ZUNVS").val(this.currPatient.zunvs);
-
     
+  }
+
+  clearValues(){
+    $("#VSNRP").val("");
+    $("#VONAP").val("");
+    $("#ZUNAP").val("");
+    $("#STRA").val("");    
+    $("#PLZL").val("");    
+    $("#ORT").val("");
+    $("#LAND").val("");
+    $("#VSNRA").val("");   
+    $("#VONVS").val("");
+    $("#ZUNVS").val("");
+
+    this.service.setCurrPatient(null);
+    console.log(this.service.getCurrPatient());
   }
 
   /*toggle() {
