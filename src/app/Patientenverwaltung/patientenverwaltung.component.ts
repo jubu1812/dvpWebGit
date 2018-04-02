@@ -15,7 +15,7 @@ declare var $: any;
   selector: 'app-patientenverwaltung',
   templateUrl: './patientenverwaltung.component.html',
   styleUrls: ['./patientenverwaltung.component.css'],
-  providers: [PatientendatenService]
+  providers: []
 })
 export class PatientenverwaltungComponent implements OnInit {
 
@@ -24,12 +24,13 @@ export class PatientenverwaltungComponent implements OnInit {
   currSVNRP: string;
   currKundennummer: number;
 
-  patientGeladen:boolean = true;
+  patientGeladen: boolean = true;
 
-  constructor(public service:PatientendatenService) {   
+  constructor(public service: PatientendatenService) {
   }
 
   ngOnInit() {
+    this.currKundennummer = this.service.getCurrKundennummer();
   }
 
   Edit(VOID: number) { //für das Bearbeiten
@@ -40,47 +41,98 @@ export class PatientenverwaltungComponent implements OnInit {
 
   }
   savePatient() {
-    let vsnr: number = parseInt($('#VSNRP').val().toString()); 
+
+    let vsnr = $('#VSNRP').val().toString();
+    if (vsnr !== "") {
+      vsnr = parseInt(vsnr);
+    }
+    else {
+      vsnr = 0;
+    }
+
     let vornap: string = $('#VONAP').val().toString();
     let zunap: string = $('#ZUNAP').val().toString();
     let stra: string = $('#STRA').val().toString();
-    let plzl: number = parseInt($('#PLZL').val().toString());   
+
+    let plzl = $('#PLZL').val().toString();
+    if (plzl !== "") {
+      plzl = parseInt(plzl);
+    }
+    else {
+      plzl = 0;
+    }
+
     let ort: string = $('#ORT').val().toString();
     let land: string = $('#LAND').val().toString();
-    let vsnra: number =  parseInt($('#VSNRA').val().toString()); 
+
+    let vsnra = $('#VSNRA').val().toString();
+    if (vsnra !== "") {
+      vsnra = parseInt(vsnra);
+    }
+    else {
+      vsnra = 0;
+    }
+
     let vonvs: string = $('#VONVS').val().toString();
     let zunvs: string = $('#ZUNVS').val().toString();
 
-    let patient= new Patient(new PatientId(123,vsnr),vornap,zunap,stra,plzl,ort,land,0,vsnra,vonvs,zunvs);
-    
+    let patient = new Patient(new PatientId(this.currKundennummer, vsnr), vornap, zunap, stra, plzl, ort, land, -1, vsnra, vonvs, zunvs);
+
     console.log(JSON.stringify(patient));
 
     this.service.createPatient(patient);
+    this.service.setCurrPatient(patient);
   }
 
-  getPatient(){
+  getPatient() {
     this.service.getPatientById(new PatientId(123, parseInt(this.currSVNRP))).subscribe(
       response => {
-        if(response!=null){
-        this.currPatient = response;
-        this.service.setCurrPatient(this.currPatient); 
-        console.log(this.currPatient);  
-        this.patientGeladen = true;  
-        this.insertLoadedPatient(); 
+        if (response != null) {
+          this.currPatient = response;
+          this.service.setCurrPatient(this.currPatient);
+
+          console.log(this.currPatient);
+
+          this.patientGeladen = true;
+          this.insertLoadedPatient();
         }
-        else{
+        else {
           this.patientGeladen = false;
           $("#myModal").modal();
         }
       }
     );
 
+
+  }
+
+  insertLoadedPatient() {
+    $("#VONAP").val(this.currPatient.vonap);
+    $("#ZUNAP").val(this.currPatient.zunap);
+    $("#STRA").val(this.currPatient.stra);
+    if (this.currPatient.plzl !== 0) {
+      $("#PLZL").val("" + this.currPatient.plzl);
+    }
+    else {
+      $("#PLZL").val("");
+    }
+    $("#ORT").val(this.currPatient.ort);
+    $("#LAND").val(this.currPatient.land);
+    if (this.currPatient.vsnra !== 0) {
+      $("#VSNRA").val("" + this.currPatient.vsnra);
+    }
+    else {
+      $("#VSNRA").val("");
+    }
+    $("#VONVS").val(this.currPatient.vonvs);
+    $("#ZUNVS").val(this.currPatient.zunvs);
+
     
   }
 
-  insertLoadedPatient(){
-    $("#ZUNAP").val(this.currPatient.zunap);        
-  
-}
-  
+  /*toggle() {
+    let control = this.myForm.get('name')
+    control.disabled ? control.enable() : control.disable();
+  }*/
+
 }

@@ -1,43 +1,45 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientendatenService } from "../patientendaten.service";
 import { Verordnung } from 'app/Verordnung/Verordnung';
-import {IMyDpOptions} from 'mydatepicker';
+import { IMyDpOptions } from 'mydatepicker';
 
 @Component({
   selector: 'app-verordnungen',
   templateUrl: './verordnungen.component.html',
   styleUrls: ['./verordnungen.component.css'],
-  providers:[PatientendatenService]
+  providers: []
 })
 export class VerordnungenComponent implements OnInit {
-  
+
   kostentraegerArray;
+  currPatient;
 
   public myDatePickerOptions: IMyDpOptions = {
     // other options...
-    dayLabels: {su: "So", mo: "Mo", tu: "Di", we: "Mi", th: "Do", fr: "Fr", sa: "Sa"},
+    dayLabels: { su: "So", mo: "Mo", tu: "Di", we: "Mi", th: "Do", fr: "Fr", sa: "Sa" },
     monthLabels: { 1: "Jän", 2: "Feb", 3: "Mär", 4: "Apr", 5: "Mai", 6: "Jun", 7: "Jul", 8: "Aug", 9: "Sep", 10: "Okt", 11: "Nov", 12: "Dez" },
     dateFormat: "dd.mm.yyyy",
     todayBtnTxt: "Heute",
     firstDayOfWeek: "mo",
     sunHighlight: true
-};
+  };
   //verordnungenListe : Array<any>;
-  constructor(private PatientendatenService:PatientendatenService) {}
+  constructor(private PatientendatenService: PatientendatenService) { this.currPatient = this.PatientendatenService.getCurrPatient();}
 
   ngOnInit() {
-     this.PatientendatenService.getAlleKostentraeger().subscribe(data => {
+    this.PatientendatenService.getAlleKostentraeger().subscribe(data => {
       this.kostentraegerArray = data;
     });
+    
   }
 
-/* getVerordungen(){    
-      this.PatientendatenService.getAllVerordnungen().subscribe(
-      data => {
-        this.verordnungenListe = data;
-      }
-    )
-  }*/
+  /* getVerordungen(){    
+        this.PatientendatenService.getAllVerordnungen().subscribe(
+        data => {
+          this.verordnungenListe = data;
+        }
+      )
+    }*/
 }
 
 
@@ -57,7 +59,7 @@ export class VerordnungenComponent implements OnInit {
 
  }*/
 
- 
+
 /*public KUNDENNR:number,
 public VOID: number,
 public KOSTENTRAEGER:string,

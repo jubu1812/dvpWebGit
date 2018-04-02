@@ -9,6 +9,7 @@ import { PatientenverwaltungComponent } from './patientenverwaltung/patientenver
 import { SendungComponent } from './sendung/sendung.component';
 import { VerordnungenComponent } from 'app/verordnung/verordnungen.component';
 import { Routes, RouterModule } from '@angular/router';
+import {PatientendatenService} from 'app/patientendaten.service';
 
 export const ROUTES: Routes = [
   {
@@ -38,7 +39,7 @@ export const ROUTES: Routes = [
     MyDatePickerModule,
     RouterModule.forRoot(ROUTES)   
   ],
-  providers: [],
+  providers: [PatientendatenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

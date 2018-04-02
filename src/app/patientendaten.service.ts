@@ -6,20 +6,29 @@ import { PatientId } from 'app/Patientenverwaltung/PatientId';
 
 @Injectable()
 export class PatientendatenService {
-  constructor(private http:Http) {}//vorher leerer Konstruktor
+  constructor(private http: Http) { }//vorher leerer Konstruktor
 
-  currPatient:Patient;
+  private currPatient: Patient;
+  private currKundennummer: number = 123;
 
-  getCurrPatient(){
+  getCurrPatient() {
     return this.currPatient;
   }
 
-  setCurrPatient(newPat:Patient){
+  setCurrPatient(newPat: Patient) {
     this.currPatient = newPat;
   }
 
-  createPatient(patient:Patient):void{
-    this.http.post('http://localhost:8080/createPatient',patient).subscribe();    
+  getCurrKundennummer() {
+    return this.currKundennummer;
+  }
+
+  setCurrKundennummer(kundennummer: number) {
+    this.currKundennummer = kundennummer;
+  }
+
+  createPatient(patient: Patient): void {
+    this.http.post('http://localhost:8080/createPatient', patient).subscribe();
     console.log(patient.id.vsnrp);
   }
 
@@ -32,16 +41,16 @@ export class PatientendatenService {
     return verordnungen;
   }*/
 
-  getPatientById(id:PatientId){
-    var currentPatient = this.http.post('http://localhost:8080/patientById',id).map(x =>(x.text() ? x.json() : null) as any);    
+  getPatientById(id: PatientId) {
+    var currentPatient = this.http.post('http://localhost:8080/patientById', id).map(x => (x.text() ? x.json() : null) as any);
     return currentPatient;
   }
 
-  getAlleKostentraeger(){
+  getAlleKostentraeger() {
     let data = {};
-    let kostentraeger = this.http.post('http://localhost:8080/alleKostentraeger',data).map(response => response.json() as any);
+    let kostentraeger = this.http.post('http://localhost:8080/alleKostentraeger', data).map(response => response.json() as any);
     return kostentraeger;
   }
 }
- 
+
 
