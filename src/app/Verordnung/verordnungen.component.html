@@ -3,8 +3,7 @@
     <div class="patient">
         <h5>Patient</h5>
         <p>{{currPatient?.vonap}} {{currPatient?.zunap}}
-            <br>
-            {{currPatient?.id.vsnrp}}
+            <br> {{currPatient?.id.vsnrp}}
         </p>
     </div>
     <div *ngIf="currPatient?.vsnra!==0" class="patient">
@@ -36,8 +35,11 @@
             <tbody>
                 <tr>
                     <td>
+                        <my-date-picker name="date" [options]="myDatePickerOptions" [(ngModel)]="datd"></my-date-picker>
                     </td>
-
+                    <td>
+                        <input class="form-control" name="diagn">
+                    </td>
                 </tr>
         </table>
     </div>
@@ -47,7 +49,7 @@
         <input id="svnr" class="form-control" name="vsnrp" nr [(ngModel)]="vsnrp" #vsnrpat="ngModel">
         <br>
         <label>Datum</label>
-        <my-date-picker name="date" [options]="myDatePickerOptions" [(ngModel)]="date"></my-date-picker>
+        <my-date-picker name="date" [options]="myDatePickerOptions" [(ngModel)]="vadatum"></my-date-picker>
         <br>
         <label>Name</label>
         <input class="form-control">
@@ -62,12 +64,22 @@
                     <h5>Datum</h5>
                 </th>
                 <th>
-                    <h5>Text</h5>
+                    <h5>Posnr</h5>
+                </th>
+                <th>
+                    <h5>Anzahl</h5>
                 </th>
             </tr>
             <tbody>
                 <tr>
                     <td>
+                        <my-date-picker name="date" [options]="myDatePickerOptions" [(ngModel)]="datl"></my-date-picker>
+                    </td>
+                    <td>
+                        <input class="form-control" name="posnr">
+                    </td>
+                    <td>
+                        <input class="form-control" name="anz">
                     </td>
 
                 </tr>
@@ -78,17 +90,20 @@
         <table class="table table-hover ">
             <tr>
                 <th class="datumSpalte">
-                    <h5>Datum</h5>
+                    <h5>Vertragspartnernummer</h5>
                 </th>
                 <th>
-                    <h5>Text</h5>
+                    <h5>Nachname</h5>
                 </th>
             </tr>
             <tbody>
                 <tr>
                     <td>
+                        <input class="form-control" name="vpnrt">
                     </td>
-
+                    <td>
+                        <input class="form-control" name="zunt">
+                    </td>
                 </tr>
         </table>
     </div>
