@@ -9,18 +9,18 @@
     <div *ngIf="currPatient?.vsnra!==0" class="patient">
         <h5>Hauptversicherter</h5>
         {{currPatient?.id.vsnra}}
-        <br> 
+        <br>
         <p>{{currPatient?.vonvs}} {{currPatient?.zunvs}}
         </p>
-
+        <div>
+        </div>
     </div>
-
-    <div>
-        <select class="form-control">
-            <option selected disabled>Kostenträger auswählen</option>
-            <option *ngFor='let kostentraeger of kostentraegerArray'>{{kostentraeger.kostentraeger_name}}</option>
-        </select>
-    </div>
+    <select class="form-control" id="kostentraegerWidth">
+        <option selected disabled>Kostenträger auswählen</option>
+        <option *ngFor='let kostentraeger of kostentraegerArray'>{{kostentraeger.kostentraeger_name}}</option>
+    </select>
+    <br>
+    <hr>
     <br>
 
     <div class="patient">
@@ -44,71 +44,78 @@
                     </td>
                 </tr>
         </table>
+        <br>
+        <div class="patient">
+                <h5>Leistungen</h5>
+                <table class="table table-hover ">
+                    <tr>
+                        <th class="datumSpalte">
+                            <h5>Datum</h5>
+                        </th>
+                        <th>
+                            <h5>Posnr</h5>
+                        </th>
+                        <th>
+                            <h5>Anzahl</h5>
+                        </th>
+                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <my-date-picker name="date" [options]="myDatePickerOptions" [(ngModel)]="datl"></my-date-picker>
+                            </td>
+                            <td>
+                                <input class="form-control" name="posnr">
+                            </td>
+                            <td>
+                                <input class="form-control" name="anz">
+                            </td>
+        
+                        </tr>
+                </table>
+            </div>
     </div>
     <div class="patient">
-        <h5>Verodner</h5>
+        <h5>Verordner</h5>
         <label>VPNr</label>
         <input id="svnr" class="form-control" name="vsnrp" nr [(ngModel)]="vsnrp" #vsnrpat="ngModel">
         <br>
-        <label>Datum</label>
-        <my-date-picker name="date" [options]="myDatePickerOptions" [(ngModel)]="vadatum"></my-date-picker>
-        <br>
         <label>Name</label>
         <input class="form-control">
+        <br>
+        <label>Datum</label>
+
+        <my-date-picker class="datepicker" name="date" [options]="myDatePickerOptionsGr" [(ngModel)]="vadatum"></my-date-picker>
+
 
     </div>
 
     <div class="patient">
-        <h5>Leistungen</h5>
-        <table class="table table-hover ">
-            <tr>
-                <th class="datumSpalte">
-                    <h5>Datum</h5>
-                </th>
-                <th>
-                    <h5>Posnr</h5>
-                </th>
-                <th>
-                    <h5>Anzahl</h5>
-                </th>
-            </tr>
-            <tbody>
+        <br>
+            <h5>Leistungserbringer</h5>
+            <table class="table table-hover ">
                 <tr>
-                    <td>
-                        <my-date-picker name="date" [options]="myDatePickerOptions" [(ngModel)]="datl"></my-date-picker>
-                    </td>
-                    <td>
-                        <input class="form-control" name="posnr">
-                    </td>
-                    <td>
-                        <input class="form-control" name="anz">
-                    </td>
-
+                    <th class="datumSpalte">
+                        <h5>Vertragspartnernummer</h5>
+                    </th>
+                    <th>
+                        <h5>Nachname</h5>
+                    </th>
                 </tr>
-        </table>
-    </div>
-    <div class="patient">
-        <h5>Leistungserbringer</h5>
-        <table class="table table-hover ">
-            <tr>
-                <th class="datumSpalte">
-                    <h5>Vertragspartnernummer</h5>
-                </th>
-                <th>
-                    <h5>Nachname</h5>
-                </th>
-            </tr>
-            <tbody>
-                <tr>
-                    <td>
-                        <input class="form-control" name="vpnrt">
-                    </td>
-                    <td>
-                        <input class="form-control" name="zunt">
-                    </td>
-                </tr>
-        </table>
-    </div>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input class="form-control" name="vpnrt">
+                        </td>
+                        <td>
+                            <input class="form-control" name="zunt">
+                        </td>
+                    </tr>
+            </table>
+        </div>
+        
+    
+  
     <div class="patient">
         <h5>Bewilligung</h5>
         <table class="table table-hover ">
