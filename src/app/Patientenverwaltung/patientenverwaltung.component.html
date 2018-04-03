@@ -1,8 +1,8 @@
 <div *ngIf="vsnrpat?.hasError('nr') && (vsnrpat?.dirty || vsnrpat?.touched) && vsnrpat.value != ''" class="alert alert-danger alert-dismissible">
-  Die eingegebene Sozialversicherungsnummer für den Patienten ist nicht valide.</div>
+  Die eingegebene Sozialversicherungsnummer für den Patienten ist nicht gültig.</div>
 
 <div *ngIf="vsnrhvs?.hasError('nr') && (vsnrhvs?.dirty || vsnrhvs?.touched) && vsnrhvs.value != ''" class="alert alert-danger alert-dismissible">
-  Die eingegebene Sozialversicherungsnummer für den Hauptversicherten ist nicht valide.</div>
+  Die eingegebene Sozialversicherungsnummer für den Hauptversicherten ist nicht gültig.</div>
 
 <div class="modal fade" id="myModal" role="dialog">
   <div class="modal-dialog">
@@ -12,7 +12,7 @@
         <h4 class="modal-title">Fehler beim Laden des Patienten</h4>
       </div>
       <div class="modal-body">
-        <p>Dieser Patient wurde von Ihnen noch nicht gespeichert. Kontrollieren Sie die Sozialversicherungsnummer noch einmal 
+        <p>Dieser Patient wurde von Ihnen noch nicht gespeichert. Kontrollieren Sie die Sozialversicherungsnummer 
           oder legen Sie einen neuen Patienten an.</p>
       </div>
       <div class="modal-footer">
@@ -120,7 +120,7 @@
             </td>
           
             <td style="width: 20px">
-              <button class="togglebutton btn-danger btn-sm" title="Verordnung löschen" (click)="deleteVerordnung(verordnung)">
+              <button class="btn btn-danger btn-sm" title="Verordnung löschen" (click)="deleteVerordnung(verordnung)">
                 <span class="glyphicon glyphicon-remove"></span>
               </button>
             </td>
@@ -129,7 +129,7 @@
       </div>
 
       <div class="btn-group-vertical">
-        <button class="btn btn-secondary" id="btn_neu" [routerLink]="['/verordnung']">
+        <button class="btn btn-secondary" (click)=savePatient() id="btn_neu" [routerLink]="['/verordnung']">
           <span class="glyphicon glyphicon-plus"></span> anlegen</button>
         
         <button class="btn btn-secondary" id="btn_kopie">
