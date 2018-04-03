@@ -2,12 +2,14 @@
     <br>
     <div class="patient">
         <h5>Patient</h5>
-        <p>{{currPatient?.vonap}} {{currPatient?.zunap}}
-            <br> {{currPatient?.id.vsnrp}}
+        <p>{{currPatient?.id.vsnrp}}
+            <br> {{currPatient?.vonap}} {{currPatient?.zunap}}
         </p>
     </div>
     <div *ngIf="currPatient?.vsnra!==0" class="patient">
         <h5>Hauptversicherter</h5>
+        {{currPatient?.id.vsnra}}
+        <br> 
         <p>{{currPatient?.vonvs}} {{currPatient?.zunvs}}
         </p>
 

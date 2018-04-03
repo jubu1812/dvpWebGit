@@ -24,7 +24,9 @@ export class VerordnungenComponent implements OnInit {
     sunHighlight: true
   };
   //verordnungenListe : Array<any>;
-  constructor(private PatientendatenService: PatientendatenService) { this.currPatient = this.PatientendatenService.getCurrPatient();}
+  constructor(private PatientendatenService: PatientendatenService) { 
+    this.currPatient = this.PatientendatenService.getCurrPatient();
+  }
 
   ngOnInit() {
     this.PatientendatenService.getAlleKostentraeger().subscribe(data => {

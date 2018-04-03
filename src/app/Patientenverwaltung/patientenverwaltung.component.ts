@@ -82,10 +82,11 @@ export class PatientenverwaltungComponent implements OnInit {
 
     this.service.createPatient(patient);
     this.service.setCurrPatient(patient);
+    this.currPatient = patient;
   }
 
   getPatient() {
-    this.service.getPatientById(new PatientId(123, parseInt(this.currSVNRP))).subscribe(
+    this.service.getPatientById(new PatientId(this.currKundennummer, parseInt(this.currSVNRP))).subscribe(
       response => {
         if (response != null) {
           this.currPatient = response;
@@ -142,6 +143,8 @@ export class PatientenverwaltungComponent implements OnInit {
     $("#ZUNVS").val("");
 
     this.service.setCurrPatient(null);
+    this.currPatient = null;
+    
     console.log(this.service.getCurrPatient());
   }
 
