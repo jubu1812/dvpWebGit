@@ -13,6 +13,7 @@ export class VerordnungenComponent implements OnInit {
 
   kostentraegerArray;
   currPatient;
+  
 
   public myDatePickerOptions: IMyDpOptions = {
     // other options...

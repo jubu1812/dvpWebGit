@@ -4,21 +4,18 @@ import { Bewilligung } from "app/Verordnung/Bewilligung";
 import { Leistungserbringer } from "app/Verordnung/Leistungserbringer";
 import { Leistungserbringung } from "app/Verordnung/Leistungserbringung";
 
-export class Verordnung{
+export class Verordnung {
     constructor(
-        
-        public kundennr:number,
-        public VOID: number,
-        public kostentraeger:string,
+
+        public kundennr: number,
+        public vo_id: number,
+        public kostentraeger: string,
         public vpnrv: string,
         public zunav: string,
         public vadatum: Date,
-        
-        public diagnosen: Array<Diagnose>,
-        public leistungen: Array<Leistung>,
-        public bewilligungen: Array<Bewilligung>,
-        public leistungserbringungen: Array<Leistungserbringung>
-    ){
+
+        public svnrp: number
+    ) {
 
     }
 }

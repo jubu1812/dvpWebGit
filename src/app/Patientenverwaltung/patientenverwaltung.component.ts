@@ -76,7 +76,7 @@ export class PatientenverwaltungComponent implements OnInit {
     let vonvs: string = $('#VONVS').val().toString();
     let zunvs: string = $('#ZUNVS').val().toString();
 
-    let patient = new Patient(new PatientId(this.currKundennummer, vsnr), vornap, zunap, stra, plzl, ort, land, -1, vsnra, vonvs, zunvs);
+    let patient = new Patient(new PatientId(this.currKundennummer, vsnr), vornap, zunap, stra, plzl, ort, land, this.currPatient.kostentraeger_id, vsnra, vonvs, zunvs);
 
     console.log(JSON.stringify(patient));
 

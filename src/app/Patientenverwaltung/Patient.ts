@@ -9,7 +9,7 @@ export class Patient {
     public plzl: number;
     public ort: string;
     public land: string;
-    public kostentraeger: number;
+    public kostentraeger_id: number;
 
     public vsnra: number;
     public vonvs: string;
@@ -22,7 +22,7 @@ export class Patient {
         plzl: number,
         ort: string,
         land: string,
-        kostentraeger: number,
+        kostentraeger_id: number,
 
         vsnra: number,
         vonvs: string,
@@ -35,7 +35,7 @@ export class Patient {
         this.plzl = plzl;
         this.ort = ort;
         this.land = land;
-        this.kostentraeger = kostentraeger;
+        this.kostentraeger_id = kostentraeger_id;
         this.vsnra = vsnra;
         this.vonvs = vonvs;
         this.zunvs = zunvs;
