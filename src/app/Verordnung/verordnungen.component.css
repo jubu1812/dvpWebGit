@@ -5,7 +5,11 @@
 	position: relative;
 }
 
-
+#positionSave{
+    float:right;
+      
+  }
+  
 .patient{
     padding:0;
     margin: 0;
@@ -13,7 +17,7 @@
     display: inline-block;
     position: relative;
     width: 45%;
-    float:left;
+   float:left;
   }
 
 input{
@@ -21,7 +25,6 @@ input{
     margin:0px;
     display: inline-block;  
 }
-
 
 label{
     width: 50px;

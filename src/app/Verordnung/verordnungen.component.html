@@ -1,5 +1,13 @@
 <div id="wrapper">
     <br>
+    <div>
+        <form class="form-inline my-2 my-lg-0">
+            <button class="btn btn-primary" id="positionSave" (click)=savePatient()>
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+                speichern
+            </button>
+        </form>
+    </div>
     <div class="patient">
         <h5>Patient</h5>
         <p>{{currPatient?.id.vsnrp}}
@@ -17,19 +25,19 @@
     </div>
     <select class="form-control" id="kostentraegerWidth">
         <option selected disabled>Kostenträger auswählen</option>
-        <option *ngFor='let kostentraeger of kostentraegerArray' 
-        [value] ="kostentraeger.kostentraeger_id"
-        [selected]="kostentraeger.kostentraeger_id === currPatient?.kostentraeger_id">
+        <option *ngFor='let kostentraeger of kostentraegerArray' [value]="kostentraeger.kostentraeger_id" [selected]="kostentraeger.kostentraeger_id === currPatient?.kostentraeger_id">
             {{kostentraeger.kostentraeger_name}}
         </option>
     </select>
     <br>
-    <hr>
+    <!--hr-->
     <br>
 
     <div class="patient">
         <h4>Diagnose</h4>
+
         <table class="table table-hover ">
+
             <tr>
                 <th class="datumSpalte">
                     <h5>Datum</h5>
@@ -37,17 +45,45 @@
                 <th>
                     <h5>Text</h5>
                 </th>
+                <th>
+
+                    <button title="Diagnose hinzufügen" (click)="diagnoseAlert()">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                    <div class="modal fade" id="modalDiagose" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Diagnose hinzufügen</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <label>Datum</label>
+                                    <my-date-picker class="datepicker" name="date" [options]="myDatePickerOptionsGr" [(ngModel)]="datd"></my-date-picker>
+                                    <br>
+                                    <label>Text</label>
+                                    <input class="form-control" name="diagn">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">speichern</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </th>
             </tr>
+
             <tbody>
-                <tr>
+                <!--tr>
                     <td>
                         <my-date-picker name="date" [options]="myDatePickerOptions" [(ngModel)]="datd"></my-date-picker>
                     </td>
                     <td>
                         <input class="form-control" name="diagn">
                     </td>
-                </tr>
+                </tr-->
         </table>
+
         <br>
         <div class="patient">
             <h4>Leistungen</h4>
@@ -62,6 +98,36 @@
                     <th>
                         <h5>Anzahl</h5>
                     </th>
+                    <th>
+
+                        <button title="Leistung hinzufügen" (click)="leistungenAlert()">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                        <div class="modal fade" id="modalLeistungen" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Leistung hinzufügen</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label>Datum</label>
+                                        <my-date-picker class="datepicker" name="date" [options]="myDatePickerOptionsGr" [(ngModel)]="vadatum"></my-date-picker>
+                                        <br>
+                                        <label>PosNr</label>
+                                        <input class="form-control" name="posnr">
+                                        <br>
+                                        <label>Anzahl</label>
+                                        <input class="form-control" name="anz">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">speichern</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </th>
                 </tr>
                 <tbody>
                     <tr>
@@ -74,6 +140,10 @@
                         <td>
                             <input class="form-control" name="anz">
                         </td>
+                        <td>
+
+                        </td>
+
 
                     </tr>
             </table>
@@ -105,20 +175,46 @@
                 <th>
                     <h5>Nachname</h5>
                 </th>
+                <th>
+                    <button title="Leistungserbringer hinzufügen" (click)="leistungserbringerAlert()">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                    <div class="modal fade" id="modalLeistungserbringer" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Leistung hinzufügen</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <label>Vertragspartnernummer</label>
+                                    <input class="form-control" name="vpnrt">
+                                    <br>
+                                    <label>Nachname</label>
+                                    <input class="form-control" name="zunt">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">speichern</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </th>
             </tr>
             <tbody>
-                <tr>
+                <!--tr>
                     <td>
                         <input class="form-control" name="vpnrt">
                     </td>
                     <td>
                         <input class="form-control" name="zunt">
                     </td>
-                </tr>
+                    <td>
+
+                    </td>
+                </tr-->
         </table>
     </div>
-
-
 
     <div class="patient">
         <h4>Bewilligung</h4>
@@ -130,6 +226,32 @@
                 <th>
                     <h5>Bewilligungsnummer</h5>
                 </th>
+                <th>
+                    <button title="Bewilligung hinzufügen" (click)="bewilligungAlert()">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+
+                    <div class="modal fade" id="modalBewilligung" role="dialog">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Bewilligung hinzufügen</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label>Datum</label>
+                                        <my-date-picker name="date" [options]="myDatePickerOptionsGr" [(ngModel)]="datl"></my-date-picker>
+                                        <br>
+                                        <label>Bewilligungsnummer</label>
+                                        <input class="form-control" name="bewnr">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">speichern</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </th>
             </tr>
             <tbody>
                 <tr>
@@ -138,6 +260,11 @@
                     </td>
                     <td>
                         <input class="form-control" name="bewnr">
+                    </td>
+                    <td>
+                        <button title="Verordnung löschen" (click)="deleteVerordnung(verordnung)">
+                            <span class="glyphicon glyphicons-tick"></span>
+                        </button>
                     </td>
 
                 </tr>

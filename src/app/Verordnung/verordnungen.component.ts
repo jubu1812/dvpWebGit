@@ -3,6 +3,9 @@ import { PatientendatenService } from "../patientendaten.service";
 import { Verordnung } from 'app/Verordnung/Verordnung';
 import { IMyDpOptions } from 'mydatepicker';
 
+
+declare var $: any;
+
 @Component({
   selector: 'app-verordnungen',
   templateUrl: './verordnungen.component.html',
@@ -13,7 +16,7 @@ export class VerordnungenComponent implements OnInit {
 
   kostentraegerArray;
   currPatient;
-  
+
 
   public myDatePickerOptions: IMyDpOptions = {
     // other options...
@@ -23,7 +26,7 @@ export class VerordnungenComponent implements OnInit {
     todayBtnTxt: "Heute",
     firstDayOfWeek: "mo",
     sunHighlight: true,
-    
+
   };
   public myDatePickerOptionsGr: IMyDpOptions = {
     // other options...
@@ -33,10 +36,30 @@ export class VerordnungenComponent implements OnInit {
     todayBtnTxt: "Heute",
     firstDayOfWeek: "mo",
     sunHighlight: true,
-    width:"45%"
+    width: "45%"
   };
+
+
+  diagnoseAlert() {
+    $("#modalDiagose").modal();
+
+  }
+  leistungenAlert() {
+    $("#modalLeistungen").modal();
+
+  }
+  leistungserbringerAlert() {
+    $("#modalLeistungserbringer").modal();
+
+  }
+  bewilligungAlert() {
+    $("#modalBewilligung").modal();
+
+  }
+
+
   //verordnungenListe : Array<any>;
-  constructor(private PatientendatenService: PatientendatenService) { 
+  constructor(private PatientendatenService: PatientendatenService) {
     this.currPatient = this.PatientendatenService.getCurrPatient();
   }
 
@@ -44,7 +67,7 @@ export class VerordnungenComponent implements OnInit {
     this.PatientendatenService.getAlleKostentraeger().subscribe(data => {
       this.kostentraegerArray = data;
     });
-    
+
   }
 
   /* getVerordungen(){    
@@ -73,15 +96,3 @@ export class VerordnungenComponent implements OnInit {
 
  }*/
 
-
-/*public KUNDENNR:number,
-public VOID: number,
-public KOSTENTRAEGER:string,
-public VPNRV: string,
-public ZUNAV: string,
-public VDATUM: Date,
-
-public diagnosen: Array<Diagnose>,
-public leistungen: Array<Leistung>,
-public bewilligungen: Array<Bewilligung>,
-public leistungserbringungen: Array<Leistungserbringung>*/
