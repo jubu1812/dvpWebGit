@@ -3,6 +3,10 @@ import { Patient } from "./Patientenverwaltung/Patient";
 import { Http, Response, Request } from "@angular/http";
 import 'rxjs/add/operator/map';
 import { PatientId } from 'app/Patientenverwaltung/PatientId';
+import { Verordnung } from './Verordnung/Verordnung';
+import { Diagnose } from './Verordnung/Diagnose';
+import { Bewilligung } from './Verordnung/Bewilligung';
+import { Leistung } from './Verordnung/Leistung';
 
 @Injectable()
 export class PatientendatenService {
@@ -32,14 +36,21 @@ export class PatientendatenService {
     console.log(patient.id.vsnrp);
   }
 
-  /*getAllVerordnungen(): any{
-    let data = {
-   "VPNRV":""
-      
-    };
-    let verordnungen=this.http.post('http://localhost:8080/???',data).map(response => response.json() as any);//RICHTIG LINK NOCH
-    return verordnungen;
-  }*/
+  createVerordnung(verordnung: Verordnung): void {
+    this.http.post('http://localhost:8080/createVerordnung', verordnung).subscribe();
+  }
+
+  createDiagnosen(diagnosen:Diagnose[]){
+    this.http.post('http://localhost:8080/createDiagnosen', diagnosen).subscribe();
+  }
+
+  createBewilligungen(bewilligungen:Bewilligung[]){
+    this.http.post('http://localhost:8080/createBewilligungen', bewilligungen).subscribe();
+  }
+  
+  createLeistungen(leistungen:Leistung[]){
+    this.http.post('http://localhost:8080/createLeistungen', leistungen).subscribe();
+  }
 
   getPatientById(id: PatientId) {
     var currentPatient = this.http.post('http://localhost:8080/patientById', id).map(x => (x.text() ? x.json() : null) as any);
@@ -51,6 +62,22 @@ export class PatientendatenService {
     let kostentraeger = this.http.post('http://localhost:8080/alleKostentraeger', data).map(response => response.json() as any);
     return kostentraeger;
   }
+
+  getVerordnungenByPatientId(svnrp: number){    
+    let patientenId = new PatientId(this.currKundennummer, svnrp);
+    let verordnungen = this.http.post('http://localhost:8080/getVerordnungenByVSNRP', patientenId).map(response => response.json() as any);
+    return verordnungen;
+  }
+
+  getVerordnungenBySendungId(sendungId: number){    
+    /*
+    let patientenId = new PatientId(this.currKundennummer, sendungId);
+
+    let verordnungen = this.http.post('http://localhost:8080/getVerordnungenBysendungid', patientenId).map(response => response.json() as any);
+    return verordnungen;
+    */
+  }
+
 }
 
 
