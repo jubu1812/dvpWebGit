@@ -65,7 +65,7 @@
                                     <input class="form-control" name="diagn">
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">speichern</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveDiagnose()">speichern</button>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                                         <input class="form-control" name="anz">
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">speichern</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveLeistung()">speichern</button>
                                     </div>
                                 </div>
                             </div>
@@ -194,7 +194,7 @@
                                     <input class="form-control" name="zunt">
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">speichern</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveLeistungserbringer()">speichern</button>
                                 </div>
                             </div>
                         </div>
@@ -246,7 +246,7 @@
                                         <input class="form-control" name="bewnr">
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">speichern</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveBewilligung()">speichern</button>
                                     </div>
                                 </div>
                             </div>
@@ -262,7 +262,7 @@
                         <input class="form-control" name="bewnr">
                     </td>
                     <td>
-                        <button title="Verordnung löschen" (click)="deleteVerordnung(verordnung)">
+                        <button title="bearbeiten">
                             <span class="glyphicon glyphicons-tick"></span>
                         </button>
                     </td>

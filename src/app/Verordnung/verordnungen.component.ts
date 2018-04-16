@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { PatientendatenService } from "../patientendaten.service";
 import { Verordnung } from 'app/Verordnung/Verordnung';
 import { IMyDpOptions } from 'mydatepicker';
-
+import { Diagnose } from "./Diagnose";
+import { Leistung } from "./Leistung";
+import { Leistungserbringer } from "./Leistungserbringer";
+import { Bewilligung } from "./Bewilligung";
 
 declare var $: any;
 
@@ -57,6 +60,37 @@ export class VerordnungenComponent implements OnInit {
 
   }
 
+  saveDiagnose() {
+    let datd: Date = $('#date').val();
+    let diagn: string = $('#diagn').val().toString();
+    // let vo_id: ??;
+
+    //let diagnose:new Diagnose (datd,diagn,vo_id);
+  }
+  saveLeistungen() {
+     let datl: Date = $('#date').val();
+     let posnr: string = $('#posnr').val().toString();
+     let anz: number  = $('#anz').val();
+
+    // let vo_id: ??;
+
+    //let leistung:new Leistung (datd,diagn,vo_id);
+  }
+
+  saveLeistungserbringer() {
+    let vpnrt: string = $('#vpnrt').val().toString();
+    let zunt: string = $('#zunt').val().toString();
+
+    // let leistungserbringer: new Leistungserbringer (datd, diagn, vo_id);
+  }
+
+  saveBewilligung() {
+    let bewnr: string = $('#date').val();
+    let bdat: Date = $('#date').val();
+    // let vo_id: number
+
+    //let bewilligung= new Bewilligung(bewnr, bdat, vo_id);
+  }
 
   //verordnungenListe : Array<any>;
   constructor(private PatientendatenService: PatientendatenService) {
