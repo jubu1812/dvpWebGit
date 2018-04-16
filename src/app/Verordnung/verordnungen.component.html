@@ -152,14 +152,14 @@
     <div class="patient">
         <h4>Verordner</h4>
         <label>VPNr</label>
-        <input id="svnr" class="form-control" name="vsnrp" nr [(ngModel)]="vsnrp" #vsnrpat="ngModel">
+        <input id="vpnrv" class="form-control" name="vpnrv">
         <br>
         <label>Name</label>
-        <input class="form-control">
+        <input class="form-control" name="zunav" id="zunav">
         <br>
         <label>Datum</label>
 
-        <my-date-picker class="datepicker" name="date" [options]="myDatePickerOptionsGr" [(ngModel)]="vadatum"></my-date-picker>
+        <my-date-picker class="datepicker" name="vadatum" id="vadatum" [options]="myDatePickerOptionsGr"></my-date-picker>
 
 
     </div>

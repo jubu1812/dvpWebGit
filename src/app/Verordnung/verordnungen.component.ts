@@ -60,12 +60,16 @@ export class VerordnungenComponent implements OnInit {
 
   }
 
+  saveVerordnung(){
+    let vpnrv:string = $('#date').val();
+  }
+
   saveDiagnose() {
     let datd: Date = $('#date').val();
     let diagn: string = $('#diagn').val().toString();
     // let vo_id: ??;
 
-    //let diagnose:new Diagnose (datd,diagn,vo_id);
+    //let diagnose = new Diagnose (datd,diagn,vo_id);
   }
   saveLeistungen() {
      let datl: Date = $('#date').val();
@@ -81,7 +85,7 @@ export class VerordnungenComponent implements OnInit {
     let vpnrt: string = $('#vpnrt').val().toString();
     let zunt: string = $('#zunt').val().toString();
 
-    // let leistungserbringer: new Leistungserbringer (datd, diagn, vo_id);
+    // let leistungserbringer= new Leistungserbringer (datd, diagn, vo_id);
   }
 
   saveBewilligung() {
