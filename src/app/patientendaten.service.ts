@@ -36,8 +36,9 @@ export class PatientendatenService {
     console.log(patient.id.vsnrp);
   }
 
-  createVerordnung(verordnung: Verordnung): void {
-    this.http.post('http://localhost:8080/createVerordnung', verordnung).subscribe();
+  createVerordnung(verordnung: Verordnung): VerordnungId {
+    var currVerordnungId = this.http.post('http://localhost:8080/createVerordnung', verordnung).map(x => (x.text() ? x.json() : null) as any);
+    return currVerordnungId;
   }
 
   createDiagnosen(diagnosen:Diagnose[]){
