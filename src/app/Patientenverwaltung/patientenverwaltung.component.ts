@@ -78,7 +78,7 @@ export class PatientenverwaltungComponent implements OnInit {
 
     let koId = 0;
 
-    if(this.currPatient.kostentraeger_id!==null){
+    if(typeof this.currPatient !=='undefined'){
       koId = this.currPatient.kostentraeger_id;
     }
 
