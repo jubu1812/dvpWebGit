@@ -65,14 +65,14 @@ export class VerordnungenComponent implements OnInit {
   }
 
   saveDiagnose() {
-    let datd: Date = $('#date').val();
+    let datd: Date = $('#datd').val();
     let diagn: string = $('#diagn').val().toString();
     // let vo_id: ??;
 
     //let diagnose = new Diagnose (datd,diagn,vo_id);
   }
   saveLeistungen() {
-     let datl: Date = $('#date').val();
+     let datl: Date = $('#datl').val();
      let posnr: string = $('#posnr').val().toString();
      let anz: number  = $('#anz').val();
 
@@ -90,7 +90,7 @@ export class VerordnungenComponent implements OnInit {
 
   saveBewilligung() {
     let bewnr: string = $('#date').val();
-    let bdat: Date = $('#date').val();
+    let bdat: Date = $('#bewnr').val();
     // let vo_id: number
 
     //let bewilligung= new Bewilligung(bewnr, bdat, vo_id);
