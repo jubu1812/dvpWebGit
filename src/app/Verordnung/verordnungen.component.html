@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <label>Datum</label>
-                                    <my-date-picker class="datepicker" name="date" [options]="myDatePickerOptionsGr" [(ngModel)]="datd"></my-date-picker>
+                                    <my-date-picker class="datepicker" name="datd" [options]="myDatePickerOptionsGr" [(ngModel)]="datd"></my-date-picker>
                                     <br>
                                     <label>Text</label>
                                     <input class="form-control" name="diagn">
@@ -112,7 +112,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <label>Datum</label>
-                                        <my-date-picker class="datepicker" name="date" [options]="myDatePickerOptionsGr" [(ngModel)]="vadatum"></my-date-picker>
+                                        <my-date-picker class="datepicker" name="datl" [options]="myDatePickerOptionsGr" [(ngModel)]="vadatum"></my-date-picker>
                                         <br>
                                         <label>PosNr</label>
                                         <input class="form-control" name="posnr">
@@ -130,7 +130,7 @@
                     </th>
                 </tr>
                 <tbody>
-                    <tr>
+                    <!--tr>
                         <td>
                             <my-date-picker name="date" [options]="myDatePickerOptions" [(ngModel)]="datl"></my-date-picker>
                         </td>
@@ -142,7 +142,7 @@
                         </td>
                         <td>
 
-                        </td>
+                        </td-->
 
 
                     </tr>
@@ -232,29 +232,29 @@
                     </button>
 
                     <div class="modal fade" id="modalBewilligung" role="dialog">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Bewilligung hinzufügen</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <label>Datum</label>
-                                        <my-date-picker name="date" [options]="myDatePickerOptionsGr" [(ngModel)]="datl"></my-date-picker>
-                                        <br>
-                                        <label>Bewilligungsnummer</label>
-                                        <input class="form-control" name="bewnr">
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveBewilligung()">speichern</button>
-                                    </div>
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Bewilligung hinzufügen</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <label>Datum</label>
+                                    <my-date-picker name="bdat" [options]="myDatePickerOptionsGr" [(ngModel)]="datl"></my-date-picker>
+                                    <br>
+                                    <label>Bewilligungsnummer</label>
+                                    <input class="form-control" name="bewnr">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveBewilligung()">speichern</button>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </th>
             </tr>
             <tbody>
-                <tr>
+                <!--tr>
                     <td>
                         <my-date-picker name="date" [options]="myDatePickerOptions" [(ngModel)]="datl"></my-date-picker>
                     </td>
@@ -267,7 +267,7 @@
                         </button>
                     </td>
 
-                </tr>
+                </tr-->
         </table>
 
     </div>
