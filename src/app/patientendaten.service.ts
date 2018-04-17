@@ -7,6 +7,7 @@ import { Verordnung } from './Verordnung/Verordnung';
 import { Diagnose } from './Verordnung/Diagnose';
 import { Bewilligung } from './Verordnung/Bewilligung';
 import { Leistung } from './Verordnung/Leistung';
+import { VerordnungsId } from './Verordnung/VerordnungId';
 
 @Injectable()
 export class PatientendatenService {
@@ -31,12 +32,12 @@ export class PatientendatenService {
     this.currKundennummer = kundennummer;
   }
 
-  createPatient(patient: Patient): void {
+  createPatient(patient: Patient) {
     this.http.post('http://localhost:8080/createPatient', patient).subscribe();
     console.log(patient.id.vsnrp);
   }
 
-  createVerordnung(verordnung: Verordnung): VerordnungId {
+  createVerordnung(verordnung: Verordnung){
     var currVerordnungId = this.http.post('http://localhost:8080/createVerordnung', verordnung).map(x => (x.text() ? x.json() : null) as any);
     return currVerordnungId;
   }
@@ -70,13 +71,11 @@ export class PatientendatenService {
     return verordnungen;
   }
 
-  getVerordnungenBySendungId(sendungId: number){    
-    /*
+  getVerordnungenBySendungId(sendungId: number){        
     let patientenId = new PatientId(this.currKundennummer, sendungId);
 
     let verordnungen = this.http.post('http://localhost:8080/getVerordnungenBysendungid', patientenId).map(response => response.json() as any);
-    return verordnungen;
-    */
+    return verordnungen;    
   }
 
 }
