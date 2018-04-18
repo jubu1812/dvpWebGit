@@ -1,7 +1,13 @@
-export class Bewilligung{
+export class Bewilligung {
+    public vo_id: number;
+    public bewnr: string;
+    public bdat: Date;
+
     constructor(
-        public bewnr: string,
-        public bdat: Date,
-        public vo_id: number
-    ){}
+        bewnr: string,
+        bdat: Date
+    ) {
+        this.bewnr = bewnr;
+        this.bdat = bdat;
+    }
 }

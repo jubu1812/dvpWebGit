@@ -47,9 +47,10 @@
                 </th>
                 <th>
 
-                    <button title="Diagnose hinzufügen" (click)="diagnoseAlert()">
+                    <button class="btn btn-primary btn-sm" title="Diagnose hinzufügen" (click)="diagnoseAlert()">
                         <span class="glyphicon glyphicon-plus"></span>
                     </button>
+
                     <div class="modal fade" id="modalDiagose" role="dialog">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -59,7 +60,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <label>Datum</label>
-                                    <my-date-picker class="datepicker" name="datd" [options]="myDatePickerOptionsGr" [(ngModel)]="datd"></my-date-picker>
+                                    <my-date-picker class="datepicker" name="datd" [options]="myDatePickerOptionsGr"></my-date-picker>
                                     <br>
                                     <label>Text</label>
                                     <input class="form-control" name="diagn">
@@ -74,14 +75,10 @@
             </tr>
 
             <tbody>
-                <!--tr>
-                    <td>
-                        <my-date-picker name="date" [options]="myDatePickerOptions" [(ngModel)]="datd"></my-date-picker>
-                    </td>
-                    <td>
-                        <input class="form-control" name="diagn">
-                    </td>
-                </tr-->
+                <tr *ngFor="let diagnose of diagnosen">
+                    <td>{{diagnose.datd}}</td>
+                    <td>{{diagnose.diagn}}</td>
+                </tr>
         </table>
 
         <br>
@@ -100,7 +97,7 @@
                     </th>
                     <th>
 
-                        <button title="Leistung hinzufügen" (click)="leistungenAlert()">
+                        <button class="btn btn-primary btn-sm" title="Leistung hinzufügen" (click)="leistungenAlert()">
                             <span class="glyphicon glyphicon-plus"></span>
                         </button>
                         <div class="modal fade" id="modalLeistungen" role="dialog">
@@ -112,7 +109,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <label>Datum</label>
-                                        <my-date-picker class="datepicker" name="datl" [options]="myDatePickerOptionsGr" [(ngModel)]="vadatum"></my-date-picker>
+                                        <my-date-picker class="datepicker" name="datl" [options]="myDatePickerOptionsGr"></my-date-picker>
                                         <br>
                                         <label>PosNr</label>
                                         <input class="form-control" name="posnr">
@@ -130,7 +127,7 @@
                     </th>
                 </tr>
                 <tbody>
-                    <tr *ngFor="leistung of leistungen">
+                    <tr *ngFor="let leistung of leistungen">
                         <td>{{leistung.datl}}</td>
                         <td>{{leistung.posnr}}</td>
                         <td>{{leistung.anz}}</td>
@@ -166,7 +163,7 @@
                     <h5>Nachname</h5>
                 </th>
                 <th>
-                    <button title="Leistungserbringer hinzufügen" (click)="leistungserbringerAlert()">
+                    <button class="btn btn-primary btn-sm" title="Leistungserbringer hinzufügen" (click)="leistungserbringerAlert()">
                         <span class="glyphicon glyphicon-plus"></span>
                     </button>
                     <div class="modal fade" id="modalLeistungserbringer" role="dialog">
@@ -217,7 +214,7 @@
                     <h5>Bewilligungsnummer</h5>
                 </th>
                 <th>
-                    <button title="Bewilligung hinzufügen" (click)="bewilligungAlert()">
+                    <button class="btn btn-primary btn-sm" title="Bewilligung hinzufügen" (click)="bewilligungAlert()">
                         <span class="glyphicon glyphicon-plus"></span>
                     </button>
 
@@ -230,7 +227,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <label>Datum</label>
-                                    <my-date-picker name="bdat" [options]="myDatePickerOptionsGr" [(ngModel)]="datl"></my-date-picker>
+                                    <my-date-picker name="bdat" [options]="myDatePickerOptionsGr"></my-date-picker>
                                     <br>
                                     <label>Bewilligungsnummer</label>
                                     <input class="form-control" name="bewnr">
@@ -244,7 +241,7 @@
                 </th>
             </tr>
             <tbody>
-                <tr *ngFor="bewilligung of bewilligungen">
+                <tr *ngFor="let bewilligung of bewilligungen">
                     <td>{{bewilligung.bdat}}</td>
                     <td>{{bewilligung.bewnr}}</td>
                 </tr>
