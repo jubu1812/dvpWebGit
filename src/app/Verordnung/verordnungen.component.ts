@@ -18,9 +18,14 @@ declare var $: any;
 export class VerordnungenComponent implements OnInit {
 
   kostentraegerArray;
-  currPatient;
+  currPatient;   
+  vo_id: number=0;
 
-
+  diagnosen:Diagnose[];//4 Arrays erstellen, Verordnungskonstruktor Arrays rein
+  leistungen:Leistung[];
+  bewilligungen:Bewilligung[];
+  leistungserbringer:Leistungserbringer[];
+  
   public myDatePickerOptions: IMyDpOptions = {
     // other options...
     dayLabels: { su: "So", mo: "Mo", tu: "Di", we: "Mi", th: "Do", fr: "Fr", sa: "Sa" },
@@ -45,6 +50,7 @@ export class VerordnungenComponent implements OnInit {
 
   diagnoseAlert() {
     $("#modalDiagose").modal();
+  
 
   }
   leistungenAlert() {
@@ -67,35 +73,34 @@ export class VerordnungenComponent implements OnInit {
   saveDiagnose() {
     let datd: Date = $('#datd').val();
     let diagn: string = $('#diagn').val().toString();
-    // let vo_id: ??;
-
-    //let diagnose = new Diagnose (datd,diagn,vo_id);
+    let diagnose = new Diagnose (datd,diagn,this.vo_id);
+    this.diagnosen.push(diagnose);
   }
   saveLeistungen() {
      let datl: Date = $('#datl').val();
      let posnr: string = $('#posnr').val().toString();
      let anz: number  = $('#anz').val();
-
-    // let vo_id: ??;
-
-    //let leistung:new Leistung (datd,diagn,vo_id);
+     let leistung = new Leistung (datl, posnr,anz, this.vo_id);
+     this.leistungen.push(leistung);
   }
 
   saveLeistungserbringer() {
     let vpnrt: string = $('#vpnrt').val().toString();
     let zunt: string = $('#zunt').val().toString();
-
-    // let leistungserbringer= new Leistungserbringer (datd, diagn, vo_id);
+    let leistungserbringerVar= new Leistungserbringer (vpnrt, zunt);
+    this.leistungserbringer.push(leistungserbringerVar);
   }
 
   saveBewilligung() {
     let bewnr: string = $('#date').val();
     let bdat: Date = $('#bewnr').val();
-    // let vo_id: number
-
-    //let bewilligung= new Bewilligung(bewnr, bdat, vo_id);
+    let bewilligung= new Bewilligung(bewnr, bdat, this.vo_id);
+    this.bewilligungen.push(bewilligung);
   }
 
+  saveVerordung(){
+    
+  }
   //verordnungenListe : Array<any>;
   constructor(private PatientendatenService: PatientendatenService) {
     this.currPatient = this.PatientendatenService.getCurrPatient();
@@ -107,30 +112,4 @@ export class VerordnungenComponent implements OnInit {
     });
 
   }
-
-  /* getVerordungen(){    
-        this.PatientendatenService.getAllVerordnungen().subscribe(
-        data => {
-          this.verordnungenListe = data;
-        }
-      )
-    }*/
 }
-
-
- /*getVerordnung(number svnr) {
-    let VSNRP: number = parseInt($('#VSNRP').val().toString()); 
-    let VONAP: string = $('#VONAP').val().toString();
-    let ZUNAP: string = $('#ZUNAP').val().toString();
-    let STRA: string = $('#STRA').val().toString();
-    let PLZL: number = parseInt($('#PLZL').val().toString());   
-    let ORT: string = $('#ORT').val().toString();
-    let LAND: string = $('#LAND').val().toString();
-    let VSNRA: number =  parseInt($('#VSNRA').val().toString()); 
-    let VONVS: string = $('#VONVS').val().toString();
-    let ZUNVS: string = $('#ZUNVS').val().toString();
-
-    let patient= new Patient(123,VSNRP,VONAP,ZUNAP,STRA,PLZL,ORT,LAND,"blabla",VSNRA,VONVS,ZUNVS);
-
- }*/
-
