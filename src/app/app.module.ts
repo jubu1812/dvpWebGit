@@ -10,6 +10,7 @@ import { SendungComponent } from './sendung/sendung.component';
 import { VerordnungenComponent } from 'app/verordnung/verordnungen.component';
 import { Routes, RouterModule } from '@angular/router';
 import {PatientendatenService} from 'app/patientendaten.service';
+import { CommonModule } from '@angular/common';
 
 export const ROUTES: Routes = [
   {
@@ -37,6 +38,7 @@ export const ROUTES: Routes = [
     FormsModule,
     HttpModule,
     MyDatePickerModule,
+    CommonModule,
     RouterModule.forRoot(ROUTES)   
   ],
   providers: [PatientendatenService],

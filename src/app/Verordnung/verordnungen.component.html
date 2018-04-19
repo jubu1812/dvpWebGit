@@ -60,7 +60,8 @@
                                 </div>
                                 <div class="modal-body">
                                     <label>Datum</label>
-                                    <my-date-picker class="datepicker" id="datd" [options]="myDatePickerOptionsGr"></my-date-picker>
+                                    <!--<my-date-picker class="datepicker" id="datd" [options]="myDatePickerOptionsGr" [(ngModel)]="datd"></my-date-picker>-->
+                                    <input type="date" id="datd" class="form-control">
                                     <br>
                                     <label>Text</label>
                                     <input class="form-control" id="diagn">
@@ -76,7 +77,7 @@
 
             <tbody>
                 <tr *ngFor="let diagnose of diagnosen">
-                    <td>{{diagnose.datd}}</td>
+                    <td>{{diagnose.datd | date:'dd.MM.yyyy'}}</td>
                     <td>{{diagnose.diagn}}</td>
                 </tr>
         </table>

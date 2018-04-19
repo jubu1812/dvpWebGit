@@ -7,6 +7,7 @@ import { Leistung } from "./Leistung";
 import { Leistungserbringer } from "./Leistungserbringer";
 import { Bewilligung } from "./Bewilligung";
 
+
 declare var $: any;
 
 @Component({
@@ -26,7 +27,6 @@ export class VerordnungenComponent implements OnInit {
   leistungen:Leistung[];
   bewilligungen:Bewilligung[];
   leistungserbringer:Leistungserbringer[];
-
   //verordnungenListe : Array<any>;
   constructor(private PatientendatenService: PatientendatenService) {
     this.currPatient = this.PatientendatenService.getCurrPatient();
@@ -120,12 +120,13 @@ export class VerordnungenComponent implements OnInit {
   }
 
   saveDiagnose() {
-    let datd: Date = $('#datd').val(); //wieeee???
+    let datd: Date = $('#datd').val();
     let diagn: string = $('#diagn').val().toString();
     let diagnose = new Diagnose (datd,diagn);
     this.diagnosen.push(diagnose);
   }
-  saveLeistungen() {
+
+  saveLeistung() {
      let datl: Date = $('#datl').val();
      let posnr: string = $('#posnr').val().toString();
      let anz: number  = $('#anz').val();
