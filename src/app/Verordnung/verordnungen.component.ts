@@ -26,6 +26,21 @@ export class VerordnungenComponent implements OnInit {
   leistungen:Leistung[];
   bewilligungen:Bewilligung[];
   leistungserbringer:Leistungserbringer[];
+
+  //verordnungenListe : Array<any>;
+  constructor(private PatientendatenService: PatientendatenService) {
+    this.currPatient = this.PatientendatenService.getCurrPatient();
+    this.diagnosen = [];
+    this.leistungen = [];
+    this.bewilligungen = [];
+    this.leistungserbringer = [];
+  }
+
+  ngOnInit() {
+    this.PatientendatenService.getAlleKostentraeger().subscribe(data => {
+      this.kostentraegerArray = data;
+    });
+  }
   
   public myDatePickerOptions: IMyDpOptions = {
     // other options...
@@ -105,10 +120,8 @@ export class VerordnungenComponent implements OnInit {
   }
 
   saveDiagnose() {
-    let datd: Date = $('#datd').val();
-    console.log(datd);
+    let datd: Date = $('#datd').val(); //wieeee???
     let diagn: string = $('#diagn').val().toString();
-    console.log(diagn);
     let diagnose = new Diagnose (datd,diagn);
     this.diagnosen.push(diagnose);
   }
@@ -134,14 +147,5 @@ export class VerordnungenComponent implements OnInit {
     this.bewilligungen.push(bewilligung);
   }
 
-  //verordnungenListe : Array<any>;
-  constructor(private PatientendatenService: PatientendatenService) {
-    this.currPatient = this.PatientendatenService.getCurrPatient();
-  }
-
-  ngOnInit() {
-    this.PatientendatenService.getAlleKostentraeger().subscribe(data => {
-      this.kostentraegerArray = data;
-    });
-  }
+  
 }

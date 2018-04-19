@@ -60,10 +60,10 @@
                                 </div>
                                 <div class="modal-body">
                                     <label>Datum</label>
-                                    <my-date-picker class="datepicker" name="datd" [options]="myDatePickerOptionsGr"></my-date-picker>
+                                    <my-date-picker class="datepicker" id="datd" [options]="myDatePickerOptionsGr"></my-date-picker>
                                     <br>
                                     <label>Text</label>
-                                    <input class="form-control" name="diagn">
+                                    <input class="form-control" id="diagn">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveDiagnose()">speichern</button>
@@ -109,13 +109,13 @@
                                     </div>
                                     <div class="modal-body">
                                         <label>Datum</label>
-                                        <my-date-picker class="datepicker" name="datl" [options]="myDatePickerOptionsGr"></my-date-picker>
+                                        <my-date-picker class="datepicker" id="datl" [options]="myDatePickerOptionsGr"></my-date-picker>
                                         <br>
                                         <label>PosNr</label>
-                                        <input class="form-control" name="posnr">
+                                        <input class="form-control" id="posnr">
                                         <br>
                                         <label>Anzahl</label>
-                                        <input class="form-control" name="anz">
+                                        <input class="form-control" id="anz">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveLeistung()">speichern</button>
@@ -175,10 +175,10 @@
                                 </div>
                                 <div class="modal-body">
                                     <label>Vertragspartnernummer</label>
-                                    <input class="form-control" name="vpnrt">
+                                    <input class="form-control" id="vpnrt">
                                     <br>
                                     <label>Nachname</label>
-                                    <input class="form-control" name="zunt">
+                                    <input class="form-control" id="zunt">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveLeistungserbringer()">speichern</button>
@@ -227,10 +227,10 @@
                                 </div>
                                 <div class="modal-body">
                                     <label>Datum</label>
-                                    <my-date-picker name="bdat" [options]="myDatePickerOptionsGr"></my-date-picker>
+                                    <my-date-picker id="bdat" [options]="myDatePickerOptionsGr"></my-date-picker>
                                     <br>
                                     <label>Bewilligungsnummer</label>
-                                    <input class="form-control" name="bewnr">
+                                    <input class="form-control" id="bewnr">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveBewilligung()">speichern</button>
