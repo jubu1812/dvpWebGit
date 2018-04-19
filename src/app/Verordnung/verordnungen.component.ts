@@ -106,7 +106,9 @@ export class VerordnungenComponent implements OnInit {
 
   saveDiagnose() {
     let datd: Date = $('#datd').val();
+    console.log(datd);
     let diagn: string = $('#diagn').val().toString();
+    console.log(diagn);
     let diagnose = new Diagnose (datd,diagn);
     this.diagnosen.push(diagnose);
   }
