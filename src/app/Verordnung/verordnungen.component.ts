@@ -148,5 +148,9 @@ export class VerordnungenComponent implements OnInit {
     this.bewilligungen.push(bewilligung);
   }
 
+  deleteDiagnose(d){
+    this.diagnosen.splice(this.diagnosen.indexOf(d), 1);
+  }
+
   
 }

@@ -59,8 +59,7 @@
                                     <h4 class="modal-title">Diagnose hinzufügen</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <label>Datum</label>
-                                    <!--<my-date-picker class="datepicker" id="datd" [options]="myDatePickerOptionsGr" [(ngModel)]="datd"></my-date-picker>-->
+                                    <label>Datum</label>            
                                     <input type="date" id="datd" class="form-control">
                                     <br>
                                     <label>Text</label>
@@ -79,6 +78,9 @@
                 <tr *ngFor="let diagnose of diagnosen">
                     <td>{{diagnose.datd | date:'dd.MM.yyyy'}}</td>
                     <td>{{diagnose.diagn}}</td>
+                    <td><button class="btn btn-danger btn-sm" (click)="deleteDiagnose(diagnose)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button></td>
                 </tr>
         </table>
 
