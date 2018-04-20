@@ -78,9 +78,11 @@
                 <tr *ngFor="let diagnose of diagnosen">
                     <td>{{diagnose.datd | date:'dd.MM.yyyy'}}</td>
                     <td>{{diagnose.diagn}}</td>
-                    <td><button class="btn btn-danger btn-sm" (click)="deleteDiagnose(diagnose)">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button></td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" (click)="deleteDiagnose(diagnose)">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </td>
                 </tr>
         </table>
 
@@ -112,7 +114,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <label>Datum</label>
-                                        <my-date-picker class="datepicker" id="datl" [options]="myDatePickerOptionsGr"></my-date-picker>
+                                        <input type="date" id="datl" class="form-control">
                                         <br>
                                         <label>PosNr</label>
                                         <input class="form-control" id="posnr">
@@ -134,6 +136,11 @@
                         <td>{{leistung.datl}}</td>
                         <td>{{leistung.posnr}}</td>
                         <td>{{leistung.anz}}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" (click)="deleteLeistung(leistung)">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -149,7 +156,7 @@
         <br>
         <label>Datum</label>
 
-        <my-date-picker class="datepicker" name="vadatum" id="vadatum" [options]="myDatePickerOptionsGr"></my-date-picker>
+        <input type="date" id="vadatum" class="form-control">
 
 
     </div>
@@ -230,7 +237,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <label>Datum</label>
-                                    <my-date-picker id="bdat" [options]="myDatePickerOptionsGr"></my-date-picker>
+                                    <input type="date" id="bdat" class="form-control">
                                     <br>
                                     <label>Bewilligungsnummer</label>
                                     <input class="form-control" id="bewnr">
@@ -247,6 +254,11 @@
                 <tr *ngFor="let bewilligung of bewilligungen">
                     <td>{{bewilligung.bdat}}</td>
                     <td>{{bewilligung.bewnr}}</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" (click)="deleteBewilligung(bewilligung)">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>
