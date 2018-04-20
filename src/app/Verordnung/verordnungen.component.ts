@@ -124,6 +124,7 @@ export class VerordnungenComponent implements OnInit {
     let diagn: string = $('#diagn').val().toString();
     let diagnose = new Diagnose (datd,diagn);
     this.diagnosen.push(diagnose);
+    this.leereDiagnose();
   }
 
   saveLeistung() {
@@ -132,6 +133,7 @@ export class VerordnungenComponent implements OnInit {
      let anz: number  = $('#anz').val();
      let leistung = new Leistung (datl, posnr,anz);
      this.leistungen.push(leistung);
+     this.leereLeistung();
   }
 
   /*saveLeistungserbringer() {
@@ -139,6 +141,7 @@ export class VerordnungenComponent implements OnInit {
     let zunt: string = $('#zunt').val().toString();
     let leistungserbringerVar= new Leistungserbringer (vpnrt, zunt);
     this.leistungserbringer.push(leistungserbringerVar);
+    this.leereLeistungserbringer();
   }*/
 
   saveBewilligung() {
@@ -146,11 +149,31 @@ export class VerordnungenComponent implements OnInit {
     let bdat: Date = $('#bewnr').val();
     let bewilligung= new Bewilligung(bewnr, bdat);
     this.bewilligungen.push(bewilligung);
+    this.leereBewilligung();
   }
 
   deleteDiagnose(d){
     this.diagnosen.splice(this.diagnosen.indexOf(d), 1);
   }
+
+  leereDiagnose(){
+    $('#datd').val("");
+    $('#diagn').val("");
+  }
+  leereBewilligung(){
+    $('#bewnr').val("");
+    $('#date').val("");
+  }
+  leereLeistung(){
+    $('#datl').val("");
+    $('#posnr').val("");
+    $('#posnr').val("");
+  }
+  /*leereLeistungserbringer(){
+    $('#vpnrt').val("");
+    $('#zunt').val("");
+  }*/
+
 
   
 }
