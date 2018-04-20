@@ -156,6 +156,14 @@ export class VerordnungenComponent implements OnInit {
     this.diagnosen.splice(this.diagnosen.indexOf(d), 1);
   }
 
+  deleteBewilligung(b){
+    this.bewilligungen.splice(this.bewilligungen.indexOf(b), 1);
+  }
+
+  deleteLeistung(l){
+    this.leistungen.splice(this.leistungen.indexOf(l), 1);
+  }
+
   leereDiagnose(){
     $('#datd').val("");
     $('#diagn').val("");

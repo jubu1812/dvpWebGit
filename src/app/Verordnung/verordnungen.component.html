@@ -79,7 +79,7 @@
                     <td>{{diagnose.datd | date:'dd.MM.yyyy'}}</td>
                     <td>{{diagnose.diagn}}</td>
                     <td>
-                        <button class="btn btn-danger btn-sm" (click)="deleteDiagnose(diagnose)">
+                        <button class="btn btn-danger btn-sm" (click)="deleteDiagnose(diagnose)" title="lösche Diagnose">
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
                     </td>
@@ -137,7 +137,7 @@
                         <td>{{leistung.posnr}}</td>
                         <td>{{leistung.anz}}</td>
                         <td>
-                            <button class="btn btn-danger btn-sm" (click)="deleteLeistung(leistung)">
+                            <button class="btn btn-danger btn-sm" (click)="deleteLeistung(leistung)" title="lösche Leistung">
                                 <span class="glyphicon glyphicon-remove"></span>
                             </button>
                         </td>
@@ -255,7 +255,7 @@
                     <td>{{bewilligung.bdat}}</td>
                     <td>{{bewilligung.bewnr}}</td>
                     <td>
-                        <button class="btn btn-danger btn-sm" (click)="deleteBewilligung(bewilligung)">
+                        <button class="btn btn-danger btn-sm" (click)="deleteBewilligung(bewilligung)" title="lösche Bewilligung">
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
                     </td>
