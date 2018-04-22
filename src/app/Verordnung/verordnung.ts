@@ -12,7 +12,7 @@ export class Verordnung {
     public vpnrv: string;
     public zunav: string;
     public vadatum: Date;
-    public svnrp: number;
+    public vsnrp: number;
 
     constructor(
         kundennummer: number,
@@ -20,15 +20,16 @@ export class Verordnung {
         vpnrv: string,
         zunav: string,
         vadatum: Date,
-        svnrp: number,
+        vsnrp: number,
     ) {
         //this.id=id;
         // this.sendungs_id= number;
+        this.id = new VerordnungsId();
         this.id.kundennummer = kundennummer;
         this.kostentraeger_id = kostentraeger_id;
         this.vpnrv = vpnrv;
         this.zunav = zunav;
         this.vadatum = vadatum;
-        this.svnrp = svnrp;
+        this.vsnrp = vsnrp;
     }
 }

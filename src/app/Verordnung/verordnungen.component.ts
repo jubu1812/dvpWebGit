@@ -21,7 +21,7 @@ export class VerordnungenComponent implements OnInit {
   kostentraegerArray;
   
   currPatient;   
-  vo_id: number=0;
+  vo_id: number = 0;
 
   diagnosen:Diagnose[];//4 Arrays erstellen, Verordnungskonstruktor Arrays rein
   leistungen:Leistung[];
@@ -69,15 +69,12 @@ export class VerordnungenComponent implements OnInit {
   }
   leistungenAlert() {
     $("#modalLeistungen").modal();
-
   }
   leistungserbringerAlert() {
     $("#modalLeistungserbringer").modal();
-
   }
   bewilligungAlert() {
     $("#modalBewilligung").modal();
-
   }
 
   saveVerordnung(){
@@ -90,7 +87,7 @@ export class VerordnungenComponent implements OnInit {
     this.PatientendatenService.createVerordnung(verordnung).subscribe(
       response =>{
         if(response!=null){
-          this.vo_id = response.vo_id;
+          this.vo_id = response.vo_id;        
         }
       }
     );   
