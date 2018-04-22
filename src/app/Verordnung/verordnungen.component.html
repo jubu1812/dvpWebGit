@@ -36,14 +36,9 @@
             </td>
         </tr>
         <tr>
-<<<<<<< HEAD
-            <td>
-                <select class="form-control" id="kostentraegerWidth" data-live-search="true">
-=======
             <td id="kostenträgerTab" colspan="2">
                 
-                <select class="form-control" id="kostentraegerWidth">
->>>>>>> 2545a45e495294f5b93c4e7ce7ab003ff1e6a09e
+                <select class="form-control" id="kostentraegerWidth" data-live-search="true">
                     <option selected disabled>Kostenträger auswählen</option>
                     <option *ngFor='let kostentraeger of kostentraegerArray' [value]="kostentraeger.kostentraeger_id" [selected]="kostentraeger.kostentraeger_id === currPatient?.kostentraeger_id">
                         {{kostentraeger.kostentraeger_name}}

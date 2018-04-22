@@ -2,7 +2,7 @@ export class Leistung {
     public datl: Date;
     public posnr: string;
     public anz: number;
-    public vo_id: number;
+    public vid: number;
     constructor(
         datl: Date,
         posnr: string,

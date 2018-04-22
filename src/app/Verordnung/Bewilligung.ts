@@ -1,7 +1,7 @@
 export class Bewilligung {    
     public bewnr: string;
     public bdat: Date;
-    public vo_id: number;
+    public vid: number;
 
     constructor(
         bewnr: string,

@@ -127,8 +127,9 @@ export class PatientenverwaltungComponent implements OnInit {
     );
   }
 
-  deleteVerordnung(vo_id:number){
-    this.service.
+  deleteVerordnung(vid:number){
+    this.service.deleteVerordnung(vid);
+    this.getVerordnungenByPatientId();
   }
 
   insertLoadedPatient() {

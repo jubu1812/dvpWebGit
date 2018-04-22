@@ -21,7 +21,7 @@ export class VerordnungenComponent implements OnInit {
   kostentraegerArray;
   
   currPatient;   
-  vo_id: number = 0;
+  vid: number = 0;
 
 
   diagnosen:Diagnose[];//4 Arrays erstellen, Verordnungskonstruktor Arrays rein
@@ -85,8 +85,8 @@ export class VerordnungenComponent implements OnInit {
     this.PatientendatenService.createVerordnung(verordnung).subscribe(
       response =>{
         if(response!=null){
-          this.vo_id = response;  
-          console.log(this.vo_id+" "+response);
+          this.vid = response;  
+          console.log(this.vid+" "+response);
           this.saveArrays(); 
           this.PatientendatenService.setKostentraeger_id(kostentraeger_id,this.currPatient.vsnrp);        
         }
@@ -96,20 +96,20 @@ export class VerordnungenComponent implements OnInit {
 
   saveArrays(){
     for(let i = 0; i<this.diagnosen.length; i++){
-      this.diagnosen[i].vo_id = this.vo_id;
-      console.log(this.diagnosen[i].vo_id);
+      this.diagnosen[i].vid = this.vid;
+      console.log(this.diagnosen[i].vid);
       console.log(this.diagnosen[i]);
     }
     this.PatientendatenService.createDiagnosen(this.diagnosen);
 
     for(let i = 0; i<this.bewilligungen.length; i++){
-      this.bewilligungen[i].vo_id = this.vo_id;
+      this.bewilligungen[i].vid = this.vid;
     }
 
     this.PatientendatenService.createBewilligungen(this.bewilligungen);
 
     for(let i = 0; i<this.leistungen.length; i++){
-      this.leistungen[i].vo_id = this.vo_id;
+      this.leistungen[i].vid = this.vid;
     }
     
     this.PatientendatenService.createLeistungen(this.leistungen);
