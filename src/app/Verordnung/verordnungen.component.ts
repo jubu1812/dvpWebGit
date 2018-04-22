@@ -28,7 +28,7 @@ export class VerordnungenComponent implements OnInit {
   leistungen:Leistung[];
   bewilligungen:Bewilligung[];
   leistungserbringer:Leistungserbringer[];
-  //verordnungenListe : Array<any>;
+  
   constructor(private PatientendatenService: PatientendatenService) {
     this.currPatient = this.PatientendatenService.getCurrPatient();
     this.diagnosen = [];
@@ -43,8 +43,7 @@ export class VerordnungenComponent implements OnInit {
     });
   }
   
-  public myDatePickerOptions: IMyDpOptions = {
-    // other options...
+  public myDatePickerOptions: IMyDpOptions = {   
     dayLabels: { su: "So", mo: "Mo", tu: "Di", we: "Mi", th: "Do", fr: "Fr", sa: "Sa" },
     monthLabels: { 1: "Jän", 2: "Feb", 3: "Mär", 4: "Apr", 5: "Mai", 6: "Jun", 7: "Jul", 8: "Aug", 9: "Sep", 10: "Okt", 11: "Nov", 12: "Dez" },
     dateFormat: "dd.mm.yyyy",
@@ -54,7 +53,6 @@ export class VerordnungenComponent implements OnInit {
 
   };
   public myDatePickerOptionsGr: IMyDpOptions = {
-    // other options...
     dayLabels: { su: "So", mo: "Mo", tu: "Di", we: "Mi", th: "Do", fr: "Fr", sa: "Sa" },
     monthLabels: { 1: "Jän", 2: "Feb", 3: "Mär", 4: "Apr", 5: "Mai", 6: "Jun", 7: "Jul", 8: "Aug", 9: "Sep", 10: "Okt", 11: "Nov", 12: "Dez" },
     dateFormat: "dd.mm.yyyy",
@@ -63,7 +61,6 @@ export class VerordnungenComponent implements OnInit {
     sunHighlight: true,
     width: "45%"
   };
-
 
   diagnoseAlert() {
     $("#modalDiagose").modal();  
@@ -93,9 +90,7 @@ export class VerordnungenComponent implements OnInit {
           this.saveArrays();         
         }
       }
-    );   
-
-    
+    );      
   }
 
   saveArrays(){
