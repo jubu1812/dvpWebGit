@@ -142,7 +142,7 @@ export class VerordnungenComponent implements OnInit {
   }*/
 
   saveBewilligung() {
-    let bewnr: string = $('#date').val();
+    let bewnr: string = $('#bdat').val();
     let bdat: Date = $('#bewnr').val();
     let bewilligung= new Bewilligung(bewnr, bdat);
     this.bewilligungen.push(bewilligung);
@@ -167,7 +167,7 @@ export class VerordnungenComponent implements OnInit {
   }
   leereBewilligung(){
     $('#bewnr').val("");
-    $('#date').val("");
+    $('#bdat').val("");
   }
   leereLeistung(){
     $('#datl').val("");
