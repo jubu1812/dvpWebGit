@@ -1,12 +1,12 @@
-export class Diagnose{
-    public vo_id: number;
+export class Diagnose{    
     public datd: Date;
     public diagn: string;
+    public vo_id: number;
     constructor(
         datd: Date,
-        diagn: string        
+        diagn: string       
     ){
         this.datd = datd;
-        this.diagn = diagn;
+        this.diagn = diagn;        
     }
 }

@@ -1,8 +1,8 @@
-export class Leistung {
-    public vo_id: number;
+export class Leistung {    
     public datl: Date;
     public posnr: string;
     public anz: number;
+    public vo_id: number;
     constructor(
         datl: Date,
         posnr: string,

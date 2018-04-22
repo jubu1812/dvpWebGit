@@ -82,7 +82,7 @@ export class PatientenverwaltungComponent implements OnInit {
       koId = this.currPatient.kostentraeger_id;
     }
 
-    let patient = new Patient(new PatientId(this.currKundennummer, vsnr), vornap, 
+    let patient = new Patient(this.currKundennummer, vsnr, vornap, 
     zunap, stra, plzl, ort, land, koId, vsnra, vonvs, zunvs);
 
     console.log(JSON.stringify(patient));
@@ -93,7 +93,7 @@ export class PatientenverwaltungComponent implements OnInit {
   }
 
   getPatient() {
-    this.service.getPatientById(new PatientId(this.currKundennummer, parseInt(this.currSVNRP))).subscribe(
+    this.service.getPatientById(parseInt(this.currSVNRP)).subscribe(
       response => {
         if (response != null) {
           this.currPatient = response;

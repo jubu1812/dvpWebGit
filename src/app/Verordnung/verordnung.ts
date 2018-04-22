@@ -6,12 +6,13 @@ import { Leistungserbringung } from "app/Verordnung/Leistungserbringung";
 import { VerordnungsId } from "./VerordnungId";
 
 export class Verordnung {
-    public id: VerordnungsId;
+    public kundennummer:number;
+    public vo_id: number;
     public sendungs_id: number;
     public kostentraeger_id: number;
     public vpnrv: string;
     public zunav: string;
-    public vadatum: Date;
+    public vdatum: Date;
     public vsnrp: number;
 
     constructor(
@@ -19,17 +20,14 @@ export class Verordnung {
         kostentraeger_id: number,
         vpnrv: string,
         zunav: string,
-        vadatum: Date,
+        vdatum: Date,
         vsnrp: number,
     ) {
-        //this.id=id;
-        // this.sendungs_id= number;
-        this.id = new VerordnungsId();
-        this.id.kundennummer = kundennummer;
+        this.kundennummer = kundennummer;
         this.kostentraeger_id = kostentraeger_id;
         this.vpnrv = vpnrv;
         this.zunav = zunav;
-        this.vadatum = vadatum;
+        this.vdatum = vdatum;
         this.vsnrp = vsnrp;
     }
 }

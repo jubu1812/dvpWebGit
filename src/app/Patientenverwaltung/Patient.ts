@@ -2,7 +2,8 @@ import { PatientId } from "app/Patientenverwaltung/PatientId";
 
 export class Patient {
 
-    public id: PatientId;
+    public vsnrp:number;
+    public kundennummer:number;    
     public vonap: string;
     public zunap: string;
     public stra: string;
@@ -15,7 +16,9 @@ export class Patient {
     public vonvs: string;
     public zunvs: string;
 
-    constructor(id: PatientId,
+    constructor(
+        vsnrp:number,
+        kundennummer:number,    
         vonap: string,
         zunap: string,
         stra: string,
@@ -28,7 +31,8 @@ export class Patient {
         vonvs: string,
         zunvs: string
     ) {
-        this.id = id;
+        this.vsnrp = vsnrp;
+        this.kundennummer = kundennummer;
         this.vonap = vonap;
         this.zunap = zunap;
         this.stra = stra;

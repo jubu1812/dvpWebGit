@@ -13,7 +13,7 @@
             <td>
                 <div class="patient">
                     <h5>Patient</h5>
-                    <p>{{currPatient?.id.vsnrp}}
+                    <p>{{currPatient?.vsnrp}}
                         <br> {{currPatient?.vonap}} {{currPatient?.zunap}}
                     </p>
                 </div>
@@ -21,7 +21,7 @@
             <td>
                 <div *ngIf="currPatient?.vsnra!==0" class="patient">
                     <h5>Hauptversicherter</h5>
-                    {{currPatient?.id.vsnra}}
+                    {{currPatient?.vsnra}}
                     <br>
                     <p>{{currPatient?.vonvs}} {{currPatient?.zunvs}}
                     </p>

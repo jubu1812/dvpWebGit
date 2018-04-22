@@ -34,7 +34,7 @@ export class PatientendatenService {
 
   createPatient(patient: Patient) {
     this.http.post('http://localhost:8080/createPatient', patient).subscribe();
-    console.log(patient.id.vsnrp);
+    console.log(patient.vsnrp);
   }
 
   createVerordnung(verordnung: Verordnung){
@@ -54,7 +54,8 @@ export class PatientendatenService {
     this.http.post('http://localhost:8080/createLeistungen', leistungen).subscribe();
   }
 
-  getPatientById(id: PatientId) {
+  getPatientById(vsnrp:number) {
+    var id:PatientId = new PatientId(this.currKundennummer, vsnrp);
     var currentPatient = this.http.post('http://localhost:8080/patientById', id).map(x => (x.text() ? x.json() : null) as any);
     return currentPatient;
   }
