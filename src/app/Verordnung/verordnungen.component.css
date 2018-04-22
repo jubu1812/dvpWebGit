@@ -5,23 +5,12 @@
 	position: relative;
 }
 
-#positionSave{
-    float:right;
-      
-  }
+button{
+     float:right;
+}
   
-.patient{
-    padding:0;
-    margin: 0;
-    padding-right: 25px;
-    display: inline-block;
-    position: relative;
-    width: 45%;
-   float:left;
-  }
-
 input{
-	width: 45%;
+	width:300px;
     margin:0px;
     display: inline-block;  
 }
@@ -31,6 +20,31 @@ label{
     display: inline-block;
 }
 
+table{
+    width:100%;
+}
+
+.patient{
+    padding:0;
+    margin: 0;
+    padding-right: 25px;
+    display: inline-block;
+    position: relative;
+   width: 45%;
+   float:left;
+  }
+
 #kostentraegerWidth{
     width: 40%;
+}
+
+#rowLeistBewill{
+    padding:25px;
+}
+#verordnerDiv{
+    width:100%;
+}
+
+td{
+    padding-right:20px;
 }
