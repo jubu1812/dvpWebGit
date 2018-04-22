@@ -1,4 +1,9 @@
-<div id="wrapper">
+<div *ngIf="currPatient==undefined" >
+
+    Sie müssen auf das Patientenverwaltung einen Patienten auswählen um mit den Verordungungen arbeiten zu können!
+</div>
+
+<div id="wrapper" *ngIf="currPatient!==undefined">
     <br>
     <div>
         <form class="form-inline my-2 my-lg-0">
@@ -232,7 +237,6 @@
         <tr>
             <td>
                 <div>
-                    <br>
                     <h4>Leistungserbringer</h4>
                     <table class="table table-hover ">
                         <tr>
