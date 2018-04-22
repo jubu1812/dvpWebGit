@@ -47,7 +47,7 @@ export class PatientenverwaltungComponent implements OnInit {
       vsnr = parseInt(vsnr);
     }
     else {
-      vsnr = 0;
+      //vsnr = 0;
     }
 
     let vornap: string = $('#VONAP').val().toString();
@@ -82,7 +82,7 @@ export class PatientenverwaltungComponent implements OnInit {
       koId = this.currPatient.kostentraeger_id;
     }
 
-    let patient = new Patient(this.currKundennummer, vsnr, vornap, 
+    let patient = new Patient(vsnr,this.currKundennummer, vornap, 
     zunap, stra, plzl, ort, land, koId, vsnra, vonvs, zunvs);
 
     console.log(JSON.stringify(patient));
