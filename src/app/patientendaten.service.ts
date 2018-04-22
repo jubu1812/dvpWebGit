@@ -93,7 +93,7 @@ export class PatientendatenService {
       "vo_id":vo_id,
       "kundennummer":this.currKundennummer
     }
-    this.http.post('http://localhost:8080/deleteVerordnung', vo_id).subscribe();
+    this.http.post('http://localhost:8080/deleteVerordnung', container).subscribe();
   }
 
 }

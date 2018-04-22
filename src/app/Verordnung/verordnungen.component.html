@@ -36,8 +36,14 @@
             </td>
         </tr>
         <tr>
+<<<<<<< HEAD
             <td>
                 <select class="form-control" id="kostentraegerWidth" data-live-search="true">
+=======
+            <td id="kostenträgerTab" colspan="2">
+                
+                <select class="form-control" id="kostentraegerWidth">
+>>>>>>> 2545a45e495294f5b93c4e7ce7ab003ff1e6a09e
                     <option selected disabled>Kostenträger auswählen</option>
                     <option *ngFor='let kostentraeger of kostentraegerArray' [value]="kostentraeger.kostentraeger_id" [selected]="kostentraeger.kostentraeger_id === currPatient?.kostentraeger_id">
                         {{kostentraeger.kostentraeger_name}}
@@ -208,7 +214,7 @@
                                                 <label>Datum</label>
                                                 <input type="date" id="bdat" class="form-control">
                                                 <br>
-                                                <label>Bewilligungsnummer</label>
+                                                <label>Bewilligungsnr.</label>
                                                 <input class="form-control" id="bewnr">
                                             </div>
                                             <div class="modal-footer">
@@ -258,7 +264,7 @@
                                                 <h4 class="modal-title">Leistung hinzufügen</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <label>Vertragspartnernummer</label>
+                                                <label>Vertragspartnernr.</label>
                                                 <input class="form-control" id="vpnrt">
                                                 <br>
                                                 <label>Nachname</label>

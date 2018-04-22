@@ -48,3 +48,10 @@ table{
 td{
     padding-right:20px;
 }
+.modal-body label{
+    width: 140px;
+}
+
+.modal-body input{
+    width: 350px;
+}
