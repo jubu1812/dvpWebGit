@@ -79,6 +79,15 @@ export class PatientendatenService {
     return verordnungen;    
   }
 
+  setKostentraeger_id(kostentraeger_id, vsnrp){
+    var container = {
+      "kostentraeger_id":kostentraeger_id,
+      "kundennummer":this.currKundennummer,
+      "vsnrp":vsnrp
+    }
+    this.http.post('http://localhost:8080/setKostentraeger_id', container).subscribe();
+  }
+
 }
 
 

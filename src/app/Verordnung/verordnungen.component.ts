@@ -87,7 +87,8 @@ export class VerordnungenComponent implements OnInit {
         if(response!=null){
           this.vo_id = response;  
           console.log(this.vo_id+" "+response);
-          this.saveArrays();         
+          this.saveArrays(); 
+          this.PatientendatenService.setKostentraeger_id(kostentraeger_id,this.currPatient.vsnrp);        
         }
       }
     );      
