@@ -37,7 +37,7 @@
         </tr>
         <tr>
             <td>
-                <select class="form-control" id="kostentraegerWidth">
+                <select class="form-control" id="kostentraegerWidth" data-live-search="true">
                     <option selected disabled>Kostenträger auswählen</option>
                     <option *ngFor='let kostentraeger of kostentraegerArray' [value]="kostentraeger.kostentraeger_id" [selected]="kostentraeger.kostentraeger_id === currPatient?.kostentraeger_id">
                         {{kostentraeger.kostentraeger_name}}
@@ -168,7 +168,7 @@
                         </tr>
                         <tbody>
                             <tr *ngFor="let leistung of leistungen" id="rowLeistBewill">
-                                <td>{{leistung.datl}}</td>
+                                <td>{{leistung.datl | date:'dd.MM.yyyy'}}</td>
                                 <td>{{leistung.posnr}}</td>
                                 <td>{{leistung.anz}}</td>
                                 <td>
@@ -221,7 +221,7 @@
                         </tr>
                         <tbody>
                             <tr *ngFor="let bewilligung of bewilligungen">
-                                <td>{{bewilligung.bdat}}</td>
+                                <td>{{bewilligung.bdat | date:'dd.MM.yyyy'}}</td>
                                 <td>{{bewilligung.bewnr}}</td>
                                 <td>
                                     <button class="btn btn-danger btn-sm" (click)="deleteBewilligung(bewilligung)">

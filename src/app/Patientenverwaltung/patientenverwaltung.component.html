@@ -107,9 +107,9 @@
         </thead>
 
         <tbody>
-          <tr>
+          <tr *ngFor="let verordnung of verordnungen">
             <td>
-
+              {{verordnung.vdatum | date:'dd.MM.yyyy'}}
             </td>
             <td>
               <select class="form-control" data-live-search="true">
@@ -120,15 +120,10 @@
             </td>
           
             <td style="width: 20px">
-              <button class="btn btn-danger btn-sm" title="Verordnung löschen" (click)="deleteVerordnung(verordnung)">
+              <button class="btn btn-danger btn-sm" title="Verordnung löschen" (click)="deleteVerordnung(verordnung.vo_id)">
                 <span class="glyphicon glyphicon-remove"></span>
               </button>
-            </td>
-            <td>
-              <button class="btn btn-danger btn-sm" title="Verordnung löschen" (click)="deleteVerordnung(verordnung)">
-                <span class="glyphicon glyphicon-tick"></span>
-              </button>
-            </td>
+            </td>            
           </tr>
       </table>
       </div>

@@ -88,6 +88,14 @@ export class PatientendatenService {
     this.http.post('http://localhost:8080/setKostentraeger_id', container).subscribe();
   }
 
+  deleteVerordnung(vo_id:number){
+    var container = {
+      "vo_id":vo_id,
+      "kundennummer":this.currKundennummer
+    }
+    this.http.post('http://localhost:8080/deleteVerordnung', vo_id).subscribe();
+  }
+
 }
 
 

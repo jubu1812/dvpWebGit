@@ -20,13 +20,17 @@ declare var $: any;
 export class PatientenverwaltungComponent implements OnInit {
 
   VOIDRow: number;
+
   currPatient: Patient;
   currSVNRP: string;
   currKundennummer: number;
 
   patientGeladen: boolean = true;
 
+  verordnungen:Verordnung[];
+
   constructor(public service: PatientendatenService) {
+    this.verordnungen = [];
   }
 
   ngOnInit() {
@@ -103,6 +107,7 @@ export class PatientenverwaltungComponent implements OnInit {
 
           this.patientGeladen = true;
           this.insertLoadedPatient();
+          this.getVerordnungenByPatientId();
         }
         else {
           this.patientGeladen = false;
@@ -110,8 +115,20 @@ export class PatientenverwaltungComponent implements OnInit {
         }
       }
     );
+  }
 
+  getVerordnungenByPatientId(){
+    this.service.getVerordnungenByPatientId(parseInt(this.currSVNRP)).subscribe(
+      response => {
+        if(response != null){
+          this.verordnungen = response;
+        }
+      }
+    );
+  }
 
+  deleteVerordnung(vo_id:number){
+    this.service.
   }
 
   insertLoadedPatient() {
