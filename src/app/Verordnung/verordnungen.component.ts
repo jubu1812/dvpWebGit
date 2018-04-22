@@ -173,7 +173,7 @@ export class VerordnungenComponent implements OnInit {
   leereLeistung(){
     $('#datl').val("");
     $('#posnr').val("");
-    $('#posnr').val("");
+    $('#anz').val("");
   }
   /*leereLeistungserbringer(){
     $('#vpnrt').val("");
