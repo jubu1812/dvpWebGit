@@ -150,18 +150,16 @@ export class VerordnungenComponent implements OnInit {
   }*/
 
   saveBewilligung() {
-    let bdat: Date = $('#bdat').val();
+    let bdat: string = $('#bdat').val();
     let bewnr: string = $('#bewnr').val();
-    if (bewnr == ''|| bdat==null) {
+    if (bewnr == ''|| bdat=="") {
       $("#modalInputleer").modal();
     }
     else{
-      let bewilligung = new Bewilligung(bewnr, bdat);
+      let bewilligung = new Bewilligung(bewnr, new Date(bdat));
       this.bewilligungen.push(bewilligung);
       this.leereBewilligung();
-    }
-
-  
+    } 
   }
 
   deleteDiagnose(d) {
