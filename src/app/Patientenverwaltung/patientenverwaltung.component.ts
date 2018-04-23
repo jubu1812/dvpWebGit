@@ -19,8 +19,6 @@ declare var $: any;
 })
 export class PatientenverwaltungComponent implements OnInit {
 
-  VOIDRow: number;
-
   currPatient: Patient;
   currSVNRP: string;
   currKundennummer: number;
@@ -37,14 +35,8 @@ export class PatientenverwaltungComponent implements OnInit {
     this.currKundennummer = this.service.getCurrKundennummer();
   }
 
-  Edit(VOID: number) { //für das Bearbeiten
-    this.VOIDRow = VOID; //Verordnungsnummer
-  }
-
-  loescheVerordnung(VOID: number) {
-
-  }
-  savePatient() { //todo: bereitsgeladen sichern
+  
+  savePatient() {
 
     let vsnr = $('#VSNRP').val().toString();
     if (vsnr !== "") {
@@ -130,10 +122,8 @@ export class PatientenverwaltungComponent implements OnInit {
   deleteVerordnung(vid:number){
     this.service.deleteVerordnung(vid).subscribe(
       response => {
-        if(response != null){
-          
-        this.getVerordnungenByPatientId();
-          
+        if(response != null){          
+        this.getVerordnungenByPatientId();         
         }
       }
     );   
@@ -176,13 +166,9 @@ export class PatientenverwaltungComponent implements OnInit {
 
     this.service.setCurrPatient(null);
     this.currPatient = null;
+    this.verordnungen = [];
     
     console.log(this.service.getCurrPatient());
   }
-
-  /*toggle() {
-    let control = this.myForm.get('name')
-    control.disabled ? control.enable() : control.disable();
-  }*/
 
 }
