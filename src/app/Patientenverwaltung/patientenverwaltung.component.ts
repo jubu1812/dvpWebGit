@@ -30,15 +30,15 @@ export class PatientenverwaltungComponent implements OnInit {
 
   constructor(public service: PatientendatenService, public router: Router) {
     this.verordnungen = [];
+    if (this.service.getverordnungZurueckStatus()) {
+      this.service.setverordnungZurueckStatus(false);
+      this.getPatient();
+    }
   
   }
 
   ngOnInit() {
     this.currKundennummer = this.service.getCurrKundennummer();
-    if (this.service.getCurrPatient()) {
-      this.service.setverordnungZurueckStatus(false);
-      this.getPatient();
-    }
   }
 
 
