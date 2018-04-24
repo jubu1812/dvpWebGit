@@ -28,12 +28,17 @@ export class PatientenverwaltungComponent implements OnInit {
 
   verordnungen: Verordnung[];
 
-  constructor(public service: PatientendatenService, public router:Router) {
+  constructor(public service: PatientendatenService, public router: Router) {
     this.verordnungen = [];
+  
   }
 
   ngOnInit() {
     this.currKundennummer = this.service.getCurrKundennummer();
+    if (this.service.getCurrPatient()) {
+      this.service.setverordnungZurueckStatus(false);
+      this.getPatient();
+    }
   }
 
 
@@ -53,11 +58,11 @@ export class PatientenverwaltungComponent implements OnInit {
     if (vsnr !== "") {
       vsnr = parseInt(vsnr);
     }
-    else if(vsnr===""){
+    else if (vsnr === "") {
       return false;
     }
 
-    if(zunap===""){
+    if (zunap === "") {
       return false;
     }
 
@@ -114,21 +119,21 @@ export class PatientenverwaltungComponent implements OnInit {
     );
   }
 
-  openVerordnung(){
-    if(this.savePatient()){
+  openVerordnung() {
+    if (this.savePatient()) {
       this.router.navigate(['./verordnung']);
     }
-    else{
+    else {
       $("#modalInputleer").modal();
     }
   }
 
-  onlySavePatient(){
-    if(!this.savePatient()){    
+  onlySavePatient() {
+    if (!this.savePatient()) {
       $("#modalInputleer").modal();
     }
   }
-  
+
   getVerordnungenByPatientId() {
     this.service.getVerordnungenByPatientId(parseInt(this.currSVNRP)).subscribe(
       response => {
