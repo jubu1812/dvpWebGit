@@ -10,7 +10,7 @@ export class Verordnung {
     public vid: number;
     public sendungs_id: number;
     public kostentraeger_id: number;
-    public vpnrv: string;
+    public vpnrv: number;
     public zunav: string;
     public vdatum: Date;
     public vsnrp: number;
@@ -18,7 +18,7 @@ export class Verordnung {
     constructor(
         kundennummer: number,
         kostentraeger_id: number,
-        vpnrv: string,
+        vpnrv: number,
         zunav: string,
         vdatum: Date,
         vsnrp: number,
