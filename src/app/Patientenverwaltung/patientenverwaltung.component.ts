@@ -8,6 +8,7 @@ import { Transfer } from 'app/Transfer';
 import { Patient } from "./Patient";
 import { Http } from '@angular/http';
 import { PatientId } from 'app/Patientenverwaltung/PatientId';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -25,9 +26,9 @@ export class PatientenverwaltungComponent implements OnInit {
 
   patientGeladen: boolean = true;
 
-  verordnungen:Verordnung[];
+  verordnungen: Verordnung[];
 
-  constructor(public service: PatientendatenService) {
+  constructor(public service: PatientendatenService, public router:Router) {
     this.verordnungen = [];
   }
 
@@ -35,22 +36,31 @@ export class PatientenverwaltungComponent implements OnInit {
     this.currKundennummer = this.service.getCurrKundennummer();
   }
 
-  
+
   savePatient() {
 
     let vsnr = $('#VSNRP').val().toString();
-    if (vsnr !== "") {
-      vsnr = parseInt(vsnr);
-    }
-    else {
-      //vsnr = 0;
-    }
-
     let vornap: string = $('#VONAP').val().toString();
     let zunap: string = $('#ZUNAP').val().toString();
     let stra: string = $('#STRA').val().toString();
-
     let plzl = $('#PLZL').val().toString();
+    let ort: string = $('#ORT').val().toString();
+    let land: string = $('#LAND').val().toString();
+    let vsnra = $('#VSNRA').val().toString();
+    let vonvs: string = $('#VONVS').val().toString();
+    let zunvs: string = $('#ZUNVS').val().toString();
+
+    if (vsnr !== "") {
+      vsnr = parseInt(vsnr);
+    }
+    else if(vsnr===""){
+      return false;
+    }
+
+    if(zunap===""){
+      return false;
+    }
+
     if (plzl !== "") {
       plzl = parseInt(plzl);
     }
@@ -58,10 +68,6 @@ export class PatientenverwaltungComponent implements OnInit {
       plzl = 0;
     }
 
-    let ort: string = $('#ORT').val().toString();
-    let land: string = $('#LAND').val().toString();
-
-    let vsnra = $('#VSNRA').val().toString();
     if (vsnra !== "") {
       vsnra = parseInt(vsnra);
     }
@@ -69,23 +75,22 @@ export class PatientenverwaltungComponent implements OnInit {
       vsnra = 0;
     }
 
-    let vonvs: string = $('#VONVS').val().toString();
-    let zunvs: string = $('#ZUNVS').val().toString();
-
     let koId = 0;
 
-    if(typeof this.currPatient !=='undefined'){
+    if (typeof this.currPatient !== 'undefined') {
       koId = this.currPatient.kostentraeger_id;
     }
 
-    let patient = new Patient(vsnr,this.currKundennummer, vornap, 
-    zunap, stra, plzl, ort, land, koId, vsnra, vonvs, zunvs);
+    let patient = new Patient(vsnr, this.currKundennummer, vornap,
+      zunap, stra, plzl, ort, land, koId, vsnra, vonvs, zunvs);
 
     console.log(JSON.stringify(patient));
 
     this.service.createPatient(patient);
     this.service.setCurrPatient(patient);
     this.currPatient = patient;
+
+    return true;
   }
 
   getPatient() {
@@ -109,24 +114,39 @@ export class PatientenverwaltungComponent implements OnInit {
     );
   }
 
-  getVerordnungenByPatientId(){
+  openVerordnung(){
+    if(this.savePatient()){
+      this.router.navigate(['./verordnung']);
+    }
+    else{
+      $("#modalInputleer").modal();
+    }
+  }
+
+  onlySavePatient(){
+    if(!this.savePatient()){    
+      $("#modalInputleer").modal();
+    }
+  }
+  
+  getVerordnungenByPatientId() {
     this.service.getVerordnungenByPatientId(parseInt(this.currSVNRP)).subscribe(
       response => {
-        if(response != null){
+        if (response != null) {
           this.verordnungen = response;
         }
       }
     );
   }
 
-  deleteVerordnung(vid:number){
+  deleteVerordnung(vid: number) {
     this.service.deleteVerordnung(vid).subscribe(
       response => {
-        if(response != null){          
-        this.getVerordnungenByPatientId();         
+        if (response != null) {
+          this.getVerordnungenByPatientId();
         }
       }
-    );   
+    );
   }
 
   insertLoadedPatient() {
@@ -149,25 +169,25 @@ export class PatientenverwaltungComponent implements OnInit {
     }
     $("#VONVS").val(this.currPatient.vonvs);
     $("#ZUNVS").val(this.currPatient.zunvs);
-    
+
   }
 
-  clearValues(){
+  clearValues() {
     $("#VSNRP").val("");
     $("#VONAP").val("");
     $("#ZUNAP").val("");
-    $("#STRA").val("");    
-    $("#PLZL").val("");    
+    $("#STRA").val("");
+    $("#PLZL").val("");
     $("#ORT").val("");
     $("#LAND").val("");
-    $("#VSNRA").val("");   
+    $("#VSNRA").val("");
     $("#VONVS").val("");
     $("#ZUNVS").val("");
 
     this.service.setCurrPatient(null);
     this.currPatient = null;
     this.verordnungen = [];
-    
+
     console.log(this.service.getCurrPatient());
   }
 
