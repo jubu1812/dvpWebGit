@@ -97,6 +97,14 @@ export class PatientendatenService {
     return this.http.post('http://localhost:8080/deleteVerordnung', container).map(response => response.json() as any);
   }
 
+  
+  getPeriodenByKundennummer(){
+    var container={
+       "kundennummer":this.currKundennummer
+    }
+    return this.http.post('http://localhost:8080/getPeriodenByKundennummer',container).map(response => response.json() as any);;
+  }
+
   setverordnungZurueckStatus(status:boolean){
     this.verordnungZurueckStatus=status;
   }

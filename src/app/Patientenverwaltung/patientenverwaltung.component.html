@@ -95,7 +95,7 @@
   
   <div class="container-fluid">
       <h3>Verordnungen</h3>
-    <div *ngIf="verordnungen.lenght>0" class="table-responsive col-xs-12">
+    <div *ngIf="verordnungen.length > 0" class="table-responsive col-xs-12">
       <table class="table table-hover ">
         <thead>
           <tr>
@@ -114,11 +114,11 @@
               {{verordnung.vdatum | date:'dd.MM.yyyy'}}
             </td>
             <td>
-              <select class="form-control" data-live-search="true">
-                <option>Jänner 2018</option>
-                <option>Dezember 2017</option>
-                <option>Dummy</option>
-              </select>
+                <select class="form-control" id="sendungSelector" data-live-search="true">
+                    <option *ngFor='let sendung of offeneSendungen' [value]="sendung.id" [selected]="sendung.id === verordnung.senduns_id">
+                        {{sendung.periode}}
+                    </option>
+                </select>
             </td>
           
             <td style="width: 20px">
