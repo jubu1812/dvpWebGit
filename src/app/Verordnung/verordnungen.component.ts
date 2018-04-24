@@ -118,27 +118,33 @@ export class VerordnungenComponent implements OnInit {
   }
 
   saveDiagnose() {
-    let datd: Date = $('#datd').val();
+    let datd: string = $('#datd').val();
     let diagn: string = $('#diagn').val().toString();
-    let diagnose = new Diagnose(datd, diagn);
-    this.diagnosen.push(diagnose);
+
+    if (datd == "" || diagn == "") {
+      $("#modalInputleer").modal();
+    }
+    else {
+      let diagnose = new Diagnose(new Date(datd), diagn);
+      this.diagnosen.push(diagnose);
+    }
     this.leereDiagnose();
   }
 
   saveLeistung() {
-    let datl: Date = $('#datl').val();
+    let datl: string = $('#datl').val();
     let posnr: string = $('#posnr').val().toString();
     let anz: number = $('#anz').val();
+    console.log(anz);
 
-    if (datl == undefined) {
+    if (datl == "" || posnr == "" || anz == 0) {
       $("#modalInputleer").modal();
     }
     else {
-      let leistung = new Leistung(datl, posnr, anz);
+      let leistung = new Leistung(new Date(datl), posnr, anz);
       this.leistungen.push(leistung);
-      this.leereLeistung();
     }
-
+    this.leereLeistung();
   }
 
   /*saveLeistungserbringer() {
@@ -152,14 +158,14 @@ export class VerordnungenComponent implements OnInit {
   saveBewilligung() {
     let bdat: string = $('#bdat').val();
     let bewnr: string = $('#bewnr').val();
-    if (bewnr == ''|| bdat=="") {
+    if (bewnr == "" || bdat == "") {
       $("#modalInputleer").modal();
     }
-    else{
+    else {
       let bewilligung = new Bewilligung(bewnr, new Date(bdat));
       this.bewilligungen.push(bewilligung);
-      this.leereBewilligung();
-    } 
+    }
+    this.leereBewilligung();
   }
 
   deleteDiagnose(d) {
