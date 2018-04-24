@@ -1,7 +1,7 @@
-<div *ngIf="vsnrpat?.hasError('nr') && (vsnrpat?.dirty || vsnrpat?.touched) && vsnrpat?.value == ''" class="alert alert-danger alert-dismissible">
+<div *ngIf="(vsnrpat?.hasError('nr') && (vsnrpat?.dirty || vsnrpat?.touched)) && vsnrpat?.value != ''" class="alert alert-danger alert-dismissible">
   Die eingegebene Sozialversicherungsnummer für den Patienten ist nicht gültig.</div>
 
-<div *ngIf="vsnrhvs?.hasError('nr') && (vsnrhvs?.dirty || vsnrhvs?.touched) && vsnrhvs?.value == ''" class="alert alert-danger alert-dismissible">
+<div *ngIf="(vsnrhvs?.hasError('nr') && (vsnrhvs?.dirty || vsnrhvs?.touched)) && vsnrhvs?.value != ''" class="alert alert-danger alert-dismissible">
   Die eingegebene Sozialversicherungsnummer für den Hauptversicherten ist nicht gültig.</div>
 
 <div class="modal fade" id="myModal" role="dialog">
@@ -91,9 +91,10 @@
 </div>
 
 <div id="verordnungen">
+  
   <div class="container-fluid">
-
-    <div class="table-responsive col-xs-12">
+      <h3>Verordnungen</h3>
+    <div *ngIf="verordnungen.lenght>0" class="table-responsive col-xs-12">
       <table class="table table-hover ">
         <thead>
           <tr>
