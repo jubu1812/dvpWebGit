@@ -27,12 +27,14 @@ export class PatientenverwaltungComponent implements OnInit {
   patientGeladen: boolean = true;
 
   verordnungen: Verordnung[];
+  offeneSendungen: Sendung[];
 
   constructor(public service: PatientendatenService, public router: Router) {
     this.verordnungen = [];
     if (this.service.getverordnungZurueckStatus()) {
-      this.service.setverordnungZurueckStatus(false);
+      
       this.getPatient();
+      this.service.setverordnungZurueckStatus(false);
     }
   
   }
@@ -99,7 +101,16 @@ export class PatientenverwaltungComponent implements OnInit {
   }
 
   getPatient() {
-    this.service.getPatientById(parseInt(this.currSVNRP)).subscribe(
+    var getVSNRP:number;
+
+    if(this.service.getverordnungZurueckStatus()){
+      getVSNRP = this.service.getCurrPatient().vsnrp;
+    }
+    else{
+      getVSNRP = parseInt(this.currSVNRP);
+    }
+
+    this.service.getPatientById(getVSNRP).subscribe(
       response => {
         if (response != null) {
           this.currPatient = response;
@@ -108,8 +119,9 @@ export class PatientenverwaltungComponent implements OnInit {
           console.log(this.currPatient);
 
           this.patientGeladen = true;
-          this.insertLoadedPatient();
           this.getVerordnungenByPatientId();
+          this.getPeriodenByKundennummer();
+          this.insertLoadedPatient();          
         }
         else {
           this.patientGeladen = false;
@@ -135,13 +147,23 @@ export class PatientenverwaltungComponent implements OnInit {
   }
 
   getVerordnungenByPatientId() {
-    this.service.getVerordnungenByPatientId(parseInt(this.currSVNRP)).subscribe(
+    this.service.getVerordnungenByPatientId(this.currPatient.vsnrp).subscribe(
       response => {
         if (response != null) {
           this.verordnungen = response;
         }
       }
     );
+  }
+
+  getPeriodenByKundennummer(){
+    this.service.getPeriodenByKundennummer().subscribe(
+      response => {
+        if (response != null) {
+          this.offeneSendungen = response;
+        }
+      }
+    );;
   }
 
   deleteVerordnung(vid: number) {
@@ -155,6 +177,7 @@ export class PatientenverwaltungComponent implements OnInit {
   }
 
   insertLoadedPatient() {
+    $("#VSNRP").val(this.currPatient.vsnrp);
     $("#VONAP").val(this.currPatient.vonap);
     $("#ZUNAP").val(this.currPatient.zunap);
     $("#STRA").val(this.currPatient.stra);

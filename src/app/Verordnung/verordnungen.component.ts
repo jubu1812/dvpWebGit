@@ -121,6 +121,8 @@ export class VerordnungenComponent implements OnInit {
     //Leistungserbringer
   }
 
+  
+
   saveDiagnose() {
     let datd: string = $('#datd').val();
     let diagn: string = $('#diagn').val().toString();
