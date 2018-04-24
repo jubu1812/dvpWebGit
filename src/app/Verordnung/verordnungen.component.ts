@@ -76,7 +76,7 @@ export class VerordnungenComponent implements OnInit {
   }
 
   saveVerordnung() {
-    let vpnrv: string = $('#vpnrv').val().toString();
+    let vpnrv: number =  parseInt($('#vpnrv').val());
     let zunav: string = $('#zunav').val().toString();
     let vadatum: Date = $('#vadatum').val();
     let kostentraeger_id: number = parseInt($('#kostentraegerWidth').val());
