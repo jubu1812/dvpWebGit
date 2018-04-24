@@ -1,7 +1,7 @@
-<div *ngIf="(vsnrpat?.hasError('nr') && (vsnrpat?.dirty || vsnrpat?.touched)) && vsnrpat.value !== ''" class="alert alert-danger alert-dismissible">
+<div *ngIf="(vsnrpat?.hasError('nr') && (vsnrpat?.dirty || vsnrpat?.touched)) && (vsnrpat?.value !== '' && vsnrpat?.value != null)" class="alert alert-danger alert-dismissible">
   Die eingegebene Sozialversicherungsnummer für den Patienten ist nicht gültig.</div>
 
-<div *ngIf="(vsnrhvs?.hasError('nr') && (vsnrhvs?.dirty || vsnrhvs?.touched)) && vsnrhvs?.value !== ''" class="alert alert-danger alert-dismissible">
+<div *ngIf="(vsnrhvs?.hasError('nr') && (vsnrhvs?.dirty || vsnrhvs?.touched)) && (vsnrhvs?.value !== '' && vsnrhvs?.value != null)" class="alert alert-danger alert-dismissible">
   Die eingegebene Sozialversicherungsnummer für den Hauptversicherten ist nicht gültig.</div>
 
   <div id="wrapper">
