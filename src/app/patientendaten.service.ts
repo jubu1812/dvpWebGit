@@ -15,6 +15,7 @@ export class PatientendatenService {
 
   private currPatient: Patient;
   private currKundennummer: number = 123;
+  private verordnungZurueckStatus: boolean=false;
 
   getCurrPatient() {
     return this.currPatient;
@@ -96,6 +97,12 @@ export class PatientendatenService {
     return this.http.post('http://localhost:8080/deleteVerordnung', container).map(response => response.json() as any);
   }
 
+  setverordnungZurueckStatus(status:boolean){
+    this.verordnungZurueckStatus=status;
+  }
+  getverordnungZurueckStatus(){
+    return this.verordnungZurueckStatus;
+  }
 }
 
 

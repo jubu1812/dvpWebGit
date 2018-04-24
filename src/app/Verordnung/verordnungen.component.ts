@@ -92,6 +92,10 @@ export class VerordnungenComponent implements OnInit {
         }
       }
     );
+   
+    this.PatientendatenService.setCurrPatient(this.currPatient);
+    this.PatientendatenService.setverordnungZurueckStatus(true);
+    
   }
 
   saveArrays() {
