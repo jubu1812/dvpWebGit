@@ -7,7 +7,7 @@
     <br>
     <div>
         <form class="form-inline my-2 my-lg-0">
-            <button class="btn btn-primary" (click)=saveVerordnung()>
+            <button class="btn btn-primary" (click)=saveVerordnung() [routerLink]="['/patient']">
                 <span class="glyphicon glyphicon-floppy-disk"></span>
                 speichern
             </button>
@@ -109,7 +109,7 @@
                 <div id="verordnderDiv">
                     <h4>Verordner</h4>
                     <label>VPNr</label>
-                    <input id="vpnrv" class="form-control" name="vpnrv">
+                    <input id="vpnrv" class="form-control" name="vpnrv" type="number">
                     <br>
                     <label>Name</label>
                     <input class="form-control" name="zunav" id="zunav">
