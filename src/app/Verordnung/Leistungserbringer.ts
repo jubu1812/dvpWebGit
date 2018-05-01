@@ -1,11 +1,15 @@
 export class Leistungserbringer{
+    
     public vpnrt: string;
-    public zunt: string;
+    public zunut: string;
+    public vid: number;
+
     constructor(
          vpnrt: string,
-         zunt: string
+         zunut: string
     )
-    {this.vpnrt=vpnrt;
-    this.zunt=zunt;
+    {
+    this.vpnrt = vpnrt;
+    this.zunut = zunut;
 }
 }
