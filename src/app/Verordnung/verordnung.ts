@@ -2,7 +2,6 @@ import { Diagnose } from "app/Verordnung/Diagnose";
 import { Leistung } from "app/Verordnung/Leistung";
 import { Bewilligung } from "app/Verordnung/Bewilligung";
 import { Leistungserbringer } from "app/Verordnung/Leistungserbringer";
-import { Leistungserbringung } from "app/Verordnung/Leistungserbringung";
 import { VerordnungsId } from "./VerordnungId";
 
 export class Verordnung {

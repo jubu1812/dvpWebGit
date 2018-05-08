@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Sendung } from 'app/Sendung/sendung';
 import { Verordnung } from 'app/Verordnung/verordnung';
 import { PatientendatenService } from "app/patientendaten.service";
-import { Transfer } from 'app/Transfer';
 
 //import * as $ from 'jquery';
 import { Patient } from "./Patient";
