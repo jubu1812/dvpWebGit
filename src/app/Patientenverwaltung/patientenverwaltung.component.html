@@ -115,7 +115,7 @@
             </td>
             <td>
                 <select class="form-control" id="sendungSelector" data-live-search="true">
-                    <option *ngFor='let sendung of offeneSendungen' [value]="sendung.id" [selected]="sendung.id === verordnung.senduns_id">
+                    <option *ngFor='let sendung of offeneSendungen' [value]="sendung.id" [selected]="sendung.id === verordnung.sendung_id">
                         {{sendung.periode}}
                     </option>
                 </select>
