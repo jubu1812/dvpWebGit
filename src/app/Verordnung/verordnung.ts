@@ -7,7 +7,7 @@ import { VerordnungsId } from "./VerordnungId";
 export class Verordnung {
     public kundennummer:number;
     public vid: number;
-    public sendungs_id: number;
+    public sendung_id: number;
     public kostentraeger_id: number;
     public vpnrv: number;
     public zunav: string;
