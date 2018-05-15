@@ -153,13 +153,13 @@ export class VerordnungenComponent implements OnInit {
     this.leereLeistung();
   }
 
-  /*saveLeistungserbringer() {
+  saveLeistungserbringer() {
     let vpnrt: string = $('#vpnrt').val().toString();
     let zunt: string = $('#zunt').val().toString();
     let leistungserbringerVar= new Leistungserbringer (vpnrt, zunt);
     this.leistungserbringer.push(leistungserbringerVar);
     this.leereLeistungserbringer();
-  }*/
+  }
 
   saveBewilligung() {
     let bdat: string = $('#bdat').val();
@@ -199,11 +199,10 @@ export class VerordnungenComponent implements OnInit {
     $('#posnr').val("");
     $('#anz').val("");
   }
-  /*leereLeistungserbringer(){
+
+  leereLeistungserbringer(){
     $('#vpnrt').val("");
     $('#zunt').val("");
-  }*/
-
-
+  }
 
 }

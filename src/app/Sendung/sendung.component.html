@@ -3,68 +3,72 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div>
 
-<div id="wrapper">
-<br>
-  <div class="col-xs-1">
-    <label>Periode</label>
-    <input class="form-control" id="periode">
+  <div id="wrapper">
+    <br>
+    <div class="col-xs-1">
+      <label>Periode</label>
+      <input class="form-control" id="periode">
+    </div>
+
+    <div class="btn-group" id="btngroup" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary">
+        <span class="glyphicon glyphicon-plus"></span>
+        neue Sendung</button>
+      <span class="btn-separator"></span>
+
+      <button type="button" class="btn btn-primary">
+        <span class="glyphicon glyphicon-duplicate"></span>
+        Sendung kopieren </button>
+
+      <span class="btn-separator"></span>
+
+      <button type="button" class="btn btn-danger">
+        Sendung abschließen </button>
+    </div>
+
+    <div>
+      <div class="container-fluid">
+        <div ng-app="" ng-controller="rowController">
+          <div class="table-responsive col-xs-12">
+            <table class="table table-hover ">
+              <tr>
+                <th class="datumSpalte">
+                  <h5>Verordnungsdatum</h5>
+                </th>
+                <th>
+                  <h5>Verordnung</h5>
+                </th>
+              </tr>
+
+              <tbody>
+                <tr>
+                  <td>
+                  </td>
+
+                </tr>
+            </table>
+
+            <br>
+            <br>
+            <table class="table table-hover ">
+              <tr>
+                <th class="datumSpalte">
+                  <h5>Sendungsdatum</h5>
+                </th>
+                <th>
+                  <h5>Sendung</h5>
+                </th>
+              </tr>
+
+              <tbody>
+                <tr>
+                  <td>
+                  </td>
+
+                </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="btn-group" id="btngroup" role="group" aria-label="Basic example">
-  <button type="button" class="btn btn-primary"> 
-      <span class="glyphicon glyphicon-plus"></span> 
-    neue Sendung</button>
-    <span class="btn-separator"></span>
-  
-    <button type="button" class="btn btn-primary"> 
-        <span class="glyphicon glyphicon-duplicate"></span> 
-      Sendung kopieren </button>
-
-    <span class="btn-separator"></span>
-
-    <button type="button" class="btn btn-danger"> 
-      Sendung abschließen </button>        
-</div>
-
-<div>
-  <div class="container-fluid">
-    <div ng-app="" ng-controller="rowController">
-        <div class="table-responsive col-xs-12">
-  <table class="table table-hover ">
-<tr>
-      <th class="datumSpalte" ><h5>Verordnungsdatum</h5></th>
-      <th ><h5>Verordnung</h5></th>  
-</tr>
-  
-  <tbody>
-    <tr>
-   <td>     
-    </td>
-      
-    </tr>
-</table>
-
-<br>
-<br>
-<table class="table table-hover ">
-    <tr>
-          <th class="datumSpalte" ><h5>Sendungsdatum</h5></th>
-          <th ><h5>Sendung</h5></th>  
-    </tr>
-      
-      <tbody>
-        <tr>
-       <td>     
-        </td>
-          
-        </tr>
-    </table>
-    
-
-</div>
-</div>
-
-</div>
-</div>
-
-</div>

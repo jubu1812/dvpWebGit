@@ -4,6 +4,7 @@ export class Sendung{
     public id:number;
     public kundennummer: number;
     public periode:string;
+    public abgeschlossen: number;
     
     constructor(id:number, 
         kundennummer:number, 
@@ -11,5 +12,6 @@ export class Sendung{
         this.id = id;
         this.kundennummer = kundennummer;
         this.periode = periode;
+        this.abgeschlossen=0;
     }
 }
