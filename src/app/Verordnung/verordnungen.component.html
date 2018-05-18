@@ -274,6 +274,18 @@
                             </th>
                         </tr>
                         <tbody>
+                                <tr *ngFor="let leistungserbringerVar of leistungserbringer">
+                                        
+
+                                        <td>{{leistungserbringer.vpnrt}}</td>
+                                        <td>{{leistungserbringer.zunt}}</td>
+                                        <td>
+                                            <button class="btn btn-danger btn-sm" (click)="deleteLeistung(leistung)">
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                            </tbody>
                     </table>
                 </div>
             </td>
