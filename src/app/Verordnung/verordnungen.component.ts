@@ -6,6 +6,7 @@ import { Diagnose } from "./Diagnose";
 import { Leistung } from "./Leistung";
 import { Leistungserbringer } from "./Leistungserbringer";
 import { Bewilligung } from "./Bewilligung";
+import { VerordnungContainer } from './VerordnungContainer';
 
 
 declare var $: any;
@@ -23,6 +24,7 @@ export class VerordnungenComponent implements OnInit {
   currPatient;
   vid: number = 0;
 
+  vc: VerordnungContainer;
 
   diagnosen: Diagnose[];//4 Arrays erstellen, Verordnungskonstruktor Arrays rein
   leistungen: Leistung[];
@@ -35,6 +37,8 @@ export class VerordnungenComponent implements OnInit {
     this.leistungen = [];
     this.bewilligungen = [];
     this.leistungserbringer = [];
+
+    this.vc = new VerordnungContainer();
   }
 
   ngOnInit() {
@@ -99,24 +103,24 @@ export class VerordnungenComponent implements OnInit {
   }
 
   saveArrays() {
-    for (let i = 0; i < this.diagnosen.length; i++) {
-      this.diagnosen[i].vid = this.vid;
-      console.log(this.diagnosen[i].vid);
-      console.log(this.diagnosen[i]);
+    for (let i = 0; i < this.vc.diagnosen.length; i++) {
+      this.vc.diagnosen[i].vid = this.vid;
+      console.log(this.vc.diagnosen[i].vid);
+      console.log(this.vc.diagnosen[i]);
     }
-    this.PatientendatenService.createDiagnosen(this.diagnosen);
+    this.PatientendatenService.createDiagnosen(this.vc.diagnosen);
 
-    for (let i = 0; i < this.bewilligungen.length; i++) {
-      this.bewilligungen[i].vid = this.vid;
-    }
-
-    this.PatientendatenService.createBewilligungen(this.bewilligungen);
-
-    for (let i = 0; i < this.leistungen.length; i++) {
-      this.leistungen[i].vid = this.vid;
+    for (let i = 0; i < this.vc.bewilligungen.length; i++) {
+      this.vc.bewilligungen[i].vid = this.vid;
     }
 
-    this.PatientendatenService.createLeistungen(this.leistungen);
+    this.PatientendatenService.createBewilligungen(this.vc.bewilligungen);
+
+    for (let i = 0; i < this.vc.leistungen.length; i++) {
+      this.vc.leistungen[i].vid = this.vid;
+    }
+
+    this.PatientendatenService.createLeistungen(this.vc.leistungen);
 
     //Leistungserbringer
   }

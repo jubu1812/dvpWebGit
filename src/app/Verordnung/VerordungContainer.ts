@@ -6,17 +6,17 @@ import { Leistungserbringer } from "./Leistungserbringer";
 
 export class VerordnungContainer{
     public verordnung:Verordnung;
-    public bewilligung: Bewilligung;
-    public diagnose: Diagnose;
-    public leistung: Leistung;
-    public leistungserbringer:Leistungserbringer ;
+    public bewilligungen: Bewilligung[];
+    public diagnosen: Diagnose[];
+    public leistungen: Leistung[];
+    public leistungserbringer:Leistungserbringer[];
 
-    constructor(verordnung:Verordnung, bewilligung:Bewilligung, diagnose:Diagnose,leistung:Leistung,leistungserbringer:Leistungserbringer){
-        this.verordnung = verordnung;
-        this.bewilligung = bewilligung;
-        this.diagnose = diagnose;
-        this.leistung = leistung;
-        this.leistungserbringer = leistungserbringer;
+    constructor(){
+        this.verordnung = null;
+        this.bewilligungen = [];
+        this.diagnosen = [];
+        this.leistungen = [];
+        this.leistungserbringer = [];
     }
 }
 

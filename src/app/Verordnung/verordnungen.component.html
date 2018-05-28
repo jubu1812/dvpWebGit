@@ -92,7 +92,7 @@
                         </tr>
 
                         <tbody>
-                            <tr *ngFor="let diagnose of diagnosen">
+                            <tr *ngFor="let diagnose of vc.diagnosen">
                                 <td>{{diagnose.datd | date:'dd.MM.yyyy'}}</td>
                                 <td>{{diagnose.diagn}}</td>
                                 <td>
@@ -168,7 +168,7 @@
                             </th>
                         </tr>
                         <tbody>
-                            <tr *ngFor="let leistung of leistungen" id="rowLeistBewill">
+                            <tr *ngFor="let leistung of vc.leistungen" id="rowLeistBewill">
                                 <td>{{leistung.datl | date:'dd.MM.yyyy'}}</td>
                                 <td>{{leistung.posnr}}</td>
                                 <td>{{leistung.anz}}</td>
@@ -221,7 +221,7 @@
                             </th>
                         </tr>
                         <tbody>
-                            <tr *ngFor="let bewilligung of bewilligungen">
+                            <tr *ngFor="let bewilligung of vc.bewilligungen">
                                 <td>{{bewilligung.bdat | date:'dd.MM.yyyy'}}</td>
                                 <td>{{bewilligung.bewnr}}</td>
                                 <td>
@@ -274,11 +274,9 @@
                             </th>
                         </tr>
                         <tbody>
-                                <tr *ngFor="let leistungserbringerVar of leistungserbringer">
-                                        
-
-                                        <td>{{leistungserbringer.vpnrt}}</td>
-                                        <td>{{leistungserbringer.zunt}}</td>
+                                <tr *ngFor="let leistungserbringerVar of vc.leistungserbringer">                                       
+                                        <td>{{leistungserbringerVar.vpnrt}}</td>
+                                        <td>{{leistungserbringerVar.zunut}}</td>
                                         <td>
                                             <button class="btn btn-danger btn-sm" (click)="deleteLeistung(leistung)">
                                                 <span class="glyphicon glyphicon-remove"></span>
