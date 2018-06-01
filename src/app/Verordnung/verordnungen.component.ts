@@ -7,7 +7,8 @@ import { Leistung } from "./Leistung";
 import { Leistungserbringer } from "./Leistungserbringer";
 import { Bewilligung } from "./Bewilligung";
 import { VerordnungContainer } from './VerordnungContainer';
-
+import { Sendung } from 'app/Sendung/sendung';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -24,21 +25,30 @@ export class VerordnungenComponent implements OnInit {
   currPatient;
   vid: number = 0;
 
-  vc: VerordnungContainer;
+  offeneSendungen: Sendung[];;
 
-  diagnosen: Diagnose[];//4 Arrays erstellen, Verordnungskonstruktor Arrays rein
-  leistungen: Leistung[];
-  bewilligungen: Bewilligung[];
-  leistungserbringer: Leistungserbringer[];
+  vc: VerordnungContainer; 
 
-  constructor(private PatientendatenService: PatientendatenService) {
+  constructor(private PatientendatenService: PatientendatenService, private router: Router) {
     this.currPatient = this.PatientendatenService.getCurrPatient();
-    this.diagnosen = [];
-    this.leistungen = [];
-    this.bewilligungen = [];
-    this.leistungserbringer = [];
-
+    
+    if(this.PatientendatenService.getEditModeVerordnung()){
+      this.PatientendatenService.getVerordnungContainer(this.PatientendatenService.getCurrVid()).subscribe(data =>{
+        this.vc = data;
+        $('#vpnrv').val(""+this.vc.vo.vpnrv);
+        $('#zunav').val(""+this.vc.vo.zunav);
+        $('#vadatum').val(""+this.vc.vo.vdatum);
+        console.log(this.vc);
+      });
+    }
+    else{
     this.vc = new VerordnungContainer();
+    
+    this.vc.diagnosen = [];
+    this.vc.leistungen = [];
+    this.vc.bewilligungen = [];
+    this.vc.leistungserbringer = [];    
+    }
   }
 
   ngOnInit() {
@@ -93,13 +103,12 @@ export class VerordnungenComponent implements OnInit {
           console.log(this.vid + " " + response);
           this.saveArrays();
           this.PatientendatenService.setKostentraeger_id(kostentraeger_id, this.currPatient.vsnrp);
+          this.PatientendatenService.setCurrPatient(this.currPatient);
+          this.PatientendatenService.setverordnungZurueckStatus(true);
+          this.router.navigate(['/patient']);  
         }
       }
-    );
-   
-    this.PatientendatenService.setCurrPatient(this.currPatient);
-    this.PatientendatenService.setverordnungZurueckStatus(true);
-    
+    );        
   }
 
   saveArrays() {
@@ -122,7 +131,12 @@ export class VerordnungenComponent implements OnInit {
 
     this.PatientendatenService.createLeistungen(this.vc.leistungen);
 
-    //Leistungserbringer
+    for (let i = 0; i < this.vc.leistungserbringer.length; i++) {
+      this.vc.leistungserbringer[i].vid = this.vid;
+    }
+
+    this.PatientendatenService.createLeistungserbringer(this.vc.leistungserbringer);
+    
   }
 
   
@@ -136,7 +150,7 @@ export class VerordnungenComponent implements OnInit {
     }
     else {
       let diagnose = new Diagnose(new Date(datd), diagn);
-      this.diagnosen.push(diagnose);
+      this.vc.diagnosen.push(diagnose);
     }
     this.leereDiagnose();
   }
@@ -152,7 +166,7 @@ export class VerordnungenComponent implements OnInit {
     }
     else {
       let leistung = new Leistung(new Date(datl), posnr, anz);
-      this.leistungen.push(leistung);
+      this.vc.leistungen.push(leistung);
     }
     this.leereLeistung();
   }
@@ -161,7 +175,7 @@ export class VerordnungenComponent implements OnInit {
     let vpnrt: string = $('#vpnrt').val().toString();
     let zunt: string = $('#zunt').val().toString();
     let leistungserbringerVar= new Leistungserbringer (vpnrt, zunt);
-    this.leistungserbringer.push(leistungserbringerVar);
+    this.vc.leistungserbringer.push(leistungserbringerVar);
     this.leereLeistungserbringer();
   }
 
@@ -173,21 +187,21 @@ export class VerordnungenComponent implements OnInit {
     }
     else {
       let bewilligung = new Bewilligung(bewnr, new Date(bdat));
-      this.bewilligungen.push(bewilligung);
+      this.vc.bewilligungen.push(bewilligung);
     }
     this.leereBewilligung();
   }
 
   deleteDiagnose(d) {
-    this.diagnosen.splice(this.diagnosen.indexOf(d), 1);
+    this.vc.diagnosen.splice(this.vc.diagnosen.indexOf(d), 1);
   }
 
   deleteBewilligung(b) {
-    this.bewilligungen.splice(this.bewilligungen.indexOf(b), 1);
+    this.vc.bewilligungen.splice(this.vc.bewilligungen.indexOf(b), 1);
   }
 
   deleteLeistung(l) {
-    this.leistungen.splice(this.leistungen.indexOf(l), 1);
+    this.vc.leistungen.splice(this.vc.leistungen.indexOf(l), 1);
   }
 
   leereDiagnose() {
@@ -207,6 +221,16 @@ export class VerordnungenComponent implements OnInit {
   leereLeistungserbringer(){
     $('#vpnrt').val("");
     $('#zunt').val("");
+  }
+
+  getPeriodenByKundennummer(){
+    this.PatientendatenService.getPeriodenByKundennummer().subscribe(
+      response => {
+        if (response != null) {
+          this.offeneSendungen = response;
+        }
+      }
+    );;
   }
 
 }

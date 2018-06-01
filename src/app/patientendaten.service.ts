@@ -8,6 +8,7 @@ import { Diagnose } from './Verordnung/Diagnose';
 import { Bewilligung } from './Verordnung/Bewilligung';
 import { Leistung } from './Verordnung/Leistung';
 import { VerordnungsId } from './Verordnung/VerordnungId';
+import { Leistungserbringer } from './Verordnung/Leistungserbringer';
 
 @Injectable()
 export class PatientendatenService {
@@ -15,7 +16,9 @@ export class PatientendatenService {
 
   private currPatient: Patient;
   private currKundennummer: number = 123;
+  private currVid: number;
   private verordnungZurueckStatus: boolean=false;
+  private editModeVerordnung: boolean = false;
 
   getCurrPatient() {
     return this.currPatient;
@@ -53,6 +56,10 @@ export class PatientendatenService {
   
   createLeistungen(leistungen:Leistung[]){
     this.http.post('http://localhost:8080/createLeistungen', leistungen).subscribe();
+  }
+
+  createLeistungserbringer(leistungserbringer:Leistungserbringer[]){
+    this.http.post('http://localhost:8080/createLeistungserbringer', leistungserbringer).subscribe();
   }
 
   getPatientById(vsnrp:number) {
@@ -106,6 +113,7 @@ export class PatientendatenService {
   }
 
   getVerordnungContainer(vid:number){
+    console.log("vid to get "+vid);
     var container = {
       "vid":vid,
       "kundennummer":this.currKundennummer
@@ -118,6 +126,22 @@ export class PatientendatenService {
   }
   getverordnungZurueckStatus(){
     return this.verordnungZurueckStatus;
+  }
+
+  setEditModeVerordnung(status:boolean){
+    this.editModeVerordnung = status;
+  }
+
+  getEditModeVerordnung(){
+    return this.editModeVerordnung;
+  }
+
+  setCurrVid(vid:number){
+    this.currVid = vid;
+  }
+
+  getCurrVid(){
+    return this.currVid;
   }
 }
 

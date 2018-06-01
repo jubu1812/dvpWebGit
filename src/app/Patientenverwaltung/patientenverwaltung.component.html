@@ -125,7 +125,12 @@
               <button class="btn btn-danger btn-sm" title="Verordnung löschen" (click)="deleteVerordnung(verordnung.vid)">
                 <span class="glyphicon glyphicon-remove"></span>
               </button>
-            </td>            
+            </td> 
+            <td style="width: 20px">
+              <button class="btn btn-info btn-sm" title="Verordnung bearbeiten" (click)="editVerordnung(verordnung.vid)">
+                <span class="glyphicon glyphicon-pencil"></span>
+              </button>
+            </td>              
           </tr>
       </table>
       </div>

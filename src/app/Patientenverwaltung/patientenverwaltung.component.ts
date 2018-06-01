@@ -35,6 +35,8 @@ export class PatientenverwaltungComponent implements OnInit {
       this.getPatient();
       this.service.setverordnungZurueckStatus(false);
     }
+
+    this.service.setEditModeVerordnung(false);
   
   }
 
@@ -173,6 +175,12 @@ export class PatientenverwaltungComponent implements OnInit {
         }
       }
     );
+  }
+
+  editVerordnung(vid: number){
+    this.service.setEditModeVerordnung(true);
+    this.service.setCurrVid(vid);
+    this.router.navigate(['/verordnung']);
   }
 
   insertLoadedPatient() {

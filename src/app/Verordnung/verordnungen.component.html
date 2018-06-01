@@ -7,7 +7,7 @@
     <br>
     <div>
         <form class="form-inline my-2 my-lg-0">
-            <button class="btn btn-primary" (click)=saveVerordnung() [routerLink]="['/patient']">
+            <button class="btn btn-primary" (click)=saveVerordnung()>
                 <span class="glyphicon glyphicon-floppy-disk"></span>
                 speichern
             </button>
@@ -92,7 +92,7 @@
                         </tr>
 
                         <tbody>
-                            <tr *ngFor="let diagnose of vc.diagnosen">
+                            <tr *ngFor="let diagnose of vc?.diagnosen">
                                 <td>{{diagnose.datd | date:'dd.MM.yyyy'}}</td>
                                 <td>{{diagnose.diagn}}</td>
                                 <td>
@@ -106,7 +106,7 @@
                 <br>
             </td>
             <td>
-                <div id="verordnderDiv">
+                <div id="verordnerDiv">
                     <h4>Verordner</h4>
                     <label>VPNr</label>
                     <input id="vpnrv" class="form-control" name="vpnrv" type="number">
@@ -168,7 +168,7 @@
                             </th>
                         </tr>
                         <tbody>
-                            <tr *ngFor="let leistung of vc.leistungen" id="rowLeistBewill">
+                            <tr *ngFor="let leistung of vc?.leistungen" id="rowLeistBewill">
                                 <td>{{leistung.datl | date:'dd.MM.yyyy'}}</td>
                                 <td>{{leistung.posnr}}</td>
                                 <td>{{leistung.anz}}</td>
@@ -221,7 +221,7 @@
                             </th>
                         </tr>
                         <tbody>
-                            <tr *ngFor="let bewilligung of vc.bewilligungen">
+                            <tr *ngFor="let bewilligung of vc?.bewilligungen">
                                 <td>{{bewilligung.bdat | date:'dd.MM.yyyy'}}</td>
                                 <td>{{bewilligung.bewnr}}</td>
                                 <td>
@@ -274,7 +274,7 @@
                             </th>
                         </tr>
                         <tbody>
-                                <tr *ngFor="let leistungserbringerVar of vc.leistungserbringer">                                       
+                                <tr *ngFor="let leistungserbringerVar of vc?.leistungserbringer">                                       
                                         <td>{{leistungserbringerVar.vpnrt}}</td>
                                         <td>{{leistungserbringerVar.zunut}}</td>
                                         <td>
