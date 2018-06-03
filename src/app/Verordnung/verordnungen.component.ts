@@ -25,7 +25,7 @@ export class VerordnungenComponent implements OnInit {
   currPatient;
   vid: number = 0;
 
-  offeneSendungen: Sendung[];;
+  offeneSendungen: Sendung[];
 
   vc: VerordnungContainer; 
 
@@ -88,6 +88,7 @@ export class VerordnungenComponent implements OnInit {
   bewilligungAlert() {
     $("#modalBewilligung").modal();
   }
+
 
   saveVerordnung() {
     let vpnrv: number =  parseInt($('#vpnrv').val());
