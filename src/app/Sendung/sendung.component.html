@@ -7,8 +7,8 @@
     <br>
     <div class="col-xs-1">
       <label>Periode</label>
-      <select class="form-control" id="sendungSelector" data-live-search="true" (change)="onChangePeriode($event.target.value)">        
-        <option *ngFor='let sendung of offeneSendungen' [value]="sendung?.periode" [selected]="sendung?.periode === 'Dummy'">
+      <select class="form-control" [(ngModel)]="currPeriode" id="sendungSelector" data-live-search="true" (change)="onChangePeriode()">        
+        <option *ngFor='let sendung of perioden' [ngValue]="sendung?.periode" [selected]="sendung?.periode === 'Dummy'">
             {{sendung?.periode}}
         </option>
     </select>
@@ -19,8 +19,8 @@
         <span class="glyphicon glyphicon-plus"></span>
         neue Sendung</button>      
 
-      <button type="button" class="btn btn-danger">
-        Sendung abschließen </button>
+      <button [disabled]="currPeriode==='Dummy'" type="button" class="btn btn-danger">
+        Sendung {{currPeriode}} abschließen </button>
     </div>
 
     <div class="modal fade" id="modalPeriode" role="dialog">

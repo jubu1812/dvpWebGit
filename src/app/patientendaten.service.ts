@@ -64,7 +64,8 @@ export class PatientendatenService {
   }
 
   createSendung(sendung:Sendung){
-    this.http.post('http://localhost:8080/createSendung',sendung).subscribe();
+    var erfolg = this.http.post('http://localhost:8080/createSendung',sendung).map(x => (x.text() ? x.json() : null) as any);
+    return erfolg;
   }
 
   getPatientById(vsnrp:number) {

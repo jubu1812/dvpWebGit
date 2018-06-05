@@ -12,9 +12,11 @@ declare var $: any;
 })
 export class SendungComponent implements OnInit {
 
-  offeneSendungen:Sendung[];
+  perioden:Sendung[];
 
   verordnungenPerPeriode:Verordnung[];
+
+  currPeriode:String = 'Dummy';
 
   constructor(private PatientendatenService: PatientendatenService) { 
     this.getPeriodenByKundennummer();
@@ -33,24 +35,35 @@ export class SendungComponent implements OnInit {
     this.PatientendatenService.getPeriodenByKundennummer().subscribe(
       response => {
         if (response != null) {
-          this.offeneSendungen = response;
-          console.log('Periode '+this.offeneSendungen);
+          this.perioden = response;
+          //console.log('Periode '+this.offeneSendungen);
         }
       }
     );;
   }
 
-  onChangePeriode(periode:string){
-    console.log('Periode'+periode);
-    this.PatientendatenService.getVerordnungenByPeriode(periode).subscribe(response => {
+  onChangePeriode(){
+    //console.log('Periode'+periode);
+    this.PatientendatenService.getVerordnungenByPeriode(this.currPeriode).subscribe(response => {
       if(response != null){
       this.verordnungenPerPeriode = response;
-      console.log(response);
+      //console.log(response);
       }
     });
   }
 
   openModal(){
     $('#modalPeriode').modal();
+  }
+
+  saveSendung(){
+    var periode = $('#periode').val().toString();
+    var sendung = new Sendung(periode, this.PatientendatenService.getCurrKundennummer());
+
+    this.PatientendatenService.createSendung(sendung).subscribe(response => {
+      if(response!=null){
+        this.getPeriodenByKundennummer();
+      }
+    });    
   }
 }
