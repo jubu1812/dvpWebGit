@@ -85,7 +85,7 @@ export class PatientenverwaltungComponent implements OnInit {
 
     let koId = 0;
 
-    if (typeof this.currPatient !== 'undefined') {
+    if (typeof this.currPatient !== 'undefined' && this.currPatient != null) {
       koId = this.currPatient.kostentraeger_id;
     }
 
@@ -221,6 +221,7 @@ export class PatientenverwaltungComponent implements OnInit {
 
     this.service.setCurrPatient(null);
     this.currPatient = null;
+    this.currSVNRP = null;
     this.verordnungen = [];
 
     console.log(this.service.getCurrPatient());

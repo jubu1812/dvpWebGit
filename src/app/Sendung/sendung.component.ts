@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { PatientendatenService } from 'app/patientendaten.service';
+import { Sendung } from 'app/Sendung/sendung';
+import { Verordnung } from 'app/Verordnung/Verordnung';
+
+declare var $: any;
 
 @Component({
   selector: 'app-sendung',
@@ -7,27 +12,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SendungComponent implements OnInit {
 
-  constructor() { }
+  offeneSendungen:Sendung[];
+
+  verordnungenPerPeriode:Verordnung[];
+
+  constructor(private PatientendatenService: PatientendatenService) { 
+    this.getPeriodenByKundennummer();
+    this.PatientendatenService.getVerordnungenByPeriode('Dummy').subscribe(response => {
+      if(response != null){
+      this.verordnungenPerPeriode = response;
+      console.log('Verordnungen per Periode'+response);
+      }
+    });
+  }
 
   ngOnInit() {
   }
 
-  /*saveSendung() {
-    let VSNRP: number = parseInt($('#VSNRP').val().toString()); 
-    let VONAP: string = $('#VONAP').val().toString();
-    let ZUNAP: string = $('#ZUNAP').val().toString();
-    let STRA: string = $('#STRA').val().toString();
-    let PLZL: number = parseInt($('#PLZL').val().toString());   
-    let ORT: string = $('#ORT').val().toString();
-    let LAND: string = $('#LAND').val().toString();
-    let VSNRA: number =  parseInt($('#VSNRA').val().toString()); 
-    let VONVS: string = $('#VONVS').val().toString();
-    let ZUNVS: string = $('#ZUNVS').val().toString();
+  getPeriodenByKundennummer(){
+    this.PatientendatenService.getPeriodenByKundennummer().subscribe(
+      response => {
+        if (response != null) {
+          this.offeneSendungen = response;
+          console.log('Periode '+this.offeneSendungen);
+        }
+      }
+    );;
+  }
 
-  let periode:();
-    verordnungenArr:Array<Verordnung>;
+  onChangePeriode(periode:string){
+    console.log('Periode'+periode);
+    this.PatientendatenService.getVerordnungenByPeriode(periode).subscribe(response => {
+      if(response != null){
+      this.verordnungenPerPeriode = response;
+      console.log(response);
+      }
+    });
+  }
 
-    let sendung= new Sendung(periode, verordnungenArr);
-    }*/
-
+  openModal(){
+    $('#modalPeriode').modal();
+  }
 }

@@ -44,6 +44,13 @@
                         {{kostentraeger.kostentraeger_name}}
                     </option>
                 </select>
+
+                <select class="form-control" id="sendungSelector" data-live-search="true">
+                    <option selected disabled>Sendungsperiode zuweisen</option>
+                    <option *ngFor='let sendung of offeneSendungen' [value]="sendung?.periode" [selected]="sendung?.periode === verordnung?.periode">
+                        {{sendung?.periode}}
+                    </option>
+                </select>
                 <br>
                 <br>
             </td>

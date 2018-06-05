@@ -7,7 +7,7 @@ import { VerordnungsId } from "./VerordnungId";
 export class Verordnung {
     public kundennummer:number;
     public vid: number;
-    public sendung_id: number;
+    public periode: string;
     public kostentraeger_id: number;
     public vpnrv: number;
     public zunav: string;
@@ -21,6 +21,7 @@ export class Verordnung {
         zunav: string,
         vdatum: Date,
         vsnrp: number,
+        periode: string
     ) {
         this.kundennummer = kundennummer;
         this.kostentraeger_id = kostentraeger_id;
@@ -28,5 +29,6 @@ export class Verordnung {
         this.zunav = zunav;
         this.vdatum = vdatum;
         this.vsnrp = vsnrp;
+        this.periode = periode;
     }
 }

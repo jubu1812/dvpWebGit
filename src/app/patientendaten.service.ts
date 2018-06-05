@@ -9,6 +9,7 @@ import { Bewilligung } from './Verordnung/Bewilligung';
 import { Leistung } from './Verordnung/Leistung';
 import { VerordnungsId } from './Verordnung/VerordnungId';
 import { Leistungserbringer } from './Verordnung/Leistungserbringer';
+import { Sendung } from 'app/Sendung/sendung';
 
 @Injectable()
 export class PatientendatenService {
@@ -62,6 +63,10 @@ export class PatientendatenService {
     this.http.post('http://localhost:8080/createLeistungserbringer', leistungserbringer).subscribe();
   }
 
+  createSendung(sendung:Sendung){
+    this.http.post('http://localhost:8080/createSendung',sendung).subscribe();
+  }
+
   getPatientById(vsnrp:number) {
     var id:PatientId = new PatientId(this.currKundennummer, vsnrp);
     var currentPatient = this.http.post('http://localhost:8080/patientById', id).map(x => (x.text() ? x.json() : null) as any);
@@ -80,10 +85,13 @@ export class PatientendatenService {
     return verordnungen;
   }
 
-  getVerordnungenBySendungId(sendungId: number){        
-    let patientenId = new PatientId(this.currKundennummer, sendungId);
+  getVerordnungenByPeriode(periode: String){        
+    var container = {
+      "periode":periode,
+      "kundennummer":this.currKundennummer    
+    }
 
-    let verordnungen = this.http.post('http://localhost:8080/getVerordnungenBysendungid', patientenId).map(response => response.json() as any);
+    let verordnungen = this.http.post('http://localhost:8080/getVerordnungenByPeriodeAndKundennummer', container).map(response => response.json() as any);
     return verordnungen;    
   }
 

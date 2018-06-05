@@ -31,6 +31,7 @@ export class VerordnungenComponent implements OnInit {
 
   constructor(private PatientendatenService: PatientendatenService, private router: Router) {
     this.currPatient = this.PatientendatenService.getCurrPatient();
+    this.getPeriodenByKundennummer();
     
     if(this.PatientendatenService.getEditModeVerordnung()){
       this.PatientendatenService.getVerordnungContainer(this.PatientendatenService.getCurrVid()).subscribe(data =>{
@@ -95,8 +96,15 @@ export class VerordnungenComponent implements OnInit {
     let zunav: string = $('#zunav').val().toString();
     let vadatum: Date = $('#vadatum').val();
     let kostentraeger_id: number = parseInt($('#kostentraegerWidth').val());
+    let periode = 'Dummy';
 
-    let verordnung = new Verordnung(this.PatientendatenService.getCurrKundennummer(), kostentraeger_id, vpnrv, zunav, vadatum, this.currPatient.vsnrp);
+    let verordnung = new Verordnung(this.PatientendatenService.getCurrKundennummer(), kostentraeger_id, vpnrv, zunav, vadatum, this.currPatient.vsnrp,periode);
+
+    if(this.PatientendatenService.getEditModeVerordnung()){
+      verordnung.vid = this.vc.vo.vid;
+      this.PatientendatenService.setEditModeVerordnung(false);
+    }
+
     this.PatientendatenService.createVerordnung(verordnung).subscribe(
       response => {
         if (response != null) {

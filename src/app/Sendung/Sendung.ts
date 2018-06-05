@@ -1,15 +1,14 @@
 import {Verordnung} from 'app/Verordnung/Verordnung';
 
 export class Sendung{
-    public id:number;
-    public kundennummer: number;
     public periode:string;
+    public kundennummer: number;    
     public abgeschlossen: number;
     
-    constructor(id:number, 
-        kundennummer:number, 
-        periode:string){
-        this.id = id;
+    constructor( 
+        periode:string,
+        kundennummer:number        
+    ){
         this.kundennummer = kundennummer;
         this.periode = periode;
         this.abgeschlossen=0;
