@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PatientendatenService } from 'app/patientendaten.service';
 import { Sendung } from 'app/Sendung/sendung';
 import { Verordnung } from 'app/Verordnung/Verordnung';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -18,7 +19,7 @@ export class SendungComponent implements OnInit {
 
   currPeriode:String = 'Dummy';
 
-  constructor(private PatientendatenService: PatientendatenService) { 
+  constructor(private PatientendatenService: PatientendatenService, private router: Router) { 
     this.getPeriodenByKundennummer();
     this.PatientendatenService.getVerordnungenByPeriode('Dummy').subscribe(response => {
       if(response != null){
@@ -52,6 +53,15 @@ export class SendungComponent implements OnInit {
     });
   }
 
+  onClickPeriode(periode:String){
+    this.currPeriode = periode;
+    this.PatientendatenService.getVerordnungenByPeriode(periode).subscribe(response => {
+      if(response != null){
+      this.verordnungenPerPeriode = response;
+      }
+    });
+  }
+
   openModal(){
     $('#modalPeriode').modal();
   }
@@ -62,8 +72,16 @@ export class SendungComponent implements OnInit {
 
     this.PatientendatenService.createSendung(sendung).subscribe(response => {
       if(response!=null){
-        this.getPeriodenByKundennummer();
+        this.getPeriodenByKundennummer();     
       }
-    });    
+    });  
+    
+    $('#periode').val("");
   }
+
+  inputPeriodeLeeren(){
+    $('#periode').val("");
+  }
+
+  
 }

@@ -7,7 +7,7 @@
     <br>
     <div class="col-xs-1">
       <label>Periode</label>
-      <select class="form-control" [(ngModel)]="currPeriode" id="sendungSelector" data-live-search="true" (change)="onChangePeriode()">        
+      <select class="form-control" [(ngModel)]="currPeriode" id="sendungSelector" data-live-search="true" (ngModelChange)="onChangePeriode()">        
         <option *ngFor='let sendung of perioden' [ngValue]="sendung?.periode" [selected]="sendung?.periode === 'Dummy'">
             {{sendung?.periode}}
         </option>
@@ -27,7 +27,7 @@
       <div class="modal-dialog">
           <div class="modal-content">
               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <button type="button" class="close" data-dismiss="modal" (click)="inputPeriodeLeeren()">&times;</button>
                   <h4 class="modal-title">Neue Sendung anlegen</h4>
               </div>
               <div class="modal-body">     
@@ -45,6 +45,7 @@
         <div ng-app="" ng-controller="rowController">
           <div class="table-responsive col-xs-12">
             <table class="table table-hover ">
+              <thead>
               <tr>
                 <th class="datumSpalte">
                   <h5>Verordnungsdatum</h5>
@@ -53,7 +54,7 @@
                   <h5>Verordnung</h5>
                 </th>
               </tr>
-
+            </thead>
               <tbody>
                 <tr *ngFor='let verordnung of verordnungenPerPeriode'>
                   <td>
@@ -63,29 +64,40 @@
                     {{verordnung?.periode}}
                   </td>
                 </tr>
+                </tbody>
             </table>
 
             <br>
             <br>
             <h3>
-              offene Sendungen
+              meine Sendungen
             </h3>
             <table class="table table-hover ">
-              <tr>
-                <th class="datumSpalte">
-                  <h5>Sendungsdatum</h5>
-                </th>
+              <thead>
+              <tr>                
                 <th>
                   <h5>Sendung</h5>
                 </th>
+                <th>
+                  <h5>Status</h5>
+                </th>
               </tr>
-
+             </thead>
               <tbody>
-                <tr>
-                  <td>
+                <tr *ngFor='let sendung of perioden'>                  
+                  <td (click)="onClickPeriode(sendung?.periode)">
+                    {{sendung?.periode}}
                   </td>
-
+                  <td>
+                     <div *ngIf="sendung?.status==0">
+                       offen
+                     </div>
+                     <div *ngIf="sendung?.status==1">
+                      abgeschlossen
+                    </div>
+                  </td>
                 </tr>
+                </tbody>
             </table>
           </div>
         </div>
