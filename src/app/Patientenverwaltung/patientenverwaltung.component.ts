@@ -121,7 +121,7 @@ export class PatientenverwaltungComponent implements OnInit {
 
           this.patientGeladen = true;
           this.getVerordnungenByPatientId();
-          this.getPeriodenByKundennummer();
+          this.getOffenePerioden();
           this.insertLoadedPatient();          
         }
         else {
@@ -157,8 +157,8 @@ export class PatientenverwaltungComponent implements OnInit {
     );
   }
 
-  getPeriodenByKundennummer(){
-    this.service.getPeriodenByKundennummer().subscribe(
+  getOffenePerioden(){
+    this.service.getOffenePerioden().subscribe(
       response => {
         if (response != null) {
           this.offeneSendungen = response;

@@ -90,17 +90,17 @@ export class VerordnungenComponent implements OnInit {
     $("#modalBewilligung").modal();
   }
 
-  onChangePeriode(vid:number, periode:string){
-    //console.log('Periode'+periode);
-    this.PatientendatenService.setPeriode(vid, periode).subscribe();
-  }
-
   saveVerordnung() {
     let vpnrv: number =  parseInt($('#vpnrv').val());
     let zunav: string = $('#zunav').val().toString();
     let vadatum: Date = $('#vadatum').val();
     let kostentraeger_id: number = parseInt($('#kostentraegerWidth').val());
-    let periode = 'Dummy';
+    
+    let periode: string = $('#sendungSelector').val();
+
+    if(periode == undefined || periode == null || periode == '' || periode == 'Kostenträger auswählen'){
+      periode = 'Dummy';
+    }
 
     let verordnung = new Verordnung(this.PatientendatenService.getCurrKundennummer(), kostentraeger_id, vpnrv, zunav, vadatum, this.currPatient.vsnrp,periode);
 

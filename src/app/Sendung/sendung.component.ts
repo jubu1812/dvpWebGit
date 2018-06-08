@@ -53,6 +53,14 @@ export class SendungComponent implements OnInit {
     });
   }
 
+  onChangePeriodeVerordnung(periode:string, vid:number){
+    this.PatientendatenService.setPeriode(vid,periode).subscribe(response => {
+      if(response!=null){
+        window.alert("could work");
+      }
+    });
+  }
+
   onClickPeriode(periode:String){
     this.currPeriode = periode;
     this.PatientendatenService.getVerordnungenByPeriode(periode).subscribe(response => {
@@ -84,7 +92,12 @@ export class SendungComponent implements OnInit {
   }
 
   completeSendung(){
-    
+    this.PatientendatenService.completeSendung(this.currPeriode).subscribe(response => {
+      if(response!=null){
+        this.getPeriodenByKundennummer();     
+      }
+    });  
+
   }
 
   

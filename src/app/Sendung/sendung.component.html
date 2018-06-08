@@ -61,7 +61,11 @@
                       {{verordnung?.vdatum | date:'dd.MM.yyyy'}}
                   </td>
                   <td>
-                    {{verordnung?.periode}}
+                    <select class="form-control" id="sendungSelectorDynamic" data-live-search="true" (ngModelChange)="onChangePeriodeVerordnung($event.target.value, verordnung?.vid)">        
+                      <option *ngFor='let sendung of perioden' [ngValue]="sendung?.periode" [selected]="sendung?.periode === verordnung?.periode">
+                          {{sendung?.periode}}
+                      </option>
+                  </select>
                   </td>
                 </tr>
                 </tbody>
