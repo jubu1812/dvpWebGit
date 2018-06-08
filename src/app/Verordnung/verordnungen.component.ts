@@ -90,6 +90,10 @@ export class VerordnungenComponent implements OnInit {
     $("#modalBewilligung").modal();
   }
 
+  onChangePeriode(vid:number, periode:string){
+    //console.log('Periode'+periode);
+    this.PatientendatenService.setPeriode(vid, periode).subscribe();
+  }
 
   saveVerordnung() {
     let vpnrv: number =  parseInt($('#vpnrv').val());

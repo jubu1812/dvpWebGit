@@ -19,7 +19,7 @@
         <span class="glyphicon glyphicon-plus"></span>
         neue Sendung</button>      
 
-      <button [disabled]="currPeriode==='Dummy'" type="button" class="btn btn-danger">
+      <button [disabled]="currPeriode==='Dummy'" type="button" class="btn btn-danger" (click)="completeSendung()">
         Sendung {{currPeriode}} abschließen </button>
     </div>
 
@@ -27,7 +27,7 @@
       <div class="modal-dialog">
           <div class="modal-content">
               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" (click)="inputPeriodeLeeren()">&times;</button>
+                  <button type="button" class="close" data-dismiss="modal" (click)="emptyInputPeriode()">&times;</button>
                   <h4 class="modal-title">Neue Sendung anlegen</h4>
               </div>
               <div class="modal-body">     

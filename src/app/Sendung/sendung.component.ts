@@ -79,8 +79,12 @@ export class SendungComponent implements OnInit {
     $('#periode').val("");
   }
 
-  inputPeriodeLeeren(){
+  emptyInputPeriode(){
     $('#periode').val("");
+  }
+
+  completeSendung(){
+    
   }
 
   

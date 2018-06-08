@@ -131,7 +131,20 @@ export class PatientendatenService {
   }
 
   completeSendung(periode:String){
+    var container = {
+      "periode":periode,
+      "kundennummer":this.currKundennummer
+    }
+    return this.http.post('http://localhost:8080/completeSendung', container).map(response => response.json() as any);
+  }
 
+  setPeriode(vid:number, periode:string){
+    var container = {
+      "vid":vid,
+      "kundennummer":this.currKundennummer,
+      "periode":periode
+    }
+    return this.http.post('http://localhost:8080/setPeriode', container).map(response => response.json() as any);
   }
 
   setverordnungZurueckStatus(status:boolean){

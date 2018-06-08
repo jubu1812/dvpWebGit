@@ -167,6 +167,11 @@ export class PatientenverwaltungComponent implements OnInit {
     );;
   }
 
+  onChangePeriode(vid:number, periode:string){
+    //console.log('Periode'+periode);
+    this.service.setPeriode(vid, periode).subscribe();
+  }
+
   deleteVerordnung(vid: number) {
     this.service.deleteVerordnung(vid).subscribe(
       response => {
