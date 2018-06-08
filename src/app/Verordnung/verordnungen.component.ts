@@ -31,7 +31,7 @@ export class VerordnungenComponent implements OnInit {
 
   constructor(private PatientendatenService: PatientendatenService, private router: Router) {
     this.currPatient = this.PatientendatenService.getCurrPatient();
-    this.getPeriodenByKundennummer();
+    this.getOffenePerioden();
     
     if(this.PatientendatenService.getEditModeVerordnung()){
       this.PatientendatenService.getVerordnungContainer(this.PatientendatenService.getCurrVid()).subscribe(data =>{
@@ -236,8 +236,8 @@ export class VerordnungenComponent implements OnInit {
     $('#zunt').val("");
   }
 
-  getPeriodenByKundennummer(){
-    this.PatientendatenService.getPeriodenByKundennummer().subscribe(
+  getOffenePerioden(){
+    this.PatientendatenService.getOffenePerioden().subscribe(
       response => {
         if (response != null) {
           this.offeneSendungen = response;

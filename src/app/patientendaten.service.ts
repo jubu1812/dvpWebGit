@@ -128,6 +128,14 @@ export class PatientendatenService {
     return this.http.post('http://localhost:8080/getOffenePerioden',container).map(response => response.json() as any);;
   }
 
+  getSendung(periode:string){
+    var container={
+      "periode":periode,
+      "kundennummer":this.currKundennummer
+    }
+    return this.http.post('http://localhost:8080/getSendung',container).map(response => response.json() as any);;
+  }
+
   getVerordnungContainer(vid:number){
     console.log("vid to get "+vid);
     var container = {

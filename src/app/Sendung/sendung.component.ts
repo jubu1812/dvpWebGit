@@ -15,12 +15,18 @@ export class SendungComponent implements OnInit {
 
   perioden:Sendung[];
 
+  currSendung:Sendung;
+
   verordnungenPerPeriode:Verordnung[];
 
-  currPeriode:String = 'Dummy';
+  offeneSendungen:Sendung[];
+
+  currPeriode:string = 'Dummy';
 
   constructor(private PatientendatenService: PatientendatenService, private router: Router) { 
     this.getPeriodenByKundennummer();
+    this.getOffenePerioden();
+    this.getSendung();
     this.PatientendatenService.getVerordnungenByPeriode('Dummy').subscribe(response => {
       if(response != null){
       this.verordnungenPerPeriode = response;
@@ -43,8 +49,19 @@ export class SendungComponent implements OnInit {
     );;
   }
 
+  getOffenePerioden(){
+    this.PatientendatenService.getOffenePerioden().subscribe(
+      response => {
+        if (response != null) {
+          this.offeneSendungen = response;
+        }
+      }
+    );;
+  }
+
   onChangePeriode(){
     //console.log('Periode'+periode);
+    this.getSendung();
     this.PatientendatenService.getVerordnungenByPeriode(this.currPeriode).subscribe(response => {
       if(response != null){
       this.verordnungenPerPeriode = response;
@@ -53,16 +70,25 @@ export class SendungComponent implements OnInit {
     });
   }
 
-  onChangePeriodeVerordnung(periode:string, vid:number){
-    this.PatientendatenService.setPeriode(vid,periode).subscribe(response => {
-      if(response!=null){
-        window.alert("could work");
+  getSendung(){
+    this.PatientendatenService.getSendung(this.currPeriode).subscribe(response => {
+      if(response != null){
+        this.currSendung = response;
       }
     });
   }
 
-  onClickPeriode(periode:String){
+  onChangePeriodeVerordnung(periode:string, vid:number){
+    this.PatientendatenService.setPeriode(vid,periode).subscribe(response => {
+      if(response!=null){
+        //this.onChangePeriode(); //eventuell nicht erwünscht
+      }
+    });
+  }
+
+  onClickPeriode(periode:string){
     this.currPeriode = periode;
+    this.getSendung();
     this.PatientendatenService.getVerordnungenByPeriode(periode).subscribe(response => {
       if(response != null){
       this.verordnungenPerPeriode = response;
@@ -80,7 +106,8 @@ export class SendungComponent implements OnInit {
 
     this.PatientendatenService.createSendung(sendung).subscribe(response => {
       if(response!=null){
-        this.getPeriodenByKundennummer();     
+        this.getPeriodenByKundennummer(); 
+        this.getOffenePerioden();    
       }
     });  
     
@@ -95,6 +122,8 @@ export class SendungComponent implements OnInit {
     this.PatientendatenService.completeSendung(this.currPeriode).subscribe(response => {
       if(response!=null){
         this.getPeriodenByKundennummer();     
+        this.getOffenePerioden();
+        this.getSendung();
       }
     });  
 

@@ -91,7 +91,7 @@
   </div>
 </div>
 
-<div id="verordnungen">
+<div *ngIf="currPatient!=null" id="verordnungen">
   
   <div class="container-fluid">
       <h3>Verordnungen</h3>
@@ -111,40 +111,44 @@
         <tbody>
           <tr *ngFor="let verordnung of verordnungen">
             <td>
-              {{verordnung.vdatum | date:'dd.MM.yyyy'}}
+              {{verordnung?.vdatum | date:'dd.MM.yyyy'}}
             </td>
             <td>
-                <select class="form-control" id="sendungSelector" data-live-search="true">
+              <div *ngIf="verordnung?.status === 0">
+                <select class="form-control" id="sendungSelector" data-live-search="true" (change)="onChangePeriode(verordnung?.vid, $event.target.value)">
                     <option *ngFor='let sendung of offeneSendungen' [value]="sendung?.periode" [selected]="sendung?.periode === verordnung?.periode">
-                        {{sendung.periode}}
+                        {{sendung?.periode}}
                     </option>
                 </select>
+              </div>
+              <div *ngIf="verordnung?.status === 1">
+                  {{verordnung?.periode}}
+              </div>
             </td>
           
             <td style="width: 20px">
-              <button class="btn btn-danger btn-sm" title="Verordnung löschen" (click)="deleteVerordnung(verordnung.vid)">
+              <button [disabled]="verordnung?.status === 1" class="btn btn-danger btn-sm" title="Verordnung löschen" (click)="deleteVerordnung(verordnung.vid)">
                 <span class="glyphicon glyphicon-remove"></span>
               </button>
             </td> 
             <td style="width: 20px">
-              <button class="btn btn-info btn-sm" title="Verordnung bearbeiten" (click)="editVerordnung(verordnung.vid)">
+              <button [disabled]="verordnung?.status === 1" class="btn btn-info btn-sm" title="Verordnung bearbeiten" (click)="editVerordnung(verordnung.vid)">
                 <span class="glyphicon glyphicon-pencil"></span>
               </button>
-            </td>              
+            </td>  
+            <td style="width: 20px">
+              <button class="btn btn-warning btn-sm" title="Verordnung kopieren" (click)="copyVerordnung(verordnung.vid)">
+                <span class="glyphicon glyphicon-duplicate"></span>
+              </button>
+            </td>               
           </tr>
       </table>
       </div>
 
-      <div class="btn-group-vertical">
+      
         <button class="btn btn-secondary" (click)=openVerordnung() id="btn_neu">
-          <span class="glyphicon glyphicon-plus"></span> anlegen</button>
-        
-        <button class="btn btn-secondary" id="btn_kopie">
-          <span class="glyphicon glyphicon-duplicate"></span> kopieren </button>
-       
-        <button class="btn btn-secondary" id="btn_speichern">
-          <span class="glyphicon glyphicon-floppy-disk"></span> speichern </button>
-      </div>
+          <span class="glyphicon glyphicon-plus"></span> anlegen</button>              
+      
     </div>
 </div>
 <div class="modal fade" id="modalInputleer" role="dialog">

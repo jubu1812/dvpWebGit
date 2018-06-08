@@ -13,6 +13,7 @@ export class Verordnung {
     public zunav: string;
     public vdatum: Date;
     public vsnrp: number;
+    public status: number;
 
     constructor(
         kundennummer: number,
@@ -30,5 +31,6 @@ export class Verordnung {
         this.vdatum = vdatum;
         this.vsnrp = vsnrp;
         this.periode = periode;
+        this.status = 0;
     }
 }
