@@ -39,6 +39,8 @@ export class VerordnungenComponent implements OnInit {
         $('#vpnrv').val(""+this.vc.vo.vpnrv);
         $('#zunav').val(""+this.vc.vo.zunav);
         $('#vadatum').val(""+this.vc.vo.vdatum);
+        $('#kostentraegerWidth').val(this.vc.vo.kostentraeger_id);
+        $('#sendungSelector').val(this.vc.vo.periode);
         console.log(this.vc);
       });
     }
@@ -57,6 +59,8 @@ export class VerordnungenComponent implements OnInit {
         }  
         else{
           this.vc.leistungen = [];
+          $('#kostentraegerWidth').val(this.vc.vo.kostentraeger_id);
+          $('#sendungSelector').val(this.vc.vo.periode);
           $('#vpnrv').val(""+this.vc.vo.vpnrv);
           $('#zunav').val(""+this.vc.vo.zunav);
           $('#vadatum').val(""+this.vc.vo.vdatum);
