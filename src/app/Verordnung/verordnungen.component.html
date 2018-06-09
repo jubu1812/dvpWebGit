@@ -1,4 +1,4 @@
-<div *ngIf="currPatient==undefined" >
+<div *ngIf="currPatient==undefined">
 
     Sie müssen auf das Patientenverwaltung einen Patienten auswählen um mit den Verordungungen arbeiten zu können!
 </div>
@@ -36,15 +36,18 @@
             </td>
         </tr>
         <tr>
-            <td id="kostenträgerTab" colspan="2">
-                
-                <select class="form-control" id="kostentraegerWidth" data-live-search="true">
+            <td id="kostenträgerTab">
+
+                <select class="form-control" data-live-search="true">
                     <option selected disabled>Kostenträger auswählen</option>
                     <option *ngFor='let kostentraeger of kostentraegerArray' [value]="kostentraeger.kostentraeger_id" [selected]="kostentraeger.kostentraeger_id === currPatient?.kostentraeger_id">
                         {{kostentraeger.kostentraeger_name}}
                     </option>
                 </select>
 
+
+            </td>
+            <td>
                 <select class="form-control" id="sendungSelector" data-live-search="true">
                     <option selected disabled>Sendungsperiode zuweisen</option>
                     <option *ngFor='let sendung of offeneSendungen' [value]="sendung?.periode" [selected]="sendung?.periode === verordnung?.periode">
@@ -157,7 +160,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <label>Datum</label>
-                                                <input type="date" id="datl" class="form-control" placeholder="tt.mm.jjjj"> 
+                                                <input type="date" id="datl" class="form-control" placeholder="tt.mm.jjjj">
                                                 <br>
                                                 <label>PosNr</label>
                                                 <input class="form-control" id="posnr">
@@ -281,16 +284,16 @@
                             </th>
                         </tr>
                         <tbody>
-                                <tr *ngFor="let leistungserbringerVar of vc?.leistungserbringer">                                       
-                                        <td>{{leistungserbringerVar.vpnrt}}</td>
-                                        <td>{{leistungserbringerVar.zunut}}</td>
-                                        <td>
-                                            <button class="btn btn-danger btn-sm" (click)="deleteLeistung(leistung)">
-                                                <span class="glyphicon glyphicon-remove"></span>
-                                            </button>
-                                        </td>
-                                    </tr>
-                            </tbody>
+                            <tr *ngFor="let leistungserbringerVar of vc?.leistungserbringer">
+                                <td>{{leistungserbringerVar.vpnrt}}</td>
+                                <td>{{leistungserbringerVar.zunut}}</td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm" (click)="deleteLeistung(leistung)">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </td>
@@ -305,7 +308,7 @@
                 <h4 class="modal-title">Achtung!</h4>
             </div>
             <div class="modal-body">
-            <p>Alle Felder müssen ausgefüllt werden!</p>
+                <p>Alle Felder müssen ausgefüllt werden!</p>
             </div>
         </div>
     </div>
