@@ -40,7 +40,7 @@
 
                 <select class="form-control" id="kostentraegerWidth" data-live-search="true">
                     <option selected disabled>Kostenträger auswählen</option>
-                    <option *ngFor='let kostentraeger of kostentraegerArray' [value]="kostentraeger.kostentraeger_id" [selected]="kostentraeger.kostentraeger_id === currPatient?.kostentraeger_id">
+                    <option *ngFor='let kostentraeger of kostentraegerArray' [value]="kostentraeger.kostentraeger_id" [selected]="kostentraeger.kostentraeger_id === vc?.vo.kostentraeger_id">
                         {{kostentraeger.kostentraeger_name}}
                     </option>
                 </select>
