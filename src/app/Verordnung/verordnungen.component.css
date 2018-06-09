@@ -35,9 +35,12 @@ table{
   }
 
 #kostentraegerWidth{
-    width: 40%;
+    width: 48%;
 }
+#sendungSelector{
+    width: 48%;
 
+}
 #rowLeistBewill{
     padding:25px;
 }
