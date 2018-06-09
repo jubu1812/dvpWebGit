@@ -1,167 +1,167 @@
-<div *ngIf="(vsnrpat?.hasError('nr') && (vsnrpat?.dirty || vsnrpat?.touched)) && (vsnrpat?.value !== '' && vsnrpat?.value != null)" class="alert alert-danger alert-dismissible">
+<div *ngIf="(vsnrpat?.hasError('nr') && (vsnrpat?.dirty || vsnrpat?.touched)) && (vsnrpat?.value !== '' && vsnrpat?.value != null)"
+  class="alert alert-danger alert-dismissible">
   Die eingegebene Sozialversicherungsnummer für den Patienten ist nicht gültig.</div>
 
-<div *ngIf="(vsnrhvs?.hasError('nr') && (vsnrhvs?.dirty || vsnrhvs?.touched || vsnrhvs?.value !== '')) && (vsnrhvs?.value !== '' && vsnrhvs?.value != null)" class="alert alert-danger alert-dismissible">
+<div *ngIf="(vsnrhvs?.hasError('nr') && (vsnrhvs?.dirty || vsnrhvs?.touched || vsnrhvs?.value !== '')) && (vsnrhvs?.value !== '' && vsnrhvs?.value != null)"
+  class="alert alert-danger alert-dismissible">
   Die eingegebene Sozialversicherungsnummer für den Hauptversicherten ist nicht gültig.</div>
 
-  <div id="wrapper">
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Fehler beim Laden des Patienten</h4>
-      </div>
-      <div class="modal-body">
-        <p>Dieser Patient wurde von Ihnen noch nicht gespeichert. Kontrollieren Sie die Sozialversicherungsnummer 
-          oder legen Sie einen neuen Patienten an.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">schließen</button>
+<div id="wrapper">
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Fehler beim Laden des Patienten</h4>
+        </div>
+        <div class="modal-body">
+          <p>Dieser Patient wurde von Ihnen noch nicht gespeichert. Kontrollieren Sie die Sozialversicherungsnummer oder legen
+            Sie einen neuen Patienten an.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">schließen</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<br>
-<div>
-  <form class="form-inline my-2 my-lg-0">
+  <br>
+  <div class="btn-group" id="btngroup" role="group" aria-label="Basic example">
     <button class="btn btn-primary" id="positionSave" (click)=onlySavePatient()>
       <span class="glyphicon glyphicon-floppy-disk"></span>
     </button>
     <button class="btn btn-primary" id="positionSave" (click)=clearValues()>
-        Formular leeren
-      </button>
-  </form>
-</div>
-<div class="col-md-6">
-  <h2>Patient</h2>
+      Formular leeren
+    </button>
+  </div>
+  <div class="col-md-6">
+    <h2>Patient</h2>
 
-  <div class="col-xs-1">
-    <label>SV- Nummer</label>
-    <div class="input-group">
+    <div class="col-xs-1">
+      <label>SV- Nummer</label>
+      <div class="input-group">
 
-      <input required id="VSNRP" type="text" class="form-control" name="vsnrp" nr [(ngModel)]="currSVNRP" #vsnrpat="ngModel">
-      <span class="input-group-btn">
-        <button class="btn btn-secondary" id="searchBtn" type="button" (click)=getPatient() title="Patient laden">
-          <span class="glyphicon glyphicon-search"></span>
-        </button>
-      </span>
+        <input required id="VSNRP" type="text" class="form-control" name="vsnrp" nr [(ngModel)]="currSVNRP" #vsnrpat="ngModel">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" id="searchBtn" type="button" (click)=getPatient() title="Patient laden">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+      <br>
+      <label>Vorname</label>
+      <input id="VONAP" type="text" class="form-control">
+      <br>
+      <label>Nachname</label>
+      <input required id="ZUNAP" type="text" class="form-control">
     </div>
-    <br>
-    <label>Vorname</label>
-    <input id="VONAP" type="text" class="form-control">
-    <br>
-    <label>Nachname</label>
-    <input required id="ZUNAP" type="text" class="form-control">
-  </div>
 
-  <div class="col-xs-1">
-    <label>Straße</label>
-    <input id="STRA" type="text" class="form-control">
-    <br>
-    <div>
-      <label>PLZ</label>
-      <label id="labelPLZ">Ort</label>
+    <div class="col-xs-1">
+      <label>Straße</label>
+      <input id="STRA" type="text" class="form-control">
       <br>
-      <input id="PLZL" type="number" class="form-control">
-      <input id="ORT" type="text" class="form-control">
+      <div>
+        <label>PLZ</label>
+        <label id="labelPLZ">Ort</label>
+        <br>
+        <input id="PLZL" type="number" class="form-control">
+        <input id="ORT" type="text" class="form-control">
+        <br>
+        <br>
+      </div>
       <br>
-      <br>
+      <label>Land</label>
+      <input id="LAND" type="text" class="form-control">
     </div>
-    <br>
-    <label>Land</label>
-    <input id="LAND" type="text" class="form-control">
   </div>
-</div>
 
-<div class="col-md-6">
+  <div class="col-md-6">
 
-  <h2>Hauptversicherter</h2>
+    <h2>Hauptversicherter</h2>
 
-  <div class="col-xs-1">
-    <label>SV-Nummer</label>
-    <input id="VSNRA" type="text" class="form-control" name="vsnra" [(ngModel)]="vsnra" nr #vsnrhvs="ngModel">
-    <br>
-    <label>Vorname</label>
-    <input id="VONVS" type="text" class="form-control">
-    <br>
-    <label>Nachname</label>
-    <input id="ZUNVS" type="text" class="form-control">
+    <div class="col-xs-1">
+      <label>SV-Nummer</label>
+      <input id="VSNRA" type="text" class="form-control" name="vsnra" [(ngModel)]="vsnra" nr #vsnrhvs="ngModel">
+      <br>
+      <label>Vorname</label>
+      <input id="VONVS" type="text" class="form-control">
+      <br>
+      <label>Nachname</label>
+      <input id="ZUNVS" type="text" class="form-control">
+    </div>
   </div>
-</div>
 
-<div *ngIf="currPatient!=null" id="verordnungen">
-  
-  <div class="container-fluid">
+  <div *ngIf="currPatient!=null" id="verordnungen">
+
+    <div class="container-fluid">
       <h3>Verordnungen</h3>
-    <div *ngIf="verordnungen.length > 0" class="table-responsive col-xs-12">
-      <table class="table table-hover ">
-        <thead>
-          <tr>
-            <td>
-              <h4>Verordnungsdatum</h4>
-            </td>
-            <td>
-              <h4>Sendung</h4>
-            </td>
-          </tr>
-        </thead>
+      <div *ngIf="verordnungen.length > 0" class="table-responsive col-xs-12">
+        <table class="table table-hover ">
+          <thead>
+            <tr>
+              <td>
+                <h4>Verordnungsdatum</h4>
+              </td>
+              <td>
+                <h4>Sendung</h4>
+              </td>
+            </tr>
+          </thead>
 
-        <tbody>
-          <tr *ngFor="let verordnung of verordnungen">
-            <td>
-              {{verordnung?.vdatum | date:'dd.MM.yyyy'}}
-            </td>
-            <td>
-              <div *ngIf="verordnung?.status === 0">
-                <select class="form-control" id="sendungSelector" data-live-search="true" (change)="onChangePeriode(verordnung?.vid, $event.target.value)">
+          <tbody>
+            <tr *ngFor="let verordnung of verordnungen">
+              <td>
+                {{verordnung?.vdatum | date:'dd.MM.yyyy'}}
+              </td>
+              <td>
+                <div *ngIf="verordnung?.status === 0">
+                  <select class="form-control" id="sendungSelector" data-live-search="true" (change)="onChangePeriode(verordnung?.vid, $event.target.value)">
                     <option *ngFor='let sendung of offeneSendungen' [value]="sendung?.periode" [selected]="sendung?.periode === verordnung?.periode">
-                        {{sendung?.periode}}
+                      {{sendung?.periode}}
                     </option>
-                </select>
-              </div>
-              <div *ngIf="verordnung?.status === 1">
+                  </select>
+                </div>
+                <div *ngIf="verordnung?.status === 1">
                   {{verordnung?.periode}}
-              </div>
-            </td>
-          
-            <td style="width: 20px">
-              <button [disabled]="verordnung?.status === 1" class="btn btn-danger btn-sm" title="Verordnung löschen" (click)="deleteVerordnung(verordnung.vid)">
-                <span class="glyphicon glyphicon-remove"></span>
-              </button>
-            </td> 
-            <td style="width: 20px">
-              <button [disabled]="verordnung?.status === 1" class="btn btn-info btn-sm" title="Verordnung bearbeiten" (click)="editVerordnung(verordnung.vid)">
-                <span class="glyphicon glyphicon-pencil"></span>
-              </button>
-            </td>  
-            <td style="width: 20px">
-              <button class="btn btn-warning btn-sm" title="Verordnung kopieren" (click)="copyVerordnung(verordnung.vid)">
-                <span class="glyphicon glyphicon-duplicate"></span>
-              </button>
-            </td>               
-          </tr>
-      </table>
+                </div>
+              </td>
+
+              <td style="width: 20px">
+                <button [disabled]="verordnung?.status === 1" class="btn btn-danger btn-sm" title="Verordnung löschen" (click)="deleteVerordnung(verordnung.vid)">
+                  <span class="glyphicon glyphicon-remove"></span>
+                </button>
+              </td>
+              <td style="width: 20px">
+                <button [disabled]="verordnung?.status === 1" class="btn btn-info btn-sm" title="Verordnung bearbeiten" (click)="editVerordnung(verordnung.vid)">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+              </td>
+              <td style="width: 20px">
+                <button class="btn btn-warning btn-sm" title="Verordnung kopieren" (click)="copyVerordnung(verordnung.vid)">
+                  <span class="glyphicon glyphicon-duplicate"></span>
+                </button>
+              </td>
+            </tr>
+        </table>
       </div>
 
-      
-        <button class="btn btn-secondary" (click)=openVerordnung() id="btn_neu">
-          <span class="glyphicon glyphicon-plus"></span> anlegen</button>              
-      
+
+      <button class="btn btn-secondary" (click)=openVerordnung() id="btn_neu">
+        <span class="glyphicon glyphicon-plus"></span> anlegen</button>
+
     </div>
-</div>
-<div class="modal fade" id="modalInputleer" role="dialog">
-  <div class="modal-dialog">
-      <div class="modal-content">
-          <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Achtung!</h4>
-          </div>
-          <div class="modal-body">
-          <p>Sozialversicherungsnummer und Nachname des Patienten müssen eingegeben werden!</p>
-          </div>
-      </div>
   </div>
-</div>
+  <div class="modal fade" id="modalInputleer" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Achtung!</h4>
+        </div>
+        <div class="modal-body">
+          <p>Sozialversicherungsnummer und Nachname des Patienten müssen eingegeben werden!</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
