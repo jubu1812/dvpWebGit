@@ -145,6 +145,14 @@ export class PatientendatenService {
     return this.http.post('http://localhost:8080/getVerordnungContainer', container).map(response => response.json() as any);
   }
 
+  copyVerordnung(vid:number){
+    var container = {
+      "vid":vid,
+      "kundennummer":this.currKundennummer
+    }
+    return this.http.post('http://localhost:8080/copyVerordnung', container).map(response => response.json() as any);
+  }
+
   completeSendung(periode:String){
     var container = {
       "periode":periode,

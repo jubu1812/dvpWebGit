@@ -43,12 +43,26 @@ export class VerordnungenComponent implements OnInit {
       });
     }
     else{
-    this.vc = new VerordnungContainer();
-    
-    this.vc.diagnosen = [];
-    this.vc.leistungen = [];
-    this.vc.bewilligungen = [];
-    this.vc.leistungserbringer = [];    
+      this.PatientendatenService.copyVerordnung(this.PatientendatenService.getCurrVid()).subscribe(data =>{
+        if(data!=null){
+        this.vc = data; 
+        console.log("Verordnung "+data); 
+        if(this.vc.vo===null){
+          this.vc = new VerordnungContainer();
+
+          this.vc.diagnosen = [];
+          this.vc.bewilligungen = [];
+          this.vc.leistungen = [];
+          this.vc.leistungserbringer = [];
+        }  
+        else{
+          this.vc.leistungen = [];
+          $('#vpnrv').val(""+this.vc.vo.vpnrv);
+          $('#zunav').val(""+this.vc.vo.zunav);
+          $('#vadatum').val(""+this.vc.vo.vdatum);
+        }           
+        }
+      });  
     }
   }
 

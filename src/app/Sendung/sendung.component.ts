@@ -56,7 +56,7 @@ export class SendungComponent implements OnInit {
           this.offeneSendungen = response;
         }
       }
-    );;
+    );
   }
 
   onChangePeriode(){

@@ -188,6 +188,11 @@ export class PatientenverwaltungComponent implements OnInit {
     this.router.navigate(['/verordnung']);
   }
 
+  copyVerordnung(vid:number){
+    this.service.setCurrVid(vid);
+    this.router.navigate(['/verordnung']);
+  }
+
   insertLoadedPatient() {
     $("#VSNRP").val(this.currPatient.vsnrp);
     $("#VONAP").val(this.currPatient.vonap);
