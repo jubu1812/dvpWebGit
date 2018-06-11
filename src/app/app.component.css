@@ -10,7 +10,6 @@ nav{
 }
 nav ul {
     list-style-type: none;
-    margin-top: 22px;
     padding: 0;
 }
 .navbar {
@@ -29,8 +28,9 @@ nav ul {
     color: black; 
     text-align: center;
     text-decoration: none;
+    
  }
- 
+
  li a:hover{
     color:rgb(24, 76, 173);
  }
@@ -38,4 +38,10 @@ nav ul {
      float:right;
  }
 
+ #patientenverwaltungLink{
+     padding-top: 21px;
+ }
+ #sendungLink{
+    padding-top: 21px;
+}
 
