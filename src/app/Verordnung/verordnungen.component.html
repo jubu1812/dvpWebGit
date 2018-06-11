@@ -1,5 +1,4 @@
 <div *ngIf="currPatient==undefined">
-
     Sie müssen auf das Patientenverwaltung einen Patienten auswählen um mit den Verordungungen arbeiten zu können!
 </div>
 
@@ -37,7 +36,6 @@
         </tr>
         <tr>
             <td id="kostenträgerTab">
-
                 <select class="form-control" id="kostentraegerWidth" data-live-search="true">
                     <option selected disabled>Kostenträger auswählen</option>
                     <option *ngFor='let kostentraeger of kostentraegerArray' [value]="kostentraeger.kostentraeger_id" [selected]="kostentraeger.kostentraeger_id === currPatient?.kostentraeger_id">
@@ -46,7 +44,6 @@
                 </select>
                 <br>
                 <br>
-
             </td>
             <td>
                 <select class="form-control" id="sendungSelector" data-live-search="true">

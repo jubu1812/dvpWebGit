@@ -5,20 +5,15 @@
 	position: relative;
 }
 nav{
-    padding-left:2.5%;
-    
+    padding-left:2.5%;   
+    border-radius: 0%;
 }
-
 nav ul {
     list-style-type: none;
     margin-top: 22px;
     padding: 0;
- }
- .navBardemoBasicUsage md-content .ext-content {
-     padding: 20px;
-     margin: 20px;
-  }
- .navbar {
+}
+.navbar {
   width:100%;
   background-color: rgba(169, 169, 169, 0.7);
  }  
@@ -39,12 +34,8 @@ nav ul {
  li a:hover{
     color:rgb(24, 76, 173);
  }
- 
- #btnsearch{
-     height: 38px;
-     width: 50px;
+ #logo{
+     float:right;
  }
- #inputsearch{
-     width: 268px;
-     float: right;
- }
+
+

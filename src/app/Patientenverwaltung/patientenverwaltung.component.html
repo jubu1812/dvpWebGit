@@ -26,14 +26,19 @@
   </div>
 
   <br>
-  <div class="btn-group" id="btngroup" role="group" aria-label="Basic example">
-    <button class="btn btn-primary" id="positionSave" (click)=onlySavePatient()>
-      <span class="glyphicon glyphicon-floppy-disk"></span>
-    </button>
-    <button class="btn btn-primary" id="positionSave" (click)=clearValues()>
-      Formular leeren
-    </button>
-  </div>
+  <form class="form-inline my-2 my-lg-0">
+    <div class="btn-group" id="btngroup" role="group" aria-label="Basic example">
+      <button class="btn btn-primary" (click)=onlySavePatient() title="Patient speichern">
+        <span class="glyphicon glyphicon-floppy-disk"></span>
+      </button>
+      <button class="btn btn-primary" (click)=clearValues() title="Formular leeren">
+        Formular leeren
+      </button>
+
+  
+
+    </div>
+  </form>
   <div class="col-md-6">
     <h2>Patient</h2>
 
