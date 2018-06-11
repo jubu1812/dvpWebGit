@@ -29,6 +29,8 @@ export class VerordnungenComponent implements OnInit {
 
   vc: VerordnungContainer; 
 
+  currVPNR;
+
   constructor(private PatientendatenService: PatientendatenService, private router: Router) {
     this.currPatient = this.PatientendatenService.getCurrPatient();
     this.getOffenePerioden();
@@ -39,7 +41,10 @@ export class VerordnungenComponent implements OnInit {
         $('#vpnrv').val(""+this.vc.vo.vpnrv);
         $('#zunav').val(""+this.vc.vo.zunav);
         $('#vadatum').val(""+this.vc.vo.vdatum);
+
+        
         $('#kostentraegerWidth').val(this.vc.vo.kostentraeger_id);
+        
         $('#sendungSelector').val(this.vc.vo.periode);
         console.log(this.vc);
       });
@@ -48,8 +53,9 @@ export class VerordnungenComponent implements OnInit {
       this.PatientendatenService.copyVerordnung(this.PatientendatenService.getCurrVid()).subscribe(data =>{
         if(data!=null){
         this.vc = data; 
-        console.log("Verordnung "+data); 
-        if(this.vc.vo===null){
+        console.log("VerordnungC "+this.vc); 
+        
+        if(this.vc.vo===null||this.vc.vo==undefined){
           this.vc = new VerordnungContainer();
 
           this.vc.diagnosen = [];
@@ -59,8 +65,11 @@ export class VerordnungenComponent implements OnInit {
         }  
         else{
           this.vc.leistungen = [];
+          
           $('#kostentraegerWidth').val(this.vc.vo.kostentraeger_id);
+          
           $('#sendungSelector').val(this.vc.vo.periode);
+
           $('#vpnrv').val(""+this.vc.vo.vpnrv);
           $('#zunav').val(""+this.vc.vo.zunav);
           $('#vadatum').val(""+this.vc.vo.vdatum);
@@ -73,6 +82,7 @@ export class VerordnungenComponent implements OnInit {
   ngOnInit() {
     this.PatientendatenService.getAlleKostentraeger().subscribe(data => {
       this.kostentraegerArray = data;
+      console.log(data);
     });
   }
 

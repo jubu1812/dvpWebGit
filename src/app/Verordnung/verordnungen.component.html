@@ -38,7 +38,7 @@
             <td id="kostenträgerTab">
                 <select class="form-control" id="kostentraegerWidth" data-live-search="true">
                     <option selected disabled>Kostenträger auswählen</option>
-                    <option *ngFor='let kostentraeger of kostentraegerArray' [value]="kostentraeger.kostentraeger_id" [selected]="kostentraeger.kostentraeger_id === vc?.vo.kostentraeger_id">
+                    <option *ngFor='let kostentraeger of kostentraegerArray' [value]="kostentraeger.kostentraeger_id" [selected]="kostentraeger.kostentraeger_id === currPatient?.kostentraeger_id">
                         {{kostentraeger.kostentraeger_name}}
                     </option>
                 </select>
@@ -264,11 +264,15 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" (click)="leereLeistungserbringer()">&times;</button>
-                                                <h4 class="modal-title">Leistung hinzufügen</h4>
+                                                <h4 class="modal-title">Leistungserbringer hinzufügen</h4>
                                             </div>
                                             <div class="modal-body">
+                                                <div *ngIf="(vpnrt?.hasError('nr') && (vpnrt?.dirty || vpnrt?.touched || vpnrt?.value !== '')) && (vpnrt?.value !== '' && vpnrt?.value != null)"
+                                                    class="alert alert-danger alert-dismissible">
+                                                    Vertragspartnernummer ist nicht gültig.
+                                                </div>
                                                 <label>Vertragspartnernr.</label>
-                                                <input class="form-control" id="vpnrt">
+                                                <input type="text" class="form-control" id="vpnrt" name="vpnrt" vpnr [(ngModel)]="currVPNR" #vpnrt="ngModel">
                                                 <br>
                                                 <label>Nachname</label>
                                                 <input class="form-control" id="zunt">

@@ -5,8 +5,8 @@ export class Leistungserbringer{
     public vid: number;
 
     constructor(
-         vpnrt: string,
-         zunut: string
+        vpnrt: string,
+        zunut: string
     )
     {
     this.vpnrt = vpnrt;
