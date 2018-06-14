@@ -48,7 +48,7 @@
             <td>
                 <select class="form-control" id="sendungSelector" data-live-search="true">
                     <option selected disabled>Sendungsperiode zuweisen</option>
-                    <option *ngFor='let sendung of offeneSendungen' [value]="sendung?.periode" [selected]="sendung?.periode === verordnung?.periode">
+                    <option *ngFor='let sendung of offeneSendungen' [value]="sendung?.periode" [selected]="sendung?.periode === vc?.vo?.periode">
                         {{sendung?.periode}}
                     </option>
                 </select>
@@ -311,6 +311,19 @@
             </div>
             <div class="modal-body">
                 <p>Alle Felder müssen ausgefüllt werden!</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalVerordnerleer" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" (click)="leereDiagnose()">&times;</button>
+                <h4 class="modal-title">Achtung!</h4>
+            </div>
+            <div class="modal-body">
+                <p>Vertragspartnernummer und Verordnungsdatum müssen ausgefüllt werden!</p>
             </div>
         </div>
     </div>

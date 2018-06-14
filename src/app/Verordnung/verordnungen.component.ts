@@ -46,14 +46,14 @@ export class VerordnungenComponent implements OnInit {
         $('#kostentraegerWidth').val(this.vc.vo.kostentraeger_id);
         
         $('#sendungSelector').val(this.vc.vo.periode);
-        console.log(this.vc);
+        
       });
     }
     else{
       this.PatientendatenService.copyVerordnung(this.PatientendatenService.getCurrVid()).subscribe(data =>{
         if(data!=null){
         this.vc = data; 
-        console.log("VerordnungC "+this.vc); 
+        console.log("VerordnungC "+this.vc.vo); 
         
         if(this.vc.vo===null||this.vc.vo==undefined){
           this.vc = new VerordnungContainer();
@@ -68,11 +68,13 @@ export class VerordnungenComponent implements OnInit {
           
           $('#kostentraegerWidth').val(this.vc.vo.kostentraeger_id);
           
-          $('#sendungSelector').val(this.vc.vo.periode);
+          $('#sendungSelector').val("Sendungsperiode zuweisen");
 
           $('#vpnrv').val(""+this.vc.vo.vpnrv);
           $('#zunav').val(""+this.vc.vo.zunav);
           $('#vadatum').val(""+this.vc.vo.vdatum);
+
+         
         }           
         }
       });  
@@ -121,7 +123,10 @@ export class VerordnungenComponent implements OnInit {
   saveVerordnung() {
     let vpnrv: number =  parseInt($('#vpnrv').val());
     let zunav: string = $('#zunav').val().toString();
-    let vadatum: Date = $('#vadatum').val();
+    let vadatum: string = $('#vadatum').val();
+    
+    if(vadatum!=""&&!isNaN(vpnrv)){
+
     let kostentraeger_id: number = parseInt($('#kostentraegerWidth').val());
     
     let periode: string = $('#sendungSelector').val();
@@ -130,7 +135,7 @@ export class VerordnungenComponent implements OnInit {
       periode = 'Dummy';
     }
 
-    let verordnung = new Verordnung(this.PatientendatenService.getCurrKundennummer(), kostentraeger_id, vpnrv, zunav, vadatum, this.currPatient.vsnrp,periode);
+    let verordnung = new Verordnung(this.PatientendatenService.getCurrKundennummer(), kostentraeger_id, vpnrv, zunav, new Date(vadatum), this.currPatient.vsnrp,periode);
 
     if(this.PatientendatenService.getEditModeVerordnung()){
       verordnung.vid = this.vc.vo.vid;
@@ -149,7 +154,11 @@ export class VerordnungenComponent implements OnInit {
           this.router.navigate(['/patient']);  
         }
       }
-    );        
+    ); 
+  }
+  else{
+    $("#modalVerordnerleer").modal();    
+  }   
   }
 
   saveArrays() {
